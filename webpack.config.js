@@ -30,13 +30,12 @@ const config = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.html',
+            template: './src/index.html',
             inject: true,
             meta: {
                 viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
                 description: "Project 6 : Lab JavaScript To Do List",
             },
-            
             filename: '../app/index.html'
         }),
 
@@ -74,12 +73,12 @@ const config = {
                 type: 'asset'
             },
             {
-                test: /\.(eot|svg|jpe?g|png|gif|webp|ico)$/i,
+                test: /\.(svg|jpe?g|png|gif|webp|ico)$/i,
                 type: 'asset/resource',
-                generator: {filename: 'assets/[name][ext]'}
+                generator: {filename: 'assets/images/[name][ext]'}
             },
             {
-                test: /\.(ttf|woff|woff2)$/i,
+                test: /\.(eot|ttf|woff|woff2)$/i,
                 type: 'asset/resource',
                 generator: {filename: 'assets/fonts/[name][ext]'}
             },

@@ -11,11 +11,27 @@ header {
   padding: 0 25px;
 }
 
+#options-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 27px;
+}
+#options-box #option-chg-mode:hover, #options-box #option-dlt-all:hover {
+  filter: drop-shadow(0px 0px 5px #000);
+  cursor: pointer;
+}
+#options-box #option-chg-mode:hover path, #options-box #option-dlt-all:hover path {
+  fill: #F5FF82;
+}
+
 :root {
   font-size: 100%;
 }
 
 body {
+  background: top/cover no-repeat linear-gradient(180deg, #FED0D0 0%, #FFF0CB 100%);
   margin: 0;
 }
 
@@ -24,4 +40,5 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
 }

@@ -1,5 +1,4 @@
 @import './assets/styles/variables';
-
 @import './assets/styles/header.scss';
 
 :root {
@@ -7,9 +6,11 @@
 }
 
 body {
+    background: top / cover no-repeat linear-gradient(180deg, #FED0D0 0%, #FFF0CB 100%);
     margin: 0;
 }
 
 #app {
     @include flex(column, center, center);
+    min-height: 100vh;
 }
