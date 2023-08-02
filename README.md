@@ -1,2 +1,3 @@
-# 06-lab-js-todo
-Project 6 : Lab JavaScript Todo List
+# Project 6 : Lab JavaScript Todo List
+
+The goal of this project is to create a 'To Do List' webapp.
