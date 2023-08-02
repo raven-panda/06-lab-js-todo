@@ -1,0 +1,6 @@
+@mixin flex($drc, $alg : start, $just : left) {
+    display: flex;
+    flex-direction: $drc;
+    align-items: $alg;
+    justify-content: $just;
+}

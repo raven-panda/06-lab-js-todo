@@ -1,2 +1,4 @@
-import 'index.html'
-console.log("First commit !");
+import './index.html';
+import './style.scss';
+
+import './assets/scripts/header'

@@ -1,0 +1,15 @@
+@import './assets/styles/variables';
+
+@import './assets/styles/header.scss';
+
+:root {
+    font-size: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+#app {
+    @include flex(column, center, center);
+}
