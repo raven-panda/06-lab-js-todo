@@ -38,7 +38,7 @@ header {
 #srch-tools {
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: stretch;
   justify-content: center;
   gap: 19px;
 }
@@ -94,9 +94,98 @@ button.selected {
 }
 
 #notasks-title {
+  display: none;
   font-size: 1rem;
   font-style: italic;
   font-weight: 400;
+}
+#notasks-title.notasks {
+  display: block;
+}
+
+#tasks-box {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 20px;
+}
+
+.task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+  background: #EDEDED;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+#task-infos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+#task-infos p {
+  margin: 0;
+}
+
+.check-case {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 12.5px;
+  border-radius: 12.5px;
+}
+
+#notasks-title {
+  display: none;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 400;
+}
+#notasks-title.notasks {
+  display: block;
+}
+
+#tasks-box {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 20px;
+  min-width: 100%;
+}
+
+.task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+  background: #EDEDED;
+  border-radius: 10px;
+  padding: 25px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#task-infos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+#task-infos p {
+  margin: 0;
+}
+
+.check-case {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 12.5px;
+  border-radius: 12.5px;
 }
 
 @font-face {
@@ -131,7 +220,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   gap: 83px;
   background: #FFFFFE;
   padding: 58px 180px;

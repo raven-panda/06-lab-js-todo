@@ -3,7 +3,7 @@
 }
 
 #srch-tools {
-    @include flex(column, left, center, 19px);
+    @include flex(column, stretch, center, 19px);
 }
 #srch-bar, #filterbox {
     border-radius: 10px;

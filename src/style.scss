@@ -26,7 +26,7 @@ body {
     min-height: $appHeight;
 }
 #component {
-    @include flex(column, center, center, 83px);
+    @include flex(column, center, left, 83px);
     background: $appBackground;
     padding: 58px 180px;
     border-radius: 40px;

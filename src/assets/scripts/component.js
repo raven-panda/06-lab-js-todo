@@ -81,11 +81,67 @@ const tasksBox = document.createElement('div');
 tasksBox.id = 'tasks-box';
 component.appendChild(tasksBox)
 
+// Tasks template
+    //const template = document.createElement('div');
+    //tasksBox.appendChild(template)
+
+const task = document.createElement('div');
+task.classList.add('task');
+
+    // Task Infos box
+    const taskInfos = document.createElement('div');
+    taskInfos.id = 'task-infos';
+    // Grabing logo
+    const grabLogo = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    grabLogo.classList.add('logo-note');
+    grabLogo.setAttribute('fill', '#00000044');
+    grabLogo.setAttribute('width', '23');
+    grabLogo.setAttribute('height', '21');
+    grabLogo.setAttribute('viewBox', '0 0 23 21');
+    grabLogo.innerHTML = `
+    <rect y="7" width="23" height="2"/>
+    <rect y="12" width="23" height="2"/>
+    <path d="M11 0L13.5981 4.5H8.40192L11 0Z"/>
+    <path d="M11 21L8.40192 16.5L13.5981 16.5L11 21Z"/>
+    `;
+
+    // Check Circle
+    const checkCase = document.createElement('div');
+    checkCase.classList.add('check-case');
+
+    // Text
+    const text = document.createElement('p');
+    text.innerText = 'This is a task test !'
+
+    taskInfos.append(grabLogo, checkCase, text)
+
+    // Bin to delete a task
+    const delTask = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    delTask.id = 'del-task';
+    delTask.setAttribute('fill', '#C25959');
+    delTask.setAttribute('width', '18');
+    delTask.setAttribute('height', '24');
+    delTask.setAttribute('viewBox', '0 0 18 24');
+    delTask.innerHTML = `<path d="M2.15555 22.8426C2.18264 23.4895 2.71495 24 3.3623 24H14.6378C15.2852 24 15.8175 23.4895 15.8446 22.8426L16.6498 5.84412H1.35033L2.15555 22.8426ZM11.5507 10.0662C11.5507 9.79538 11.7703 9.5757 12.0413 9.5757H12.826C13.0968 9.5757 13.3166 9.79532 13.3166 10.0662V19.7779C13.3166 20.0488 13.0969 20.2684 12.826 20.2684H12.0413C11.7705 20.2684 11.5507 20.0489 11.5507 19.7779V10.0662ZM8.1172 10.0662C8.1172 9.79538 8.33682 9.5757 8.60773 9.5757H9.39239C9.66319 9.5757 9.88293 9.79532 9.88293 10.0662V19.7779C9.88293 20.0488 9.66337 20.2684 9.39239 20.2684H8.60773C8.33688 20.2684 8.1172 20.0489 8.1172 19.7779V10.0662ZM4.68356 10.0662C4.68356 9.79538 4.90318 9.5757 5.17409 9.5757H5.95881C6.22967 9.5757 6.44935 9.79532 6.44935 10.0662V19.7779C6.44935 20.0488 6.22973 20.2684 5.95881 20.2684H5.17409C4.90324 20.2684 4.68356 20.0489 4.68356 19.7779V10.0662Z"/><path d="M17.1859 1.23636H11.9841V0.252936C11.9841 0.113278 11.8709 0 11.7312 0H6.2688C6.12914 0 6.01592 0.113278 6.01592 0.252936V1.2363H0.814079C0.395457 1.2363 0.0561523 1.57566 0.0561523 1.99429V4.37541H17.9439V1.99434C17.9439 1.57572 17.6046 1.23636 17.1859 1.23636Z"/>`;
 
 
+    task.append(taskInfos, delTask);
+    
+tasksBox.appendChild(task);
 
 // Displays if there is no tasks at load //
-const noTasks = document.createElement('h1');
-noTasks.id = 'notasks-title';
-noTasks.innerText = 'No tasks to display. You can add a task by clicking the + button above.'
-tasksBox.appendChild(noTasks);
+// const noTasks = document.createElement('h1');
+// noTasks.id = 'notasks-title';
+// noTasks.innerText = 'No tasks to display. You can add a task by clicking the + button above.';
+// tasksBox.appendChild(noTasks);
+
+// function checkIfChildren() {
+//     for (let value of tasksBox.childNodes.values()) {
+//         if (value === template && tasksBox.childNodes.length == 1) {
+//             noTasks.classList.add('notasks')
+//         } else {
+//             noTasks.classList.remove('notasks')
+//         }
+//     }
+// }
+// checkIfChildren();

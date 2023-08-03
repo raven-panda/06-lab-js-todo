@@ -1,5 +1,66 @@
 #notasks-title {
+    display: none;
     font-size: 1rem;
     font-style: italic;
     font-weight: 400;
+    &.notasks {
+        display: block;
+    }
+}
+
+#tasks-box {
+    @include flex(column, stretch, center, 20px)
+}
+
+.task {
+    @include flex(row, center, space-between);
+    background: $taskBg;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+#task-infos {
+    @include flex(row, center, center, 14px);
+    p {
+        margin: 0;
+    }
+}
+.check-case {
+    background: $checkBg;
+    padding: 12.5px;
+    border-radius: 12.5px;
+}#notasks-title {
+    display: none;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 400;
+    &.notasks {
+        display: block;
+    }
+}
+
+#tasks-box {
+    @include flex(column, stretch, center, 20px);
+    min-width: 100%;
+}
+
+.task {
+    @include flex(row, center, space-between);
+    background: $taskBg;
+    border-radius: 10px;
+    padding: 25px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#task-infos {
+    @include flex(row, center, center, 14px);
+    p {
+        margin: 0;
+    }
+}
+.check-case {
+    background: $checkBg;
+    padding: 12.5px;
+    border-radius: 12.5px;
 }
