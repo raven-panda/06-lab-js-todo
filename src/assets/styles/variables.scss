@@ -24,4 +24,10 @@ $headerBackground: top / cover no-repeat linear-gradient(90deg, #E3E4FF 0%, #DAF
 $svgHover: #F5FF82;
 
 // App //
+$appHeight: calc(100vh - $headerHeight);
 $appBackground: #FFFFFE;
+
+// Input //
+$inputBg : #EEEEEE;
+$stbBg: #C5C7FF;
+$ntbBg: #A5ECB9;

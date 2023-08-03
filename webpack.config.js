@@ -3,13 +3,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV == 'production';
-
-
 const stylesHandler = MiniCssExtractPlugin.loader;
-
-
 
 const config = {
     entry: './src/index.js',
@@ -55,7 +52,7 @@ const config = {
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                            ['@babel/preset-env', { targets: "defaults"}]
+                            ['@babel/preset-env', { targets: "defaults"}],
                         ]
                     }
                 }
