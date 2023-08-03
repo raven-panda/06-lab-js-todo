@@ -72,3 +72,20 @@ finFilter.innerHTML = 'Finished <svg width="22" height="15" viewBox="0 0 22 15" 
 
 //-----------------------------------------//
 navBox.appendChild(logo.cloneNode(true));
+
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
+//        Creating Tasks Container         //
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
+
+const tasksBox = document.createElement('div');
+tasksBox.id = 'tasks-box';
+component.appendChild(tasksBox)
+
+
+
+
+// Displays if there is no tasks at load //
+const noTasks = document.createElement('h1');
+noTasks.id = 'notasks-title';
+noTasks.innerText = 'No tasks to display. You can add a task by clicking the + button above.'
+tasksBox.appendChild(noTasks);

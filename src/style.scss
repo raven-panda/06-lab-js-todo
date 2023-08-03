@@ -1,6 +1,7 @@
 @import './assets/styles/variables';
 @import './assets/styles/header.scss';
-@import './assets/styles/component.scss';
+@import './assets/styles/search-section.scss';
+@import './assets/styles/tasks-section.scss';
 
 @font-face {
     font-family: 'Montserrat';
@@ -23,4 +24,10 @@ body {
 #app {
     @include flex(column, center, center);
     min-height: $appHeight;
+}
+#component {
+    @include flex(column, center, center, 83px);
+    background: $appBackground;
+    padding: 58px 180px;
+    border-radius: 40px;
 }
