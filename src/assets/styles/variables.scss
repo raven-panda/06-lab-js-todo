@@ -1,11 +1,12 @@
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 //                 Mixins                  //
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
-@mixin flex($drc, $alg : start, $just : left) {
+@mixin flex($drc, $alg : start, $just : left, $gap: 0px) {
     display: flex;
     flex-direction: $drc;
     align-items: $alg;
     justify-content: $just;
+    gap: $gap;
 }
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
@@ -23,3 +24,4 @@ $headerBackground: top / cover no-repeat linear-gradient(90deg, #E3E4FF 0%, #DAF
 $svgHover: #F5FF82;
 
 // App //
+$appBackground: #FFFFFE;

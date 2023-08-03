@@ -1,0 +1,26 @@
+#component {
+
+    @include flex(column, center, center);
+    background: $appBackground;
+    padding: 58px 180px;
+    border-radius: 40px;
+
+    #nav-box {
+        @include flex(row, center, center, 75px);
+    }
+
+    #srch-tools {
+        @include flex(column, left, center, 19px);
+    }
+    #srch-bar {
+        display: grid;
+        grid: auto / 582px 54px 54px;
+    }
+    #filterbox {
+        display: grid;
+        grid: auto / repeat(3, 1fr)
+    }
+    .filter {
+        @include flex(row, center, center, 10px);
+    }
+}
