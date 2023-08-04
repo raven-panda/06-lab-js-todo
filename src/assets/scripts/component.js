@@ -82,9 +82,8 @@ tasksBox.id = 'tasks-box';
 component.appendChild(tasksBox)
 
 // Tasks template
-    //const template = document.createElement('div');
-    //tasksBox.appendChild(template)
-
+const template = document.createElement('template');
+template.id = "task-template";
 const task = document.createElement('div');
 task.classList.add('task');
 
@@ -127,21 +126,33 @@ task.classList.add('task');
 
     task.append(taskInfos, delTask);
     
-tasksBox.appendChild(task);
+template.appendChild(task);
+document.body.appendChild(template)
 
-// Displays if there is no tasks at load //
-// const noTasks = document.createElement('h1');
-// noTasks.id = 'notasks-title';
-// noTasks.innerText = 'No tasks to display. You can add a task by clicking the + button above.';
-// tasksBox.appendChild(noTasks);
+// Creating Modal Box for Task Creation //
+const modal = document.createElement('div');
+modal.id = 'mod';
 
-// function checkIfChildren() {
-//     for (let value of tasksBox.childNodes.values()) {
-//         if (value === template && tasksBox.childNodes.length == 1) {
-//             noTasks.classList.add('notasks')
-//         } else {
-//             noTasks.classList.remove('notasks')
-//         }
-//     }
-// }
-// checkIfChildren();
+const modContent = document.createElement('div');
+modContent.id = 'mod-c';
+
+modal.appendChild(modContent);
+document.querySelector('#app').append(modal);
+
+const modTtl = document.createElement('h1');
+modTtl.innerText = 'Add a name to your task :'
+
+const modTools = document.createElement('div');
+modTools.id = 'mod-tls';
+
+const modAdd = newTaskBtn.cloneNode(true);
+modAdd.id = 'mod-add';
+modAdd.innerHTML = `<svg style="display: block;" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M29.0867 13.079H18.9116V2.91364C18.9116 1.30458 17.6131 0 16.0039 0C14.3946 0 13.0969 1.30458 13.0969 2.91435V13.086H2.91685C1.30758 13.086 -0.000703748 14.3906 1.14446e-06 16.0004C-0.000703748 16.8045 0.324252 17.5417 0.850806 18.0682C1.37807 18.5961 2.10551 18.9295 2.90909 18.9295H13.0969V29.0871C13.0969 29.8919 13.4162 30.6207 13.9435 31.1465C14.4707 31.6737 15.1961 32 16.0011 32C17.6096 32 18.9116 30.6954 18.9116 29.0871V18.9288H29.0867C30.6959 18.9288 32.0007 17.6129 32 16.0039C31.9993 14.3955 30.6945 13.079 29.0867 13.079Z" fill="black"/>
+</svg>
+`;
+
+const modInp = document.querySelector('#srch-bar input').cloneNode(true);
+modInp.placeholder = 'Task name...';
+modTools.append(modInp, modAdd)
+modContent.append(modTtl, modTools);

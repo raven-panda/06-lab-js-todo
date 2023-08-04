@@ -43,16 +43,16 @@ header {
   gap: 19px;
 }
 
-#srch-bar, #filterbox {
+#srch-bar, #mod-tls, #filterbox {
   border-radius: 10px;
   overflow: hidden;
 }
 
-#srch-bar {
+#srch-bar, #mod-tls {
   display: grid;
   grid: auto/582px 54px 54px;
 }
-#srch-bar input {
+#srch-bar input, #mod-tls input {
   padding: 15px;
   background: #EEEEEE;
 }
@@ -61,7 +61,7 @@ header {
   background: #C5C7FF;
 }
 
-#newtask-btn {
+#newtask-btn, #mod-c #mod-add {
   background: #A5ECB9;
 }
 
@@ -188,6 +188,38 @@ button.selected {
   border-radius: 12.5px;
 }
 
+#mod {
+  display: none;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 50px;
+  width: 100%; /* Full width */
+  height: calc(100vh - 50px); /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+#mod.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+}
+
+#mod-c {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+}
+#mod-c h1 {
+  font-size: 1.5rem;
+}
+#mod-tls {
+  grid: auto/513px 54px;
+}
+
 @font-face {
   font-family: "Montserrat";
   font-style: normal;
@@ -196,7 +228,7 @@ button.selected {
   src: url(assets/fonts/montserrat-500-normal.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-:root, button, input {
+:root, button, input, h1 {
   font: 500 1rem "Montserrat", sans-serif;
   border: none;
   padding: 0;
@@ -225,4 +257,12 @@ body {
   background: #FFFFFE;
   padding: 58px 180px;
   border-radius: 40px;
+}
+
+button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
 }
