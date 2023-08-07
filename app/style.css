@@ -27,7 +27,7 @@ header {
   fill: #F5FF82;
 }
 
-#nav-box {
+#nav-box, #search-logo {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -50,15 +50,15 @@ header {
 
 #srch-bar, #mod-tls {
   display: grid;
-  grid: auto/582px 54px 54px;
+  grid: auto/582px 54px;
 }
 #srch-bar input, #mod-tls input {
   padding: 15px;
-  background: #EEEEEE;
+  background: 98%/cover no-repeat url(assets/images/searchlogo.svg), #EEEEEE;
+  background-size: 32px;
 }
-
-#searchtask {
-  background: #C5C7FF;
+#srch-bar input::placeholder, #mod-tls input::placeholder {
+  color: #999;
 }
 
 #newtask-btn, #mod-c #mod-add {
@@ -210,14 +210,18 @@ button.selected {
 
 #mod-c {
   background-color: #fefefe;
-  padding: 20px;
+  padding: 0 20px 20px;
   border: 1px solid #888;
 }
 #mod-c h1 {
   font-size: 1.5rem;
+  margin-top: 0;
 }
 #mod-tls {
   grid: auto/513px 54px;
+}
+#mod-tls input {
+  background: #EEEEEE;
 }
 
 @font-face {

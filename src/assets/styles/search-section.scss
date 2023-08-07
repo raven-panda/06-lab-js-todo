@@ -1,4 +1,4 @@
-#nav-box {
+#nav-box, #search-logo {
     @include flex(row, center, center, 75px);
 }
 
@@ -11,17 +11,17 @@
 }
 #srch-bar {
     display: grid;
-    grid: auto / 582px 54px 54px;
+    grid: auto / 582px 54px;
     input {
         padding: 15px;
-        background: $inputBg;
+        background: 98% / cover no-repeat url('./assets/images/searchlogo.svg'), $inputBg;
+        background-size: 32px;
+        &::placeholder {
+            color: $placeholderColor;
+        }
     }
 }
 
-
-#searchtask {
-    background: $stbBg;
-}
 #newtask-btn {
     background: $ntbBg;
 }

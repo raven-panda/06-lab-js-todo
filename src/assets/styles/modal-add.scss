@@ -16,10 +16,11 @@
 
 #mod-c {
     background-color: #fefefe;
-    padding: 20px;
+    padding: 0 20px 20px;
     border: 1px solid #888;
     h1 {
         font-size: 1.5rem;
+        margin-top: 0;
     }
     #mod-add {
         @extend #newtask-btn;
@@ -29,4 +30,7 @@
 #mod-tls {
     @extend #srch-bar;
     grid: auto/ 513px 54px;
+    input {
+        background: $inputBg;
+    }
 }
