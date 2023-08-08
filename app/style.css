@@ -152,7 +152,7 @@ button.selected {
 #tasks-box {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
   gap: 20px;
   min-width: 100%;

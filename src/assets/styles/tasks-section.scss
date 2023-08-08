@@ -41,7 +41,7 @@
 }
 
 #tasks-box {
-    @include flex(column, stretch, center, 20px);
+    @include flex(column, center, center, 20px);
     min-width: 100%;
 }
 
