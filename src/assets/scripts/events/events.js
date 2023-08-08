@@ -1,8 +1,7 @@
-const srchInp = document.querySelector('#srch-bar input')
-const filters = document.querySelectorAll('.filter');
-const tasksBox = document.querySelector('#tasks-box');
-const template = document.querySelector('#task-template');
+import { EventsVariables } from "./var";
+const eventVar = new EventsVariables();
 
+// Fetch the local storage //
 let storeValue = localStorage.getItem('task');
 let storeArray = [];
 
@@ -12,10 +11,10 @@ if (storeValue != null) {
     let tasks = storeArray;
 
     tasks.forEach(element => {
-        const clone = template.firstElementChild.cloneNode(true);
+        const clone = eventVar.template.firstElementChild.cloneNode(true);
         const p = clone.querySelector('p');
         p.textContent = element;
-        tasksBox.prepend(clone);
+        eventVar.tasksBox.prepend(clone);
     })
 }
 
@@ -23,13 +22,15 @@ if (storeValue != null) {
 const noTasks = document.createElement('h1');
     noTasks.id = 'notasks-title';
     noTasks.innerText = 'No tasks to display. You can add a task by clicking the + button above.';
-tasksBox.appendChild(noTasks);
+eventVar.tasksBox.appendChild(noTasks);
+
 function ifNoTasks() {
-    if (tasksBox.firstChild == noTasks) {
-        noTasks.classList.add('notasks');
+    eventVar.refresh();
+    if (eventVar.tasksBox.firstChild == eventVar.noTasks) {
+        eventVar.noTasks.classList.add('notasks');
     } else {
-        noTasks.classList.remove('notasks');
-    }
+        eventVar.noTasks.classList.remove('notasks');
+    };
 }
 
 // Click on bin event
@@ -58,13 +59,13 @@ function deleteTask(e) {
 ifNoTasks();
 deleteTask(allBins());
 
-filters.forEach((filter) => {
+eventVar.filters.forEach((filter) => {
     filter.addEventListener('click', (e) => {
         const clickedButton = e.target;
 
         clickedButton.classList.add('selected');
     
-        filters.forEach((button) => {
+        eventVar.filters.forEach((button) => {
             if (button != clickedButton) {
                 button.classList.remove('selected');
             }
@@ -72,52 +73,60 @@ filters.forEach((filter) => {
     })
 })
 
-const addBtn = document.querySelector('#newtask-btn');
-const modal = document.querySelector('#mod');
-const modForm = document.querySelector('#mod-tls');
-const modInput = document.querySelector('#mod-tls input');
+const instTasks = [];
+eventVar.elTasks.forEach(e => {
+    instTasks.push(e);
+})
+
+function taskNotFound() {
+    instTasks.every(e => {
+        if (e.style.display == 'none') {
+            eventVar.noTasks.classList.add('notasks');
+        } else {
+            eventVar.noTasks.classList.remove('notasks');
+        }
+    });
+};
 
 
-addBtn.addEventListener('click', () => {
-    modal.classList.add('active');
-});
-
-modForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (!modForm.checkValidity()) {
-        e.preventDefault();
-    } else {
-        let textValue = modInput.value;
-        storeArray.push(textValue);
-        localStorage.setItem('task', storeArray);
-
-        const clone = template.firstElementChild.cloneNode(true);
-        const p = clone.querySelector('p');
-        p.textContent = textValue;
-        tasksBox.prepend(clone);
-
-        modInput.value = '';
-        modal.classList.remove('active');
-        ifNoTasks();
-        deleteTask(allBins());
-    };
-});
-
-const elTasks = document.querySelectorAll('.task')
-
-const alltasksFilter = filters[0];
-const notfinFilter = filters[1];
-const finFilter = filters[2];
-
-srchInp.addEventListener('keyup', (e) => {
-    const filter = srchInp.value.toUpperCase();
-    console.log(filter)
-    elTasks.forEach(task => {
+eventVar.srchInp.addEventListener('keyup', () => {
+    eventVar.refresh();
+    const filter = eventVar.srchInp.value.toUpperCase();
+    console.log(filter);
+    console.log(eventVar.elTasks)
+    eventVar.elTasks.forEach(task => {
         const p = task.querySelector('p');
         if (p.textContent.toUpperCase().includes(filter)) {
             task.style.display = '';
         } else {
             task.style.display = 'none';
+            
         }
     })
+    taskNotFound();
 })
+
+eventVar.addBtn.addEventListener('click', () => {
+    eventVar.modal.classList.add('active');
+});
+
+eventVar.modForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!eventVar.modForm.checkValidity()) {
+        e.preventDefault();
+    } else {
+        let textValue = eventVar.modInput.value;
+        storeArray.push(textValue);
+        localStorage.setItem('task', storeArray);
+
+        const clone = eventVar.template.firstElementChild.cloneNode(true);
+        const p = clone.querySelector('p');
+        p.textContent = textValue;
+        eventVar.tasksBox.prepend(clone);
+
+        eventVar.modInput.value = '';
+        eventVar.modal.classList.remove('active');
+        ifNoTasks();
+        deleteTask(allBins());
+    };
+});

@@ -1,6 +1,6 @@
 import './index.html';
 import './style.scss';
 
-import './assets/scripts/header';
-import './assets/scripts/component';
-import './assets/scripts/events';
+import './assets/scripts/generation/header';
+import './assets/scripts/generation/component';
+import './assets/scripts/events/events';

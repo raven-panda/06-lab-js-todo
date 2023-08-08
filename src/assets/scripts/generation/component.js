@@ -1,12 +1,15 @@
+import { CompVariables } from "../events/var";
+
+const compVar = new CompVariables();
+
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 //              Creating App               //
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
-const app = document.querySelector('#app');
 
 const component = document.createElement('div');
     component.id = 'component';
 
-app.appendChild(component);
+compVar.app.appendChild(component);
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 //        Creating Search Container        //
@@ -37,19 +40,13 @@ const srchBar = document.createElement('div');
 const input = document.createElement('input');
     input.placeholder = 'Search for a task...';
 
-// const searchLogo = document.createElement('div');
-//     searchLogo.id = 'search-logo';
-//     searchLogo.innerHTML = `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-//     <path d="M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z"/>
-//     </svg>`;
-
 const newTaskBtn = document.createElement('button');
     newTaskBtn.id = 'newtask-btn';
     newTaskBtn.innerHTML = `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M29.0867 13.079H18.9116V2.91364C18.9116 1.30458 17.6131 0 16.0039 0C14.3946 0 13.0969 1.30458 13.0969 2.91435V13.086H2.91685C1.30758 13.086 -0.000703748 14.3906 1.14446e-06 16.0004C-0.000703748 16.8045 0.324252 17.5417 0.850806 18.0682C1.37807 18.5961 2.10551 18.9295 2.90909 18.9295H13.0969V29.0871C13.0969 29.8919 13.4162 30.6207 13.9435 31.1465C14.4707 31.6737 15.1961 32 16.0011 32C17.6096 32 18.9116 30.6954 18.9116 29.0871V18.9288H29.0867C30.6959 18.9288 32.0007 17.6129 32 16.0039C31.9993 14.3955 30.6945 13.079 29.0867 13.079Z" fill="black"/>
     </svg>`;
 
-srchBar.append(input, /*searchLogo,*/ newTaskBtn);
+srchBar.append(input, newTaskBtn);
 srchTools.appendChild(srchBar);
 
 //-----------------------------------------//
@@ -65,6 +62,7 @@ const filterBtn = newTaskBtn.cloneNode();
     filters.append(filterBtn, filterBtn.cloneNode(), filterBtn.cloneNode());
 
 // Buttons Text //
+
 const alltasksFilter = document.querySelector('.filter:nth-child(1)');
     alltasksFilter.innerHTML = 'All Tasks <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_103_478)"><path d="M1.66784 0.0114956C1.58017 0.0352087 1.59239 0.0237122 0.817034 0.796911C0.411032 1.20291 0.0689844 1.54855 0.057487 1.5658C-0.0100602 1.6664 -0.0165275 1.80365 0.0409595 1.90425C0.0524569 1.92438 0.545408 2.42307 1.38975 3.26742L2.71985 4.59896L1.38616 5.93337C0.30037 7.01988 0.0495825 7.27498 0.036648 7.303C0.0158089 7.34899 0 7.41223 0 7.44816C0 7.49055 0.0194019 7.56385 0.0409595 7.60553C0.0689844 7.6587 1.53921 9.12893 1.59239 9.15696C1.69084 9.20869 1.8015 9.21013 1.89923 9.16127C1.92007 9.15121 2.33828 8.7373 3.26382 7.81248L4.59896 6.47806L5.92978 7.80817C6.77484 8.65251 7.27354 9.14546 7.29366 9.15696C7.40073 9.21876 7.54014 9.20726 7.64361 9.12965C7.66661 9.11312 8.01225 8.77108 8.41178 8.37082C8.9615 7.81895 9.14259 7.63355 9.15696 7.60553C9.20942 7.50421 9.21013 7.38636 9.15696 7.29366C9.14546 7.27354 8.64748 6.76981 7.80817 5.92978L6.47807 4.59896L7.80817 3.26742C8.64748 2.4281 9.14546 1.92438 9.15696 1.90425C9.21013 1.81156 9.20942 1.69371 9.15696 1.59239C9.14259 1.56436 8.9615 1.37897 8.41178 0.827092C8.01225 0.426839 7.66661 0.0847912 7.64361 0.068264C7.54014 -0.00934315 7.40073 -0.0208406 7.29366 0.0409575C7.27354 0.0524549 6.77484 0.545406 5.92978 1.38975L4.59896 2.71985L3.26382 1.38543C2.33828 0.460613 1.92007 0.0467062 1.89923 0.0366459C1.82737 0.000717163 1.74186 -0.00862503 1.66784 0.0114956Z" fill="black"/></g><path d="M17.7651 9.45867C17.5898 9.2827 17.3023 9.2827 17.127 9.45867L11.8188 14.7655L9.08517 12.0131C8.90984 11.8365 8.62429 11.8365 8.44768 12.0131L7.48983 12.9703C7.31451 13.145 7.31451 13.4325 7.48983 13.6085L11.4972 17.6423C11.6725 17.817 11.9581 17.817 12.1353 17.6423L18.7223 11.0547C18.9002 10.8787 18.9002 10.5906 18.7223 10.4139L17.7651 9.45867Z" fill="black"/><defs><clipPath id="clip0_103_478"><rect width="9.19792" height="9.19792" fill="white"/></clipPath></defs></svg>'
     alltasksFilter.classList.add('selected');
@@ -142,7 +140,7 @@ const modContent = document.createElement('div');
     modContent.id = 'mod-c';
 
 modal.appendChild(modContent);
-app.append(modal);
+compVar.app.append(modal);
 
 const modTtl = document.createElement('h1');
     modTtl.innerText = 'Add a name to your task :'
