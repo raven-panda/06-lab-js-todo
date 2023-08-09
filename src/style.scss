@@ -34,3 +34,16 @@ body {
 button {
     @include flex(column, center, center)
 }
+input {
+    border-radius: 10px 0 0 10px;
+    border: solid 2px transparent;
+    padding: 13px;
+    background: $inputBg;
+    &::placeholder {
+        color: $placeholderColor;
+    }
+    &:focus {
+        border-color: #C5C7FF;
+        outline: none;
+    }
+}

@@ -1,15 +1,14 @@
 //=-=-=-=-=-Imports-=-=-=-=-=//
-
 import { GlobalVariables } from "../var";
-import { DivElement, SvgElement, InputElement, ButtonElement, TaskTemplate, Paragraph } from "./elements";
-const glVar = new GlobalVariables();
+import { DivElement, SvgElement, InputElement, ButtonElement, TaskTemplate, TextElement, FormElement } from "./elements";
+const gv = new GlobalVariables();
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 //           Creating Component            //
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 
 const component = new DivElement('component');
-component.appendTo(glVar.app);
+component.appendTo(gv.app);
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 //           Creating the Head             //
@@ -78,7 +77,7 @@ const task = new DivElement('', 'task');
 const taskInfos = new DivElement('task-infos');
 const grab = new SvgElement('', 'grab-task', 23, 21, '<rect y="7" width="23" height="2"/><rect y="12" width="23" height="2"/><path d="M11 0L13.5981 4.5H8.40192L11 0Z"/><path d="M11 21L8.40192 16.5L13.5981 16.5L11 21Z"/>', '#00000044');
 const checkcase = new DivElement('', 'check-case');
-const text = new Paragraph('', 'This is a task test !');
+const text = new TextElement('p', '', 'This is a task test !');
 taskInfos.element.append(grab.element, checkcase.element, text.element);
 
 const taskModify = new DivElement('task-modify');
@@ -87,3 +86,25 @@ taskModify.element.append(deltask.element)
 
 task.element.append(taskInfos.element, taskModify.element);
 task.appendTo(template.element);
+
+//=-=-=-=-=-Creating Elements of the head-=-=-=-=-=//
+
+// Modal Container //
+const modal = new DivElement('mod');
+modal.appendTo(gv.app);
+
+// Modal Box //
+const modbox = new DivElement('mod-c');
+modbox.appendTo(modal.element);
+
+// Form for Modal Box //
+const form = new FormElement('modal-form', 'index.html', 'get', 'novalidate');
+form.appendTo(modbox.element);
+
+// Modal Input label //
+const label = new TextElement('label', '', 'Add a name to your task :')
+label.appendTo(form.element)
+
+// Modal Input //
+const modinput = new InputElement('mod-inp', 'New task name...', 'required');
+modinput.appendTo(form.element);

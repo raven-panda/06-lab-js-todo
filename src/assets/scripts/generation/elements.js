@@ -12,11 +12,13 @@ class BaseElement {
 }
 
 export class SvgElement extends BaseElement {
-    constructor(id = '', classe = '', width, height, path, fill = '#000000') {
+    constructor(id, classe = '', width, height, path, fill = '#000000') {
         super();
         this.element = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
         this.element.id = id;
-        if (classe !== null && classe !== '') { this.element.classList.add(classe) }
+        if (classe !== '') {
+            this.element.classList.add(classe)
+        }
         this.element.style.width = `${width}px`;
         this.element.style.height = `${height}px`;
         this.element.setAttribute('fill', fill);
@@ -33,39 +35,64 @@ export class TaskTemplate extends BaseElement {
 }
 
 export class DivElement extends BaseElement {
-    constructor(id = '', classe = '') {
+    constructor(id, classe = '') {
         super();
         this.element = document.createElement('div');
         this.element.id = id;
-        if (classe !== null && classe !== '') { this.element.classList.add(classe) };
+
+        if (classe !== '') {
+            this.element.classList.add(classe)
+        } else {
+            this.element.removeAttribute('class')
+        };
     }
 }
 
 export class InputElement extends BaseElement {
-    constructor(id = '', placeholder = '') {
+    constructor(id, placeholder, req) {
         super();
         this.element = document.createElement('input');
         this.element.name = id;
+        this.element.id = id;
         this.element.placeholder = placeholder;
+        if (req === 'required') {
+            this.element.required;
+        }
     }
 }
 
 export class ButtonElement extends BaseElement {
-    constructor(id = '', classe = '', type = '', content = '') {
+    constructor(id, classe = '', type, content) {
         super();
         this.element = document.createElement('button');
         this.element.id = id;
-        if (classe !== null && classe !== '') { this.element.classList.add(classe) };
+        if (classe !== '') {
+            this.element.classList.add(classe)
+        };
         this.element.type = type;
         this.element.innerHTML = content;
     }
 }
 
-export class Paragraph extends BaseElement {
-    constructor(id = '', text = '') {
+export class TextElement extends BaseElement {
+    constructor(element, id, text) {
         super();
-        this.element = document.createElement('p');
+        this.element = document.createElement(element);
         this.element.id = id;
         this.element.innerText = text;
+    }
+}
+
+export class FormElement extends BaseElement {
+    constructor(id, action, method, nv) {
+        super();
+        this.element = document.createElement('form');
+        this.element.id = id;
+        this.element.name = id;
+        this.element.action = action;
+        this.element.method = method;
+        if (nv === 'novalidate') {
+            this.element.noValidate = true;
+        }
     }
 }

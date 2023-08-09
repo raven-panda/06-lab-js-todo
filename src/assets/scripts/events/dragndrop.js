@@ -1,27 +1,10 @@
 import { GlobalVariables } from '../var';
 const gv = new GlobalVariables();
 
-const template = document.querySelector('template');
-function instanceTemplate(data, id = '') {
-    const instance = document.importNode(template.lastChild, true);
-    instance.id = id;
-    const title = instance.querySelector('p');
-    
-    title.textContent = data;
-    
-    gv.tbox.prepend(instance);
-}
-
-instanceTemplate('yoyo');
-instanceTemplate('hahahah');
-instanceTemplate('fezekok');
-instanceTemplate('289aeazeoa', 'ha');
-
-
 //=-=-=-=-=-=-=-Drag and Drop-=-=-=-=-=-=-=//
 // const draggables = document.querySelectorAll('.task');
 
-const draggables = document.querySelectorAll('.task')
+const draggables = document.querySelectorAll('#tasks-box > .task')
 
 function swapElements(obj1, obj2) {
     let temp = document.createElement("div");
@@ -46,8 +29,14 @@ draggables.forEach(draggable => {
 
     draggable.addEventListener('dragover', (e) => {
         e.preventDefault();
-        const targetting = e.target;
-        targetting.classList.add('targetting')
+        const target = e.target;
+        const dragged = document.querySelector('.dragging')
+        if (dragged !== target) {
+            target.classList.add('targetting')
+        } else {
+            return;
+        }
+        
     })
 
     draggable.addEventListener('dragleave', (e) => {
@@ -60,11 +49,13 @@ draggables.forEach(draggable => {
         e.preventDefault();
         const target = e.target;
         const dragged = document.querySelector('.dragging')
-
-        if (dragged !== target) {
+        
+        if (target.classList.contains('task')) {
             swapElements(target, dragged);
             target.classList.remove('targetting');
             dragged.classList.remove('dragging');
+        } else {
+            return;
         }
     })
 

@@ -13,18 +13,8 @@
     display: grid;
     grid: auto / 582px 54px;
     input {
-        border-radius: 10px 0 0 10px;
-        border: solid 2px transparent;
-        padding: 13px;
         background: 98% / cover no-repeat url('./assets/images/searchlogo.svg'), $inputBg;
         background-size: 32px;
-        &::placeholder {
-            color: $placeholderColor;
-        }
-        &:focus {
-            border-color: #C5C7FF;
-            outline: none;
-        }
     }
 }
 

@@ -1,5 +1,5 @@
 #mod {
-    display: none;
+    @include flex(column, center, center);
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -16,7 +16,7 @@
 
 #mod-c {
     background-color: #fefefe;
-    padding: 0 20px 20px;
+    padding: 20px;
     border: 1px solid #888;
     h1 {
         font-size: 1.5rem;
