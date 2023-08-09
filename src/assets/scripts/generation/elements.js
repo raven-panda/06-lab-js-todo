@@ -39,10 +39,11 @@ export class DivElement extends BaseElement {
 }
 
 export class InputElement extends BaseElement {
-    constructor(id = '') {
+    constructor(id = '', placeholder = '') {
         super();
         this.element = document.createElement('input');
         this.element.name = id;
+        this.element.placeholder = placeholder;
     }
 }
 
