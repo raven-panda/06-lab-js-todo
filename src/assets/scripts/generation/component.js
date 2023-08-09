@@ -1,29 +1,19 @@
-import { GlobalVariables } from "../events/var";
+//=-=-=-=-=-Imports-=-=-=-=-=//
+
+import { GlobalVariables } from "../var";
+import { DivElement, SvgElement } from "./elements";
 const glVar = new GlobalVariables();
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 //           Creating Component            //
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 
-class Component {
-    
-}
+const component = new DivElement('component');
+component.appendTo(glVar.app);
 
-const component = document.createElement('div');
-    component.id = 'component';
+//=-=-=-=-=-Creating the Navbox-=-=-=-=-=//
 
-//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
-//        Creating Search Container        //
-//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
+const navBox = new DivElement('nav-box');
+navBox.appendTo(component.element);
 
-const navBox = document.createElement('div');
-    navBox.id = 'nav-box';
-
-
-
-
-//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
-//               Append all                //
-//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
-
-glVar.app.append(component);
+//=-=-=-=-=-Creating Elements of the Navbox-=-=-=-=-=//
