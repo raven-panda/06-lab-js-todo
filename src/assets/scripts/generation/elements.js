@@ -6,6 +6,9 @@ class BaseElement {
     cloneInto(parent) {
         parent.appendChild(this.element.cloneNode(true));
     }
+    draggable(bool) {
+        this.element.draggable = bool;
+    }
 }
 
 export class SvgElement extends BaseElement {

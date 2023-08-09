@@ -176,6 +176,12 @@ button.selected {
   width: 100%;
   box-sizing: border-box;
 }
+.task.dragging {
+  filter: brightness(80%);
+}
+.task.targetting {
+  opacity: 50%;
+}
 
 #task-infos {
   display: flex;

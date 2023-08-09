@@ -73,6 +73,7 @@ template.appendTo(tasksbox.element);
 
 // Templating tasks //
 const task = new DivElement('', 'task');
+    task.draggable(true);
 
 const taskInfos = new DivElement('task-infos');
 const grab = new SvgElement('', 'grab-task', 23, 21, '<rect y="7" width="23" height="2"/><rect y="12" width="23" height="2"/><path d="M11 0L13.5981 4.5H8.40192L11 0Z"/><path d="M11 21L8.40192 16.5L13.5981 16.5L11 21Z"/>', '#00000044');

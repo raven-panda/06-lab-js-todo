@@ -52,6 +52,12 @@
     padding: 25px;
     width: 100%;
     box-sizing: border-box;
+    &.dragging {
+        filter: brightness(80%);
+    }
+    &.targetting {
+        opacity: 50%;
+    }
 }
 
 #task-infos {
