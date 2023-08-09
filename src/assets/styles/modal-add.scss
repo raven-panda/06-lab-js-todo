@@ -28,7 +28,7 @@
 }
 
 #mod-tls {
-    @extend #srch-bar;
+    @extend #search;
     grid: auto/ 513px 54px;
     input {
         background: $inputBg;

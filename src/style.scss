@@ -28,7 +28,7 @@ body {
 #component {
     @include flex(column, center, left, 83px);
     background: $appBackground;
-    padding: 58px 180px; // 3% 9%
+    padding: 58px 9vw; // 3% 9%
     border-radius: 40px;
 }
 button {

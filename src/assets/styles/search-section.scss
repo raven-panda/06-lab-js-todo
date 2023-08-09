@@ -1,15 +1,15 @@
-#nav-box, #search-logo {
+#head, #search-logo {
     @include flex(row, center, center, 75px);
 }
 
 #srch-tools {
     @include flex(column, stretch, center, 19px);
 }
-#srch-bar, #filterbox {
+#search, #filterbox {
     border-radius: 10px;
     overflow: hidden;
 }
-#srch-bar {
+#search {
     display: grid;
     grid: auto / 582px 54px;
     input {

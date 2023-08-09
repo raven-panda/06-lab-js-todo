@@ -27,7 +27,7 @@ header {
   fill: #F5FF82;
 }
 
-#nav-box, #search-logo {
+#head, #search-logo {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -43,21 +43,21 @@ header {
   gap: 19px;
 }
 
-#srch-bar, #mod-tls, #filterbox {
+#search, #mod-tls, #filterbox {
   border-radius: 10px;
   overflow: hidden;
 }
 
-#srch-bar, #mod-tls {
+#search, #mod-tls {
   display: grid;
   grid: auto/582px 54px;
 }
-#srch-bar input, #mod-tls input {
+#search input, #mod-tls input {
   padding: 15px;
   background: 98%/cover no-repeat url(assets/images/searchlogo.svg), #EEEEEE;
   background-size: 32px;
 }
-#srch-bar input::placeholder, #mod-tls input::placeholder {
+#search input::placeholder, #mod-tls input::placeholder {
   color: #999;
 }
 
@@ -259,7 +259,7 @@ body {
   justify-content: left;
   gap: 83px;
   background: #FFFFFE;
-  padding: 58px 180px;
+  padding: 58px 9vw;
   border-radius: 40px;
 }
 
