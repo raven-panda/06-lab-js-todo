@@ -1,9 +1,15 @@
 import { GlobalVariables } from '../var';
-import './dragndrop';
+import './add';
+import { notasks } from './functions';
 
 const gv = new GlobalVariables;
 
-//=-=-=-=-=-New Task Button-=-=-=-=-=//
-gv.newt.addEventListener('click', () => {
-    gv.modal.classList.add('active')
-})
+// Delete all tasks //
+const delall = document.querySelector('#opt-da');
+delall.addEventListener('click', function() {
+    gv.tasks.forEach(task => {
+        task.remove();
+        localStorage.clear();
+    });
+    notasks();
+});

@@ -71,3 +71,10 @@
     padding: 12.5px;
     border-radius: 12.5px;
 }
+
+#notasks {
+    display: none;
+    &.nochild {
+        display: block;
+    }
+}

@@ -19,15 +19,22 @@ header {
   justify-content: center;
   gap: 27px;
 }
-#options-box #option-chg-mode:hover, #options-box #option-dlt-all:hover {
+#options-box #opt-cm:hover, #options-box #opt-da:hover {
   filter: drop-shadow(0px 0px 5px #000);
   cursor: pointer;
 }
-#options-box #option-chg-mode:hover path, #options-box #option-dlt-all:hover path {
+#options-box #opt-cm:hover path, #options-box #opt-da:hover path {
   fill: #F5FF82;
 }
 
-#head, #search-logo {
+#head {
+  display: grid;
+  grid: auto/160px 1fr 160px;
+  align-items: center;
+  justify-items: center;
+}
+
+#search-logo {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -35,7 +42,7 @@ header {
   gap: 75px;
 }
 
-#srch-tools {
+#srch-tools, #modal-form {
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -43,16 +50,16 @@ header {
   gap: 19px;
 }
 
-#search, #mod-tls, #filterbox {
+#search, #filterbox, #mod-in-sct {
   border-radius: 10px;
   overflow: hidden;
 }
 
-#search, #mod-tls {
+#search {
   display: grid;
   grid: auto/582px 54px;
 }
-#search input, #mod-tls input {
+#search input {
   background: 98%/cover no-repeat url(assets/images/searchlogo.svg), #EEEEEE;
   background-size: 32px;
 }
@@ -75,6 +82,18 @@ button.selected {
   display: grid;
   grid: auto/repeat(3, 1fr);
 }
+#filterbox #all svg {
+  width: 19px;
+  height: 18px;
+}
+#filterbox #not-finished svg {
+  width: 15px;
+  height: 15px;
+}
+#filterbox #finished svg {
+  width: 22px;
+  height: 15px;
+}
 
 .filter {
   display: flex;
@@ -87,6 +106,11 @@ button.selected {
 .filter:nth-child(2) {
   border-right: solid 1px black;
   border-left: solid 1px black;
+}
+
+.logo-note {
+  width: 103px;
+  height: 103px;
 }
 
 #notasks-title {
@@ -190,12 +214,15 @@ button.selected {
   border-radius: 12.5px;
 }
 
+#notasks {
+  display: none;
+}
+#notasks.nochild {
+  display: block;
+}
+
 #mod {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0px;
+  display: none;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -216,20 +243,78 @@ button.selected {
 
 #mod-c {
   background-color: #fefefe;
-  padding: 20px;
-  border: 1px solid #888;
+  padding: 30px;
+  border-radius: 20px;
 }
-#mod-c h1 {
-  font-size: 1.5rem;
+#mod-c label {
+  font-size: 1.2rem;
   margin-top: 0;
 }
-#mod-tls {
-  grid: auto/513px 54px;
-}
-#mod-tls input {
-  background: #EEEEEE;
+#mod-in-sct {
+  display: grid;
+  grid: auto/300px 54px;
 }
 
+@media (max-width: 1225px) {
+  #app #component {
+    box-sizing: border-box;
+    width: 90vw;
+    padding: 58px;
+  }
+  #app #search {
+    grid: auto/50vw 54px;
+  }
+}
+@media (max-width: 768px) and (min-height: 425px) {
+  #app #head {
+    display: block;
+    width: 100%;
+  }
+  #app #search {
+    grid: auto/1fr 54px;
+  }
+  #app .logo-note {
+    display: none;
+    width: 0;
+  }
+}
+@media (max-width: 425px) {
+  body #app {
+    min-height: calc(100vh - 100px);
+  }
+  body #app #component {
+    background: none;
+    padding: 0;
+  }
+  body footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+    min-height: 50px;
+    background: #EDEDED;
+  }
+  body .task {
+    padding: 12px 25px;
+  }
+  body .filter {
+    font-size: 0.8rem;
+    padding: 10px 0;
+  }
+  #filterbox #all svg {
+    width: 15px;
+    height: 14px;
+  }
+  #filterbox #not-finished svg {
+    width: 10px;
+    height: 10px;
+  }
+  #filterbox #finished svg {
+    width: 14px;
+    height: 10px;
+  }
+}
 @font-face {
   font-family: "Montserrat";
   font-style: normal;
@@ -289,4 +374,8 @@ input::placeholder {
 input:focus {
   border-color: #C5C7FF;
   outline: none;
+}
+
+footer {
+  display: none;
 }

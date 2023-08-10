@@ -1,0 +1,65 @@
+@media (max-width: 1225px) {
+    #app{
+        #component {
+            box-sizing: border-box;
+            width: 90vw;
+            padding: 58px;
+        }
+        #search {
+            grid: auto / 50vw 54px;
+        }
+    }
+}
+@media (max-width: 768px) and (min-height: 425px) {
+    #app{
+        #head {
+            display: block;
+            width: 100%;
+        }
+        #search {
+            grid: auto / 1fr 54px;
+        }
+        .logo-note {
+            display: none;
+            width: 0;
+        }
+    }
+}
+@media (max-width: 425px) {
+    $appHeight: calc(100vh - ($headerHeight * 2));
+    body {
+        #app {
+            min-height: $appHeight;
+            #component {
+                background: none;
+                padding: 0;
+            }
+        }
+        footer {
+            @include flex(column, center, center);
+            min-height: $headerHeight;
+            background: $taskBg;
+        }
+        .task {
+            padding: 12px 25px;
+        }
+        .filter {
+            font-size: 0.8rem;
+            padding: 10px 0;
+        }
+    }
+    #filterbox {
+        #all svg {
+            width: 15px;
+            height: 14px;
+        }
+        #not-finished svg {
+            width: 10px;
+            height: 10px;
+        }
+        #finished svg {
+            width: 14px;
+            height: 10px;
+        }
+    }
+}

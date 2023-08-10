@@ -4,4 +4,7 @@ export class GlobalVariables {
     tbox = document.querySelector('#tasks-box');
     newt = document.querySelector('#newtask-btn');
     modal = document.querySelector('#mod');
+    template = document.querySelector('template');
+    notask = document.querySelector('#notasks');
+    tasks = document.querySelectorAll('.task');
 }

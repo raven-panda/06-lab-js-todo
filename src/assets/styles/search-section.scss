@@ -1,11 +1,17 @@
-#head, #search-logo {
+#head {
+    display: grid;
+    grid: auto / 160px 1fr 160px;
+    align-items: center;
+    justify-items: center;
+}
+#search-logo {
     @include flex(row, center, center, 75px);
 }
 
-#srch-tools {
+#srch-tools, #modal-form {
     @include flex(column, stretch, center, 19px);
 }
-#search, #filterbox {
+#search, #filterbox, #mod-in-sct {
     border-radius: 10px;
     overflow: hidden;
 }
@@ -35,7 +41,19 @@ button {
 
 #filterbox {
     display: grid;
-    grid: auto / repeat(3, 1fr)
+    grid: auto / repeat(3, 1fr);
+    #all svg {
+        width: 19px;
+        height: 18px;
+    }
+    #not-finished svg {
+        width: 15px;
+        height: 15px;
+    }
+    #finished svg {
+        width: 22px;
+        height: 15px;
+    }
 }
 .filter {
     @include flex(row, center, center, 10px);
@@ -44,4 +62,8 @@ button {
         border-right: solid 1px black;
         border-left: solid 1px black;
     }
+}
+.logo-note {
+    width: 103px;
+    height: 103px;
 }

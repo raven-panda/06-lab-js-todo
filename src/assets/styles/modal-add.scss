@@ -1,5 +1,5 @@
 #mod {
-    @include flex(column, center, center);
+    display: none;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -16,10 +16,10 @@
 
 #mod-c {
     background-color: #fefefe;
-    padding: 20px;
-    border: 1px solid #888;
-    h1 {
-        font-size: 1.5rem;
+    padding: 30px;
+    border-radius: 20px;
+    label {
+        font-size: 1.2rem;
         margin-top: 0;
     }
     #mod-add {
@@ -27,10 +27,7 @@
     }
 }
 
-#mod-tls {
-    @extend #search;
-    grid: auto/ 513px 54px;
-    input {
-        background: $inputBg;
-    }
+#mod-in-sct {
+    display: grid;
+    grid: auto / 300px 54px;
 }

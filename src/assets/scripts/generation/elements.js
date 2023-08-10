@@ -11,8 +11,8 @@ class BaseElement {
     }
 }
 
-export class SvgElement extends BaseElement {
-    constructor(id, classe = '', width, height, path, fill = '#000000') {
+export class SvgElement extends BaseElement{
+    constructor(id, classe = '', width, height, path, fill = '#000000', viewbox = '') {
         super();
         this.element = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
         this.element.id = id;
@@ -23,6 +23,9 @@ export class SvgElement extends BaseElement {
         this.element.style.height = `${height}px`;
         this.element.setAttribute('fill', fill);
         this.element.innerHTML = path;
+        if (viewbox != '') {
+            this.element.setAttribute('viewBox', viewbox);
+        };
     }
 }
 
@@ -56,7 +59,7 @@ export class InputElement extends BaseElement {
         this.element.id = id;
         this.element.placeholder = placeholder;
         if (req === 'required') {
-            this.element.required;
+            this.element.required = true;
         }
     }
 }

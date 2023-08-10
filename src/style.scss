@@ -3,6 +3,7 @@
 @import './assets/styles/search-section.scss';
 @import './assets/styles/tasks-section.scss';
 @import './assets/styles/modal-add.scss';
+@import './assets/styles/medias-size.scss';
 
 @font-face {
     font-family: 'Montserrat';
@@ -46,4 +47,7 @@ input {
         border-color: #C5C7FF;
         outline: none;
     }
+}
+footer {
+    display: none;
 }
