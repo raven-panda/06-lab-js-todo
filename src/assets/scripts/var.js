@@ -1,11 +1,13 @@
 export class GlobalVariables {
-    app = document.querySelector('#app');
-    component = document.querySelector('#component');
-    tbox = document.querySelector('#tasks-box');
-    newt = document.querySelector('#newtask-btn');
-    modal = document.querySelector('#mod');
-    template = document.querySelector('template');
-    notask = document.querySelector('#notasks');
-    tasks = document.querySelectorAll('.task');
-    filters = document.querySelectorAll('.filter')
+    refresh() {
+        this.app = document.querySelector('#app');
+        this.component = document.querySelector('#component');
+        this.tbox = document.querySelector('#tasks-box');
+        this.newt = document.querySelector('#newtask-btn');
+        this.modal = document.querySelector('#mod');
+        this.template = document.querySelector('template');
+        this.notask = document.querySelector('#notasks');
+        this.tasks = document.querySelectorAll('.task');
+        this.filters = document.querySelectorAll('.filter');
+    }
 }

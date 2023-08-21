@@ -1,0 +1,193 @@
+@media (prefers-color-scheme: light) {
+    #logo #grad-start{
+        stop-color: #000000;
+    }
+    header {
+        background: $headerBackground;
+    }
+    body {
+        background: $bodyBackground;
+        color: $textColor;
+    }
+    #component, #mod-c { 
+        background: $primaryBg;
+    }
+    #search input {
+        background: 98% / cover no-repeat url('./assets/images/searchlogo.svg'), $inputBg;
+        background-size: 32px;
+    }
+    input {
+        background: $inputBg;
+        &::placeholder {
+            color: $placeholderColor;
+        }
+        &:focus {
+            border-color: $blueBg;
+        }
+    }
+    .task, .filter {
+        background: $secondBg;
+        color: $textColor;
+    }
+    .filter {
+        &:nth-child(2) {
+            border-right: solid 1px $textColor;
+            border-left: solid 1px $textColor;
+        }
+    }
+    .filter.active {
+        background: $blueBg;
+    }
+
+    body.theme-b {
+        background: $bodyBD;
+        color: $textD;
+        #logo #grad-start{
+            stop-color: $logoGS;
+        }
+        #newtask-btn, #mod-add {
+            background-color: $greenD;
+        }
+        header {
+            background: $headerBD;
+        }
+        #component, #mod-c {
+            background-color : $primaryD;
+        }
+        
+        .logo-note {
+            fill : $secondBD;
+        }
+        #srch-tools, header, #mod-c, #task-infos{
+            svg {
+                fill: $textD;
+            }
+        }
+        #search input {
+            background: 98% / cover no-repeat url('./assets/images/searchlogo.svg'), $secondBD;
+            background-size: 32px;
+        }
+        input {
+            background: $secondBD;
+            color: $textD;
+            &::placeholder {
+                color: $placeholderColor;
+            }
+            &:focus {
+                border-color: #C5C7FF;
+            }
+        }
+        .task, .filter {
+            background: $secondBD;
+            color: $textD;
+        }
+        .task.checked {
+            color: $chkD;
+        }
+        .filter:nth-child(2) {
+            border-right: solid 1px $textD;
+            border-left: solid 1px $textD;
+        }
+        .filter.active {
+            background: $purpleD;
+        }
+    }
+}
+@media (prefers-color-scheme: dark) {
+    #logo #grad-start{
+        stop-color: $logoGS;
+    }
+    #newtask-btn, #mod-add {
+        background-color: $greenD;
+    }
+    header {
+        background: $headerBD;
+    }
+    body {
+        background: $bodyBD;
+        color: $textD;
+    }
+    #component, #mod-c {
+        background-color : $primaryD;
+    }
+    
+    .logo-note {
+        fill : $secondBD;
+    }
+    #srch-tools, header, #mod-c, #task-infos{
+        svg {
+            fill: $textD;
+        }
+    }
+    #search input {
+        background: 98% / cover no-repeat url('./assets/images/searchlogo.svg'), $secondBD;
+        background-size: 32px;
+    }
+    input {
+        background: $secondBD;
+        color: $textD;
+        &::placeholder {
+            color: $placeholderColor;
+        }
+        &:focus {
+            border-color: #C5C7FF;
+        }
+    }
+    .task, .filter {
+        background: $secondBD;
+        color: $textD;
+    }
+    .task.checked {
+        color: $chkD;
+    }
+    .filter:nth-child(2) {
+        border-right: solid 1px $textD;
+        border-left: solid 1px $textD;
+    }
+    .filter.active {
+        background: $purpleD;
+    }
+
+    body.theme-b {
+        background: $bodyBackground;
+        color: $textColor;
+        #logo #grad-start{
+            stop-color: #000000;
+        }
+        header {
+            background: $headerBackground;
+        }
+        #component, #mod-c { 
+            background: $primaryBg;
+        }
+        #search input {
+            background: 98% / cover no-repeat url('./assets/images/searchlogo.svg'), $inputBg;
+            background-size: 32px;
+        }
+        input {
+            background: $inputBg;
+            &::placeholder {
+                color: $placeholderColor;
+            }
+            &:focus {
+                border-color: $blueBg;
+            }
+        }
+        .task, .filter {
+            background: $secondBg;
+            color: $textColor;
+        }
+        .filter {
+            &:nth-child(2) {
+                border-right: solid 1px $textColor;
+                border-left: solid 1px $textColor;
+            }
+        }
+        .filter.active {
+            background: $blueBg;
+        }
+        .logo-note {
+            fill : $noteColor;
+        }
+    }
+}

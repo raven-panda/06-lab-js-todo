@@ -1,8 +1,8 @@
 import { GlobalVariables } from '../var';
+import { storeData } from './functions';
 const gv = new GlobalVariables();
 
 //=-=-=-=-=-=-=-Drag and Drop-=-=-=-=-=-=-=//
-// const draggables = document.querySelectorAll('.task');
 export function dragndrop() {
     let draggables = document.querySelectorAll('#tasks-box > .task')
 
@@ -54,16 +54,7 @@ export function dragndrop() {
                 swapElements(target, dragged);
                 target.classList.remove('targetting');
                 dragged.classList.remove('dragging');
-                
-                let lsArray = [];
-                let values = document.querySelectorAll('#tasks-box > .task');
-                values.forEach(element => {
-                    lsArray.unshift(element.querySelector('p').innerText);
-                });
-                const lsStore = lsArray.join(',');
-                
-                localStorage.setItem('task', lsStore);
-
+                storeData();
             } else {
                 return;
             }

@@ -18,14 +18,10 @@
 #search {
     display: grid;
     grid: auto / 582px 54px;
-    input {
-        background: 98% / cover no-repeat url('./assets/images/searchlogo.svg'), $inputBg;
-        background-size: 32px;
-    }
 }
 
 #newtask-btn {
-    background: $ntbBg;
+    background: $greenBg;
 }
 button {
     &:hover {
@@ -35,7 +31,7 @@ button {
         filter: brightness(90%)
     }
     &.selected {
-        background: $stbBg;
+        background: $blueBg;
     }
 }
 
@@ -58,13 +54,6 @@ button {
 .filter {
     @include flex(row, center, center, 10px);
     padding : 7px 0;
-    &:nth-child(2) {
-        border-right: solid 1px black;
-        border-left: solid 1px black;
-    }
-    &.active {
-        background: $stbBg;
-    }
 }
 .logo-note {
     width: 103px;

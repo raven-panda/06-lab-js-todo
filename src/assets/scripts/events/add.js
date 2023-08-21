@@ -1,22 +1,25 @@
 import { GlobalVariables } from "../var";
-import { instanceTemplate, notasks, deleteTask } from "./functions";
+import { instanceTemplate, notasks, deleteTask, storeData } from "./functions";
 import { dragndrop } from "./dragndrop";
 const gv = new GlobalVariables();
+gv.refresh();
 
 notasks();
 deleteTask()
 
-const lsData = localStorage.getItem('task');
-let lsArray = [];
 
-if (lsData) {
-    lsArray = lsData.split(/,(?!\s)/);
-    lsArray.forEach(element => {
-        instanceTemplate(element);
-    }) 
+const storeJSON = localStorage.getItem('task');
+const parsed = JSON.parse(storeJSON);
+if (parsed.html !== '') {
+    gv.tbox.innerHTML = parsed.html;
+    gv.refresh();
+    gv.tasks.forEach(element => {
+        element.removeAttribute('style');
+    })
     notasks();
-    deleteTask()
+    deleteTask();
 }
+
 dragndrop();
 // Makes the modal appears when clicking on the button //
 gv.newt.addEventListener('click', () => {
@@ -25,9 +28,9 @@ gv.newt.addEventListener('click', () => {
 
 // Form submit event //
 const form = document.querySelector('#modal-form');
-
 form.addEventListener('submit', function (e) {
     if (this.checkValidity()) {
+        this.classList.remove('invalid');
         let value = this.querySelector('input').value;
 
         gv.modal.classList.remove('active');
@@ -35,11 +38,9 @@ form.addEventListener('submit', function (e) {
         notasks();
         dragndrop();
         deleteTask();
-
-        lsArray.push(value);
-        const lsStore = lsArray.join(',');
-        localStorage.setItem('task', lsStore);
+        storeData();
     } else {
         e.preventDefault();
+        this.classList.add('invalid');
     }
 })

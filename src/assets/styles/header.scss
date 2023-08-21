@@ -1,7 +1,6 @@
 header {
     @include flex(row, center, space-between);
     min-height: $headerHeight;
-    background: $headerBackground;
     padding: 0 25px;
 }
 

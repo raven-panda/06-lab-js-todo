@@ -18,9 +18,13 @@
     background-color: #fefefe;
     padding: 30px;
     border-radius: 20px;
-    label {
+    label:nth-child(1) {
         font-size: 1.2rem;
         margin-top: 0;
+    }
+    #add-err {
+        font-size: 14px;
+        color: $invalid;
     }
     #mod-add {
         @extend #newtask-btn;
@@ -30,4 +34,23 @@
 #mod-in-sct {
     display: grid;
     grid: auto / 300px 54px;
+    margin-top: 19px;
+}
+
+#modal-form {
+    gap: 0;
+    #add-err {
+        display: none;
+    }
+    &.invalid {
+        #add-err {
+            display: block;
+        }
+        input:invalid {
+        border-color: $invalid;
+            &::placeholder {
+                color: $invalid;
+            }
+        }
+    }
 }

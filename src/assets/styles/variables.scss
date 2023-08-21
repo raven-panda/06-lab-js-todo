@@ -13,10 +13,15 @@
 //                Variables                //
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 
+//=-=-=-=-=-=-Light Theme colors and Heights-=-=-=-=-=-=//
 // Body //
 $bodyBackground: top / cover no-repeat linear-gradient(180deg, #FED0D0 0%, #FFF0CB 100%);
-$textColor: #000000;
-$chkColor: rgba(0, 0, 0, 0.50);
+$primaryBg: #FEFEFE;
+$secondBg : #EDEDED;
+$blueBg: #C5C7FF;
+$greenBg: #A5ECB9;
+$textColor: #020202;
+$chkColor: rgba(2, 2, 2, 0.50);
 
 // Header //
 $headerHeight: 50px;
@@ -24,17 +29,29 @@ $headerBackground: top / cover no-repeat linear-gradient(90deg, #E3E4FF 0%, #DAF
 
 // Icons //
 $svgHover: #F5FF82;
+$noteColor: #E1E1E1;
 
 // App //
 $appHeight: calc(100vh - $headerHeight);
-$appBackground: #FFFFFE;
 
 // Input //
-$inputBg : #EEEEEE;
-$stbBg: #C5C7FF;
-$ntbBg: #A5ECB9;
+$inputBg : 98% / cover no-repeat url('./assets/images/searchlogo.svg'), #EEEEEE;
 $placeholderColor: #999;
+$invalid: #FF7E7E;
 
 // Tasks //
-$taskBg : #EDEDED;
 $checkBg : rgba(0, 0, 0, 0.10);
+
+//=-=-=-=-=-=-Dark Theme colors-=-=-=-=-=-=//
+// Body //
+$bodyBD: top / cover no-repeat linear-gradient(225deg, #000003 0%, #00063A 100%);
+$textD: rgb(226, 239, 255);
+$chkD: rgba(226, 239, 255, 0.5);
+$primaryD: #303030;
+$secondBD: #4A4A4A;
+$greenD: #55B06E;
+$purpleD: #54407D;
+
+// Header //
+$headerBD: #212121;
+$logoGS : #CEFECD;

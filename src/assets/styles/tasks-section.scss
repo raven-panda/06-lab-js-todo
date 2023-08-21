@@ -7,48 +7,21 @@
         display: block;
     }
 }
-
 #tasks-box {
-    @include flex(column, stretch, center, 20px)
-}
-
-.task {
-    @include flex(row, center, space-between);
-    background: $taskBg;
-    border-radius: 10px;
-    padding: 25px;
-}
-
-#task-infos {
-    @include flex(row, center, center, 14px);
-    p {
-        margin: 0;
-    }
-}
-#notasks-title {
-    display: none;
-    font-size: 1rem;
-    font-style: italic;
-    font-weight: 400;
-    &.notasks {
-        display: block;
-    }
-}
-
-#tasks-box {
-    @include flex(column, center, center, 20px);
+    @include flex(column, flex-start, start, 20px);
     min-width: 100%;
+    max-height: 372px;
+    margin-top : 83px;
+    overflow: auto;
 }
-
 .task {
     @include flex(row, center, space-between);
-    background: $taskBg;
     border-radius: 10px;
     padding: 25px;
     width: 100%;
     box-sizing: border-box;
     &.dragging {
-        filter: brightness(80%);
+        filter: brightness(80%);        
     }
     &.targetting {
         opacity: 50%;
@@ -64,6 +37,10 @@
     p {
         margin: 0;
     }
+}
+
+.grab-task {
+    cursor: grab;
 }
 .check-case {
     background: $checkBg;

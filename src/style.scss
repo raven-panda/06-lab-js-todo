@@ -4,6 +4,7 @@
 @import './assets/styles/tasks-section.scss';
 @import './assets/styles/modal-add.scss';
 @import './assets/styles/medias-size.scss';
+@import './assets/styles/medias-color.scss';
 
 @font-face {
     font-family: 'Montserrat';
@@ -19,7 +20,6 @@
     padding: 0;
 }
 body {
-    background: $bodyBackground;
     margin: 0;
 }
 #app {
@@ -27,8 +27,7 @@ body {
     min-height: $appHeight;
 }
 #component {
-    @include flex(column, center, left, 83px);
-    background: $appBackground;
+    @include flex(column, center, left, 0);
     padding: 58px 9vw; // 3% 9%
     border-radius: 40px;
 }
@@ -39,12 +38,7 @@ input {
     border-radius: 10px 0 0 10px;
     border: solid 2px transparent;
     padding: 13px;
-    background: $inputBg;
-    &::placeholder {
-        color: $placeholderColor;
-    }
     &:focus {
-        border-color: #C5C7FF;
         outline: none;
     }
 }
