@@ -107,6 +107,9 @@ button.selected {
   border-right: solid 1px black;
   border-left: solid 1px black;
 }
+.filter.active {
+  background: #C5C7FF;
+}
 
 .logo-note {
   width: 103px;
@@ -153,12 +156,6 @@ button.selected {
   margin: 0;
 }
 
-.check-case {
-  background: rgba(0, 0, 0, 0.1);
-  padding: 12.5px;
-  border-radius: 12.5px;
-}
-
 #notasks-title {
   display: none;
   font-size: 1rem;
@@ -196,6 +193,10 @@ button.selected {
 .task.targetting {
   opacity: 50%;
 }
+.task.checked {
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.5);
+}
 
 #task-infos {
   display: flex;
@@ -212,6 +213,9 @@ button.selected {
   background: rgba(0, 0, 0, 0.1);
   padding: 12.5px;
   border-radius: 12.5px;
+}
+.check-case:hover {
+  cursor: pointer;
 }
 
 #notasks {

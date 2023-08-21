@@ -27,7 +27,6 @@ gv.newt.addEventListener('click', () => {
 const form = document.querySelector('#modal-form');
 
 form.addEventListener('submit', function (e) {
-    e.preventDefault();
     if (this.checkValidity()) {
         let value = this.querySelector('input').value;
 
@@ -40,5 +39,7 @@ form.addEventListener('submit', function (e) {
         lsArray.push(value);
         const lsStore = lsArray.join(',');
         localStorage.setItem('task', lsStore);
+    } else {
+        e.preventDefault();
     }
 })

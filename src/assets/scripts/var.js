@@ -7,4 +7,5 @@ export class GlobalVariables {
     template = document.querySelector('template');
     notask = document.querySelector('#notasks');
     tasks = document.querySelectorAll('.task');
+    filters = document.querySelectorAll('.filter')
 }

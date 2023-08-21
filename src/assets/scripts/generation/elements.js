@@ -69,8 +69,12 @@ export class ButtonElement extends BaseElement {
         super();
         this.element = document.createElement('button');
         this.element.id = id;
-        if (classe !== '') {
-            this.element.classList.add(classe)
+        if (classe) {
+            if (Array.isArray(classe)) {
+                classe.forEach(c => this.element.classList.add(c))
+            } else {
+                this.element.classList.add(classe);
+            }
         };
         this.element.type = type;
         this.element.innerHTML = content;

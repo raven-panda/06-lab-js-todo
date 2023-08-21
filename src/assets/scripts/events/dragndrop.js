@@ -54,10 +54,19 @@ export function dragndrop() {
                 swapElements(target, dragged);
                 target.classList.remove('targetting');
                 dragged.classList.remove('dragging');
+                
+                let lsArray = [];
+                let values = document.querySelectorAll('#tasks-box > .task');
+                values.forEach(element => {
+                    lsArray.unshift(element.querySelector('p').innerText);
+                });
+                const lsStore = lsArray.join(',');
+                
+                localStorage.setItem('task', lsStore);
+
             } else {
                 return;
             }
         })
-    
     })
 };

@@ -45,15 +45,15 @@ const allLogo = new SvgElement('', 'tt-logo', '', '', '<svg viewBox="0 0 19 18" 
 const notLogo = new SvgElement('', 'tt-logo', '', '', '<svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.72032 0.0170012C2.57733 0.0556822 2.59726 0.0369282 1.33262 1.29816C0.670411 1.96042 0.112516 2.52422 0.0937637 2.55235C-0.0164087 2.71645 -0.0269571 2.94033 0.0668067 3.10443C0.0855594 3.13725 0.889583 3.95072 2.26674 5.32799L4.4362 7.49998L2.26088 9.67665C0.489915 11.4489 0.0808712 11.865 0.0597744 11.9108C0.025785 11.9858 0 12.0889 0 12.1475C0 12.2167 0.0316453 12.3362 0.0668067 12.4042C0.112516 12.491 2.51052 14.8892 2.59726 14.9349C2.75783 15.0193 2.93832 15.0216 3.09772 14.9419C3.13171 14.9255 3.81384 14.2504 5.32344 12.7418L7.5011 10.5651L9.67173 12.7348C11.0501 14.112 11.8635 14.9161 11.8963 14.9349C12.0709 15.0357 12.2983 15.0169 12.4671 14.8904C12.5046 14.8634 13.0683 14.3055 13.72 13.6526C14.6166 12.7524 14.9119 12.4499 14.9354 12.4042C15.0209 12.239 15.0221 12.0467 14.9354 11.8955C14.9166 11.8627 14.1044 11.041 12.7355 9.67079L10.566 7.49998L12.7355 5.32799C14.1044 3.95893 14.9166 3.13725 14.9354 3.10443C15.0221 2.95323 15.0209 2.76099 14.9354 2.59572C14.9119 2.55001 14.6166 2.24759 13.72 1.34739C13.0683 0.694502 12.5046 0.13656 12.4671 0.109601C12.2983 -0.0169907 12.0709 -0.0357447 11.8963 0.0650597C11.8635 0.0838137 11.0501 0.887905 9.67173 2.26518L7.5011 4.43482L5.32344 2.25814C3.81384 0.749593 3.13171 0.0744362 3.09772 0.0580263C2.98051 -0.000580788 2.84104 -0.0158186 2.72032 0.0170012Z" fill="black"/></svg>', '', "0 0 10 10")
 const finLogo = new SvgElement('', 'tt-logo', '', '', '<svg viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.0813 0.234375C18.7598 -0.078125 18.2327 -0.078125 17.9112 0.234375L8.17853 9.6586L3.16623 4.77078C2.84476 4.45713 2.32119 4.45713 1.99736 4.77078L0.241101 6.47064C-0.0803671 6.78085 -0.0803671 7.29138 0.241101 7.60388L7.58878 14.7673C7.91025 15.0776 8.43381 15.0776 8.75883 14.7673L20.8363 3.06862C21.1625 2.75612 21.1625 2.24445 20.8363 1.9308L19.0813 0.234375Z" fill="black"/></svg>', '', "0 0 15 10")
 
-const allFT = new ButtonElement('all', 'filter', '', 'All tasks ');
+const allFT = new ButtonElement('all', ['filter', 'active'], '', 'All tasks');
 allFT.appendTo(filters.element)
 allLogo.appendTo(allFT.element);
 
-const notFT = new ButtonElement('not-finished', 'filter', '', 'Not finished ');
+const notFT = new ButtonElement('not-finished', 'filter', '', 'Not finished');
 notFT.appendTo(filters.element);
 notLogo.appendTo(notFT.element);
 
-const finFT = new ButtonElement('finished', 'filter', '', 'Finished ');
+const finFT = new ButtonElement('finished', 'filter', '', 'Finished');
 finFT.appendTo(filters.element);
 finLogo.appendTo(finFT.element);
 
@@ -73,23 +73,6 @@ notask.appendTo(tasksbox.element)
 // Template element //
 const template = new TaskTemplate();
 template.appendTo(tasksbox.element);
-
-// Templating tasks //
-const task = new DivElement('', 'task');
-    task.draggable(true);
-
-const taskInfos = new DivElement('task-infos');
-const grab = new SvgElement('', 'grab-task', 23, 21, '<rect y="7" width="23" height="2"/><rect y="12" width="23" height="2"/><path d="M11 0L13.5981 4.5H8.40192L11 0Z"/><path d="M11 21L8.40192 16.5L13.5981 16.5L11 21Z"/>', '#00000044');
-const checkcase = new DivElement('', 'check-case');
-const text = new TextElement('p', '', 'This is a task test !');
-taskInfos.element.append(grab.element, checkcase.element, text.element);
-
-const taskModify = new DivElement('task-modify');
-const deltask = new SvgElement('', 'del-task', 18, 24, '<path d="M2.15555 22.8426C2.18264 23.4895 2.71495 24 3.3623 24H14.6378C15.2852 24 15.8175 23.4895 15.8446 22.8426L16.6498 5.84412H1.35033L2.15555 22.8426ZM11.5507 10.0662C11.5507 9.79538 11.7703 9.5757 12.0413 9.5757H12.826C13.0968 9.5757 13.3166 9.79532 13.3166 10.0662V19.7779C13.3166 20.0488 13.0969 20.2684 12.826 20.2684H12.0413C11.7705 20.2684 11.5507 20.0489 11.5507 19.7779V10.0662ZM8.1172 10.0662C8.1172 9.79538 8.33682 9.5757 8.60773 9.5757H9.39239C9.66319 9.5757 9.88293 9.79532 9.88293 10.0662V19.7779C9.88293 20.0488 9.66337 20.2684 9.39239 20.2684H8.60773C8.33688 20.2684 8.1172 20.0489 8.1172 19.7779V10.0662ZM4.68356 10.0662C4.68356 9.79538 4.90318 9.5757 5.17409 9.5757H5.95881C6.22967 9.5757 6.44935 9.79532 6.44935 10.0662V19.7779C6.44935 20.0488 6.22973 20.2684 5.95881 20.2684H5.17409C4.90324 20.2684 4.68356 20.0489 4.68356 19.7779V10.0662Z"/><path d="M17.1859 1.23636H11.9841V0.252936C11.9841 0.113278 11.8709 0 11.7312 0H6.2688C6.12914 0 6.01592 0.113278 6.01592 0.252936V1.2363H0.814079C0.395457 1.2363 0.0561523 1.57566 0.0561523 1.99429V4.37541H17.9439V1.99434C17.9439 1.57572 17.6046 1.23636 17.1859 1.23636Z"/>', '#C25959');
-taskModify.element.append(deltask.element)
-
-task.element.append(taskInfos.element, taskModify.element);
-task.appendTo(template.element);
 
 //=-=-=-=-=-Creating Elements of the head-=-=-=-=-=//
 
