@@ -42,6 +42,13 @@ $invalid: #FF7E7E;
 // Tasks //
 $checkBg : rgba(0, 0, 0, 0.10);
 
+// Footer //
+$heightFooter : 50px;
+
+// Scroll Bar //
+$sclHandle : #d3d3d3;
+$sclBorder : solid 1px rgb(231, 231, 231);
+
 //=-=-=-=-=-=-Dark Theme colors-=-=-=-=-=-=//
 // Body //
 $bodyBD: top / cover no-repeat linear-gradient(225deg, #000003 0%, #00063A 100%);
@@ -51,7 +58,12 @@ $primaryD: #303030;
 $secondBD: #4A4A4A;
 $greenD: #55B06E;
 $purpleD: #54407D;
+$shadow1 : rgba(0, 0, 0, 0.1);
 
 // Header //
 $headerBD: #212121;
 $logoGS : #CEFECD;
+
+// Scroll Bar //
+$sclHandleD : #5a5a5a;
+$sclBorderD : solid 1px rgb(51, 51, 51);

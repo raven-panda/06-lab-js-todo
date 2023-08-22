@@ -6,12 +6,12 @@ header {
 
 #options-box {
     @include flex(row, center, center, 27px);
+}
 
-    #opt-cm:hover, #opt-da:hover {
-        filter: drop-shadow(0px 0px 5px #000);
-        cursor: pointer;
-        path {
-            fill: $svgHover;
-        }
+#opt-cm:hover, #opt-da:hover, #mobile-ocm:hover, #mobile-oda:hover {
+    filter: drop-shadow(0px 0px 5px #000);
+    cursor: pointer;
+    path {
+        fill: $svgHover;
     }
 }

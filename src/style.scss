@@ -1,10 +1,4 @@
 @import './assets/styles/variables';
-@import './assets/styles/header.scss';
-@import './assets/styles/search-section.scss';
-@import './assets/styles/tasks-section.scss';
-@import './assets/styles/modal-add.scss';
-@import './assets/styles/medias-size.scss';
-@import './assets/styles/medias-color.scss';
 
 @font-face {
     font-family: 'Montserrat';
@@ -42,6 +36,11 @@ input {
         outline: none;
     }
 }
-footer {
-    display: none;
-}
+
+@import './assets/styles/header.scss';
+@import './assets/styles/search-section.scss';
+@import './assets/styles/tasks-section.scss';
+@import './assets/styles/footer.scss';
+@import './assets/styles/modal-add.scss';
+@import './assets/styles/medias-size.scss';
+@import './assets/styles/medias-color.scss';

@@ -25,6 +25,9 @@
             border-color: $blueBg;
         }
     }
+    #newtask-btn, #mobile-ntb  {
+        background: $greenBg;
+    }
     .task, .filter {
         background: $secondBg;
         color: $textColor;
@@ -39,13 +42,24 @@
         background: $blueBg;
     }
 
+    ::-webkit-scrollbar-track {
+        border: $sclBorder;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: $sclHandle;
+    }
+
+    footer {
+        background: $secondBg;
+    }
+
     body.theme-b {
         background: $bodyBD;
         color: $textD;
         #logo #grad-start{
             stop-color: $logoGS;
         }
-        #newtask-btn, #mod-add {
+        #newtask-btn, #mod-add, #mobile-ntb {
             background-color: $greenD;
         }
         header {
@@ -58,7 +72,7 @@
         .logo-note {
             fill : $secondBD;
         }
-        #srch-tools, header, #mod-c, #task-infos{
+        #srch-tools, header, #mod-c, #task-infos, footer{
             svg {
                 fill: $textD;
             }
@@ -91,13 +105,24 @@
         .filter.active {
             background: $purpleD;
         }
+
+        footer {
+            background: $headerBD;
+        }
+    
+        ::-webkit-scrollbar-track {
+            border: $sclBorderD;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: $sclHandleD;
+        }    
     }
 }
 @media (prefers-color-scheme: dark) {
     #logo #grad-start{
         stop-color: $logoGS;
     }
-    #newtask-btn, #mod-add {
+    #newtask-btn, #mod-add, #mobile-ntb  {
         background-color: $greenD;
     }
     header {
@@ -114,7 +139,7 @@
     .logo-note {
         fill : $secondBD;
     }
-    #srch-tools, header, #mod-c, #task-infos{
+    #srch-tools, header, #mod-c, #task-infos, footer{
         svg {
             fill: $textD;
         }
@@ -148,6 +173,17 @@
         background: $purpleD;
     }
 
+    footer {
+        background: $headerBD;
+    }
+
+    ::-webkit-scrollbar-track {
+        border: $sclBorderD;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: $sclHandleD;
+    }
+
     body.theme-b {
         background: $bodyBackground;
         color: $textColor;
@@ -173,6 +209,9 @@
                 border-color: $blueBg;
             }
         }
+        #newtask-btn, #mobile-ntb {
+            background: $greenBg;
+        }
         .task, .filter {
             background: $secondBg;
             color: $textColor;
@@ -188,6 +227,17 @@
         }
         .logo-note {
             fill : $noteColor;
+        }
+
+        footer {
+            background: $secondBg;
+        }
+    
+        ::-webkit-scrollbar-track {
+            border: $sclBorder;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: $sclHandle;
         }
     }
 }

@@ -9,5 +9,7 @@ export class GlobalVariables {
         this.notask = document.querySelector('#notasks');
         this.tasks = document.querySelectorAll('.task');
         this.filters = document.querySelectorAll('.filter');
+        this.delall = document.querySelector('#opt-da');
+        this.theme = document.querySelector('#opt-cm');
     }
 }

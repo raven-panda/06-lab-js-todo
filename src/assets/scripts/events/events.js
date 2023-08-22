@@ -6,16 +6,26 @@ const gv = new GlobalVariables;
 gv.refresh();
 
 //=-=-=-=-=-=-=-Delete all finished tasks-=-=-=-=-=-=-=//
-const delall = document.querySelector('#opt-da');
-delall.addEventListener('click', function() {
-    gv.tasks.forEach(task => {
-        if (task.classList.contains('checked')) {
-            task.remove();
-        }
-    });
-    localStorage.clear();
-    notasks();
-    storeData();
+const delall = document.querySelectorAll('#opt-da, #mobile-oda');
+delall.forEach(del => {
+    del.addEventListener('dblclick', function() {
+        gv.tasks.forEach(task => {
+            if (task.classList.contains('checked')) {
+                task.remove();
+            }
+        });
+        localStorage.clear();
+        notasks();
+        storeData();
+    })
+});
+
+//=-=-=-=-=-=-=-Change theme button event-=-=-=-=-=-=-=//
+const theme = document.querySelectorAll('#opt-cm, #mobile-ocm');
+theme.forEach(theme => {
+    theme.addEventListener('click', function () {
+        document.body.classList.toggle('theme-b');
+    })
 });
 
 //=-=-=-=-=-=-=-Quit Modal when clicking outside it-=-=-=-=-=-=-=//
@@ -91,9 +101,3 @@ gv.filters[2].addEventListener('click', function () {
         }
     })
 })
-
-//=-=-=-=-=-=-=-Change theme button event-=-=-=-=-=-=-=//
-const theme = document.querySelector('#opt-cm');
-theme.addEventListener('click', function () {
-    document.body.classList.toggle('theme-b');
-});

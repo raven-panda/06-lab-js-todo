@@ -108,7 +108,3 @@ modadd.appendTo(modsct.element);
 // Adding the error message //
 const addError = new TextElement('label', 'add-err', 'Please enter a name for your task.')
 addError.appendTo(form.element)
-
-// Footer //
-const footer = document.createElement('footer');
-document.body.appendChild(footer);

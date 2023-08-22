@@ -11,13 +11,15 @@
     @include flex(column, flex-start, start, 20px);
     min-width: 100%;
     max-height: 372px;
-    margin-top : 83px;
+    margin-top : 5.1875rem;
     overflow: auto;
+    padding: 0 7px;
+    box-sizing: border-box
 }
 .task {
     @include flex(row, center, space-between);
     border-radius: 10px;
-    padding: 25px;
+    padding: 18px;
     width: 100%;
     box-sizing: border-box;
     &.dragging {
@@ -44,10 +46,26 @@
 }
 .check-case {
     background: $checkBg;
-    padding: 12.5px;
+    padding: 0.7813rem;
     border-radius: 12.5px;
     &:hover {
         cursor: pointer;
+    }
+}
+
+#task-modify{
+    svg {
+        display: block;
+        padding: 9px 12px;
+    }
+    &:hover {
+        border-radius: 100%;
+        overflow: hidden;
+        svg {
+            background-color: $shadow1;
+            cursor: pointer;
+            filter: contrast(200%);
+        }
     }
 }
 
@@ -56,4 +74,17 @@
     &.nochild {
         display: block;
     }
+}
+
+// Scrollbar styling //
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+  
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
 }

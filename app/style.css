@@ -1,6 +1,60 @@
 /*!*********************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/style.scss ***!
   \*********************************************************************************************************/
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/montserrat-500-normal.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+:root, button, input, h1 {
+  font: 500 1rem "Montserrat", sans-serif;
+  border: none;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  min-height: calc(100vh - 50px);
+}
+
+#component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+  gap: 0;
+  padding: 58px 9vw;
+  border-radius: 40px;
+}
+
+button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+}
+
+input {
+  border-radius: 10px 0 0 10px;
+  border: solid 2px transparent;
+  padding: 13px;
+}
+input:focus {
+  outline: none;
+}
+
 header {
   display: flex;
   flex-direction: row;
@@ -18,11 +72,12 @@ header {
   justify-content: center;
   gap: 27px;
 }
-#options-box #opt-cm:hover, #options-box #opt-da:hover {
+
+#opt-cm:hover, #opt-da:hover, #mobile-ocm:hover, #mobile-oda:hover {
   filter: drop-shadow(0px 0px 5px #000);
   cursor: pointer;
 }
-#options-box #opt-cm:hover path, #options-box #opt-da:hover path {
+#opt-cm:hover path, #opt-da:hover path, #mobile-ocm:hover path, #mobile-oda:hover path {
   fill: #F5FF82;
 }
 
@@ -57,10 +112,6 @@ header {
 #search {
   display: grid;
   grid: auto/582px 54px;
-}
-
-#newtask-btn, #mod-c #mod-add {
-  background: #A5ECB9;
 }
 
 button:hover {
@@ -122,8 +173,10 @@ button.selected {
   gap: 20px;
   min-width: 100%;
   max-height: 372px;
-  margin-top: 83px;
+  margin-top: 5.1875rem;
   overflow: auto;
+  padding: 0 7px;
+  box-sizing: border-box;
 }
 
 .task {
@@ -133,7 +186,7 @@ button.selected {
   justify-content: space-between;
   gap: 0px;
   border-radius: 10px;
-  padding: 25px;
+  padding: 18px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -165,11 +218,25 @@ button.selected {
 
 .check-case {
   background: rgba(0, 0, 0, 0.1);
-  padding: 12.5px;
+  padding: 0.7813rem;
   border-radius: 12.5px;
 }
 .check-case:hover {
   cursor: pointer;
+}
+
+#task-modify svg {
+  display: block;
+  padding: 9px 12px;
+}
+#task-modify:hover {
+  border-radius: 100%;
+  overflow: hidden;
+}
+#task-modify:hover svg {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  filter: contrast(200%);
 }
 
 #notasks {
@@ -177,6 +244,34 @@ button.selected {
 }
 #notasks.nochild {
   display: block;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+footer {
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  grid: 50px/auto auto auto;
+}
+
+#mobile-ntb {
+  padding: 7px;
+  border-radius: 100%;
+}
+#mobile-ntb svg {
+  height: 26px;
+  width: 26px;
 }
 
 #mod {
@@ -235,16 +330,16 @@ button.selected {
 }
 
 @media (max-width: 1225px) {
-  #app #component {
+  #component {
     box-sizing: border-box;
     width: 90vw;
     padding: 58px;
   }
-  #app #search {
+  #search {
     grid: auto/50vw 54px;
   }
 }
-@media (max-width: 768px) and (min-height: 425px) {
+@media (max-width: 768px) {
   #app #head {
     display: block;
     width: 100%;
@@ -252,45 +347,50 @@ button.selected {
   #app #search {
     grid: auto/1fr 54px;
   }
-  #app .logo-note {
+  div#component {
+    padding: 30px;
+    width: 100%;
+    border-radius: 0;
+    background: none;
+  }
+  .logo-note {
     display: none;
     width: 0;
   }
+  .filter {
+    padding: 4px 0;
+  }
+  .task {
+    padding: 10px 15px;
+  }
+  #tasks-box {
+    margin-top: 30px;
+    max-height: 228px;
+    padding-left: 0;
+    gap: 20px;
+  }
+  #srch-tools {
+    gap: 10px;
+  }
 }
 @media (max-width: 425px) {
-  body #app {
+  #app #search #newtask-btn, #app #search #mod-c #mod-add, #mod-c #app #search #mod-add, header #opt-da, header #opt-cm {
+    display: none;
+  }
+  #app {
     min-height: calc(100vh - 100px);
   }
-  body #app #component {
-    background: none;
-    padding: 0;
+  #app #search {
+    grid: auto/auto;
   }
-  body footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0px;
-    min-height: 50px;
+  div#component {
+    padding: 0 2%;
   }
-  body .task {
-    padding: 12px 25px;
+  .filter {
+    font-size: 10px;
   }
-  body .filter {
-    font-size: 0.8rem;
-    padding: 10px 0;
-  }
-  #filterbox #all svg {
-    width: 15px;
-    height: 14px;
-  }
-  #filterbox #not-finished svg {
-    width: 10px;
-    height: 10px;
-  }
-  #filterbox #finished svg {
-    width: 14px;
-    height: 10px;
+  footer {
+    display: grid;
   }
 }
 @media (prefers-color-scheme: light) {
@@ -320,6 +420,9 @@ button.selected {
   input:focus {
     border-color: #C5C7FF;
   }
+  #newtask-btn, #mod-c #mod-add, #mobile-ntb {
+    background: #A5ECB9;
+  }
   .task, .filter {
     background: #EDEDED;
     color: #020202;
@@ -331,6 +434,15 @@ button.selected {
   .filter.active {
     background: #C5C7FF;
   }
+  ::-webkit-scrollbar-track {
+    border: solid 1px rgb(231, 231, 231);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d3d3d3;
+  }
+  footer {
+    background: #EDEDED;
+  }
   body.theme-b {
     background: top/cover no-repeat linear-gradient(225deg, #000003 0%, #00063A 100%);
     color: rgb(226, 239, 255);
@@ -338,7 +450,7 @@ button.selected {
   body.theme-b #logo #grad-start {
     stop-color: #CEFECD;
   }
-  body.theme-b #newtask-btn, body.theme-b #mod-c #mod-add, #mod-c body.theme-b #mod-add, body.theme-b #mod-add {
+  body.theme-b #newtask-btn, body.theme-b #mod-c #mod-add, #mod-c body.theme-b #mod-add, body.theme-b #mod-add, body.theme-b #mobile-ntb {
     background-color: #55B06E;
   }
   body.theme-b header {
@@ -350,7 +462,7 @@ button.selected {
   body.theme-b .logo-note {
     fill: #4A4A4A;
   }
-  body.theme-b #srch-tools svg, body.theme-b header svg, body.theme-b #mod-c svg, body.theme-b #task-infos svg {
+  body.theme-b #srch-tools svg, body.theme-b header svg, body.theme-b #mod-c svg, body.theme-b #task-infos svg, body.theme-b footer svg {
     fill: rgb(226, 239, 255);
   }
   body.theme-b #search input {
@@ -381,12 +493,21 @@ button.selected {
   body.theme-b .filter.active {
     background: #54407D;
   }
+  body.theme-b footer {
+    background: #212121;
+  }
+  body.theme-b ::-webkit-scrollbar-track {
+    border: solid 1px rgb(51, 51, 51);
+  }
+  body.theme-b ::-webkit-scrollbar-thumb {
+    background: #5a5a5a;
+  }
 }
 @media (prefers-color-scheme: dark) {
   #logo #grad-start {
     stop-color: #CEFECD;
   }
-  #newtask-btn, #mod-c #mod-add, #mod-add {
+  #newtask-btn, #mod-c #mod-add, #mod-add, #mobile-ntb {
     background-color: #55B06E;
   }
   header {
@@ -402,7 +523,7 @@ button.selected {
   .logo-note {
     fill: #4A4A4A;
   }
-  #srch-tools svg, header svg, #mod-c svg, #task-infos svg {
+  #srch-tools svg, header svg, #mod-c svg, #task-infos svg, footer svg {
     fill: rgb(226, 239, 255);
   }
   #search input {
@@ -433,6 +554,15 @@ button.selected {
   .filter.active {
     background: #54407D;
   }
+  footer {
+    background: #212121;
+  }
+  ::-webkit-scrollbar-track {
+    border: solid 1px rgb(51, 51, 51);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #5a5a5a;
+  }
   body.theme-b {
     background: top/cover no-repeat linear-gradient(180deg, #FED0D0 0%, #FFF0CB 100%);
     color: #020202;
@@ -459,6 +589,9 @@ button.selected {
   body.theme-b input:focus {
     border-color: #C5C7FF;
   }
+  body.theme-b #newtask-btn, body.theme-b #mod-c #mod-add, #mod-c body.theme-b #mod-add, body.theme-b #mobile-ntb {
+    background: #A5ECB9;
+  }
   body.theme-b .task, body.theme-b .filter {
     background: #EDEDED;
     color: #020202;
@@ -473,61 +606,13 @@ button.selected {
   body.theme-b .logo-note {
     fill: #E1E1E1;
   }
-}
-@font-face {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(assets/fonts/montserrat-500-normal.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-:root, button, input, h1 {
-  font: 500 1rem "Montserrat", sans-serif;
-  border: none;
-  padding: 0;
-}
-
-body {
-  margin: 0;
-}
-
-#app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0px;
-  min-height: calc(100vh - 50px);
-}
-
-#component {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: left;
-  gap: 0;
-  padding: 58px 9vw;
-  border-radius: 40px;
-}
-
-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0px;
-}
-
-input {
-  border-radius: 10px 0 0 10px;
-  border: solid 2px transparent;
-  padding: 13px;
-}
-input:focus {
-  outline: none;
-}
-
-footer {
-  display: none;
+  body.theme-b footer {
+    background: #EDEDED;
+  }
+  body.theme-b ::-webkit-scrollbar-track {
+    border: solid 1px rgb(231, 231, 231);
+  }
+  body.theme-b ::-webkit-scrollbar-thumb {
+    background: #d3d3d3;
+  }
 }

@@ -22,8 +22,11 @@ if (parsed.html !== '') {
 
 dragndrop();
 // Makes the modal appears when clicking on the button //
-gv.newt.addEventListener('click', () => {
-    gv.modal.classList.add('active')
+const newtask = document.querySelectorAll('#newtask-btn, #mobile-ntb')
+newtask.forEach(button => {
+    button.addEventListener('click', () => {
+        gv.modal.classList.add('active')
+    })
 })
 
 // Form submit event //
