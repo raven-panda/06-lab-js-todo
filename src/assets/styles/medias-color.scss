@@ -2,6 +2,11 @@
     #logo #grad-start{
         stop-color: #000000;
     }
+    #srch-tools, header, #mod-c, .task-infos, footer{
+        svg {
+            fill: $textColor;
+        }
+    }
     header {
         background: $headerBackground;
     }
@@ -41,6 +46,10 @@
     .filter.active {
         background: $blueBg;
     }
+    .task.checked .check-case {
+        background: $blueBg;
+        svg { fill: $textColor }
+    }
 
     ::-webkit-scrollbar-track {
         border: $sclBorder;
@@ -72,7 +81,7 @@
         .logo-note {
             fill : $secondBD;
         }
-        #srch-tools, header, #mod-c, #task-infos, footer{
+        #srch-tools, header, #mod-c, .task-infos, footer{
             svg {
                 fill: $textD;
             }
@@ -104,6 +113,10 @@
         }
         .filter.active {
             background: $purpleD;
+        }
+
+        .task.checked .check-case {
+            background: $checkedD;
         }
 
         footer {
@@ -139,7 +152,7 @@
     .logo-note {
         fill : $secondBD;
     }
-    #srch-tools, header, #mod-c, #task-infos, footer{
+    #srch-tools, header, #mod-c, .task-infos, footer{
         svg {
             fill: $textD;
         }
@@ -173,6 +186,11 @@
         background: $purpleD;
     }
 
+    .task.checked .check-case {
+        background: $checkedD;
+        svg { fill: $textD }
+    }
+
     footer {
         background: $headerBD;
     }
@@ -189,6 +207,11 @@
         color: $textColor;
         #logo #grad-start{
             stop-color: #000000;
+        }
+        #srch-tools, header, #mod-c, .task-infos, footer{
+            svg {
+                fill: $textColor;
+            }
         }
         header {
             background: $headerBackground;
@@ -227,6 +250,11 @@
         }
         .logo-note {
             fill : $noteColor;
+        }
+
+        .task.checked .check-case {
+            background: $blueBg;
+            svg { fill: $textColor }
         }
 
         footer {

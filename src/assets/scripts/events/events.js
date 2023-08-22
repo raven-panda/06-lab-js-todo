@@ -80,6 +80,7 @@ gv.filters[0].addEventListener('click', function () {
         element.removeAttribute('style');
     })
 })
+
 // Not Finished Tasks filter //
 gv.filters[1].addEventListener('click', function () {
     gv.tasks.forEach(element => {

@@ -22,6 +22,7 @@
     padding: 18px;
     width: 100%;
     box-sizing: border-box;
+
     &.dragging {
         filter: brightness(80%);        
     }
@@ -31,10 +32,13 @@
     &.checked {
         text-decoration:line-through;
         color: $chkColor;
+        .check-case svg {
+            opacity: 1;
+        }
     }
 }
 
-#task-infos {
+.task-infos {
     @include flex(row, center, center, 14px);
     p {
         margin: 0;
@@ -46,14 +50,18 @@
 }
 .check-case {
     background: $checkBg;
-    padding: 0.7813rem;
+    padding: 4px;
     border-radius: 12.5px;
     &:hover {
         cursor: pointer;
     }
+    svg {
+        display: block;
+        opacity: 0;
+    }
 }
 
-#task-modify{
+.task-modify{
     svg {
         display: block;
         padding: 9px 12px;
