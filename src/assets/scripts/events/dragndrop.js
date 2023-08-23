@@ -14,6 +14,7 @@ export function dragndrop() {
     };
     
     draggables.forEach(draggable => {
+        
     
         draggable.addEventListener('drag', (e) => {
             const dragged = e.target;
@@ -57,5 +58,26 @@ export function dragndrop() {
                 return;
             };
         });
+
+        draggable.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+            console.log(e.target)
+            let touchloc = e.touches[0];
+            if (e.target) {
+                let touched = draggable;
+                touched.style.left = `calc(${touchloc.pageX}px - 40vw)`;
+                touched.style.top = `calc(${touchloc.pageY}px - 5vh)`;
+                touched.classList.add('touching');
+            }
+        })
+        draggable.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            if (e.target) {
+                let touched = draggable;
+                touched.style.transform = '';
+                touched.classList.remove('touching');
+            }
+        })
+
     });
 };

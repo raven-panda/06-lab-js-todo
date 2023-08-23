@@ -26,6 +26,11 @@
     &.dragging {
         filter: brightness(80%);        
     }
+    &.touching {
+        filter: brightness(80%);        
+        position: absolute;
+        width: 85vw;
+    }
     &.targetting {
         opacity: 50%;
     }

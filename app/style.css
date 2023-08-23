@@ -193,6 +193,11 @@ button.selected {
 .task.dragging {
   filter: brightness(80%);
 }
+.task.touching {
+  filter: brightness(80%);
+  position: absolute;
+  width: 85vw;
+}
 .task.targetting {
   opacity: 50%;
 }
