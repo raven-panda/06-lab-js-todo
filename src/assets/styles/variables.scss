@@ -33,6 +33,7 @@ $noteColor: #E1E1E1;
 
 // App //
 $appHeight: calc(100vh - $headerHeight);
+$mobappBg: rgba(160, 160, 160, 0.5);
 
 // Input //
 $inputBg : 98% / cover no-repeat url('./assets/images/searchlogo.svg'), #EEEEEE;
@@ -60,6 +61,7 @@ $greenD: #55B06E;
 $purpleD: #54407D;
 $shadow1 : rgba(0, 0, 0, 0.1);
 $checkedD: #8B78B1;
+$mobappBD: rgba(42, 42, 42, 0.5);
 
 // Header //
 $headerBD: #212121;

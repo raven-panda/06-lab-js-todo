@@ -1,19 +1,18 @@
-import { GlobalVariables } from "../var";
-import { DivElement, SvgElement, InputElement, ButtonElement, TaskTemplate, TextElement, FormElement } from "./elements";
-const gv = new GlobalVariables();
-gv.refresh();
+const delall = document.querySelector('#opt-da');
+const newtask = document.querySelector('#newtask-btn')
+const theme = document.querySelector('#opt-cm');
 
 // Footer //
 const footer = document.createElement('footer');
 document.body.appendChild(footer);
 
-const fDelall = gv.delall.cloneNode(true);
+const fDelall = delall.cloneNode(true);
 fDelall.id = 'mobile-oda';
 
-const fNewTask = gv.newt.cloneNode(true);
+const fNewTask = newtask.cloneNode(true);
 fNewTask.id = 'mobile-ntb';
 
-const fTheme = gv.theme.cloneNode(true);
+const fTheme = theme.cloneNode(true);
 fTheme.id = 'mobile-ocm';
 
 footer.append(fDelall, fNewTask, fTheme);

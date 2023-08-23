@@ -269,3 +269,20 @@
         }
     }
 }
+
+@media (max-width: 768px) and (prefers-color-scheme: dark){
+    #app {
+        background: $mobappBD;
+    }
+    body.theme-b #app {
+        background: $mobappBg;
+    }
+}
+@media (max-width: 768px) and (prefers-color-scheme: light){
+    #app {
+        background: $mobappBg;
+    }
+    body.theme-b #app {
+        background: $mobappBD;
+    }
+}

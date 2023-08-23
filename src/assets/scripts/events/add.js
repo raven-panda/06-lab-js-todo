@@ -1,35 +1,35 @@
-import { GlobalVariables } from "../var";
+//=-=-=-=-=-=-=-Imports and global variables-=-=-=-=-=-=-=//
 import { instanceTemplate, notasks, deleteTask, storeData } from "./functions";
 import { dragndrop } from "./dragndrop";
-const gv = new GlobalVariables();
+const taskbox = document.querySelector('#tasks-box');
+const modal = document.querySelector('#mod');
 
-// Refreshes query selectors in GlobalVariables,
-// call those functions to see if there is tasks (notasks) and refresh event listeners of bins (deleteTask).
-gv.refresh();
+// Call those functions to see if there is tasks (notasks) and refresh event listeners of bins (deleteTask).
 notasks();
-deleteTask()
+deleteTask();
 
 //=-=-=-=-=-=-=-Gather the stored HTML-=-=-=-=-=-=-=//
-const storeJSON = localStorage.getItem('task');
-const parsed = JSON.parse(storeJSON);
-if (parsed.html !== '') {
-    gv.tbox.innerHTML = parsed.html;
-    gv.refresh();
-    gv.tasks.forEach(element => {
+const stored = localStorage.getItem('task');
+if (stored !== '') {
+    taskbox.innerHTML = stored;
+    const tasks = document.querySelectorAll('.task');
+
+    tasks.forEach(element => {
         element.removeAttribute('style');
-    })
+    });
+
     notasks();
     deleteTask();
-}
+};
 dragndrop(); // Refresh the 'Drag and Drop' event listeners of tasks
 
 //=-=-=-=-Makes the modal appears when clicking on the button-=-=-=-=//
-const newtask = document.querySelectorAll('#newtask-btn, #mobile-ntb')
+const newtask = document.querySelectorAll('#newtask-btn, #mobile-ntb');
 newtask.forEach(button => {
     button.addEventListener('click', () => {
-        gv.modal.classList.add('active')
-    })
-})
+        modal.classList.add('active');
+    });
+});
 
 //=-=-=-=-=-=-=-Form submit event-=-=-=-=-=-=-=//
 const form = document.querySelector('#modal-form');
@@ -43,16 +43,13 @@ form.addEventListener('submit', function (e) {
         instanceTemplate(value);
 
         // Hides the dialog box
-        gv.modal.classList.remove('active');
+        modal.classList.remove('active');
 
-        // Refresh event listeners for bins, Drag and Drop, no task found message, and store the HTML in the local storage
-        notasks();
-        dragndrop();
-        deleteTask();
+        // Stores the HTML in the local storage
         storeData();
     } else {
-        // If the form is invalid, it'll not activate and add the class invalid to itself
+        // If the form is invalid, it'll not be activated and add the class 'invalid' to itself
         e.preventDefault();
         this.classList.add('invalid');
-    }
-})
+    };
+});

@@ -358,6 +358,8 @@ footer {
     padding: 30px;
     width: 100%;
     border-radius: 0;
+  }
+  body.theme-b div#component, div#component {
     background: none;
   }
   .logo-note {
@@ -392,6 +394,9 @@ footer {
   }
   div#component {
     padding: 0 2%;
+  }
+  #tasks-box {
+    max-height: 390px;
   }
   .filter {
     font-size: 10px;
@@ -648,5 +653,21 @@ footer {
   }
   body.theme-b ::-webkit-scrollbar-thumb {
     background: #d3d3d3;
+  }
+}
+@media (max-width: 768px) and (prefers-color-scheme: dark) {
+  #app {
+    background: rgba(42, 42, 42, 0.5);
+  }
+  body.theme-b #app {
+    background: rgba(160, 160, 160, 0.5);
+  }
+}
+@media (max-width: 768px) and (prefers-color-scheme: light) {
+  #app {
+    background: rgba(160, 160, 160, 0.5);
+  }
+  body.theme-b #app {
+    background: rgba(42, 42, 42, 0.5);
   }
 }

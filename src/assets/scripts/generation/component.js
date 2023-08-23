@@ -1,15 +1,13 @@
 //=-=-=-=-=-Imports-=-=-=-=-=//
-import { GlobalVariables } from "../var";
 import { DivElement, SvgElement, InputElement, ButtonElement, TaskTemplate, TextElement, FormElement } from "./elements";
-const gv = new GlobalVariables();
-gv.refresh();
+const app = document.querySelector('#app')
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 //           Creating Component            //
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 
 const component = new DivElement('component');
-component.appendTo(gv.app);
+component.appendTo(app);
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 //           Creating the Head             //
@@ -79,7 +77,7 @@ notask.appendTo(ntbox.element)
 
 // Modal Container //
 const modal = new DivElement('mod');
-modal.appendTo(gv.app);
+modal.appendTo(app);
 
 // Modal Box //
 const modbox = new DivElement('mod-c');

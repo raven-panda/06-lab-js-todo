@@ -5,7 +5,7 @@ import { SvgElement, DivElement } from "./elements";
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 
 const header = document.createElement('header');
-document.body.prepend(header)
+document.body.prepend(header);
 
 //=-=-=-=-=-=-=-Creating Logo-=-=-=-=-=-=-=//
 

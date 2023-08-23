@@ -1,15 +1,15 @@
-import { GlobalVariables } from '../var';
 import './add';
 import { notasks, storeData } from './functions';
 
-const gv = new GlobalVariables;
-gv.refresh();
+const tasks = document.querySelectorAll('.task');
+const filters = document.querySelectorAll('.filter');
+const modal = document.querySelector('#mod');
 
 //=-=-=-=-=-=-=-Delete all finished tasks-=-=-=-=-=-=-=//
 const delall = document.querySelectorAll('#opt-da, #mobile-oda');
 delall.forEach(del => {
-    del.addEventListener('dblclick', function() {
-        gv.tasks.forEach(task => {
+    del.addEventListener('click', function() {
+        tasks.forEach(task => {
             if (task.classList.contains('checked')) {
                 task.remove();
             }
@@ -29,9 +29,9 @@ theme.forEach(theme => {
 });
 
 //=-=-=-=-=-=-=-Quit Modal when clicking outside it-=-=-=-=-=-=-=//
-gv.modal.addEventListener('mousedown', function(e) {
-    if (e.target == gv.modal) {
-        gv.modal.classList.remove('active');
+modal.addEventListener('mousedown', function(e) {
+    if (e.target == modal) {
+        modal.classList.remove('active');
     };
 });
 
@@ -63,10 +63,10 @@ checkcase.forEach(check => {
 
 //=-=-=-=-=-=-=-Tasks filters-=-=-=-=-=-=-=//
 // Change style for the selected filter //
-gv.filters.forEach(filter => {
+filters.forEach(filter => {
     filter.addEventListener('click', function (e) {
         this.classList.add('active');
-        gv.filters.forEach(button => {
+        filters.forEach(button => {
             if (button !== this) {
                 button.classList.remove('active')
             }
@@ -75,30 +75,33 @@ gv.filters.forEach(filter => {
 })
 
 // All Tasks filter //
-gv.filters[0].addEventListener('click', function () {
-    gv.tasks.forEach(element => {
+filters[0].addEventListener('click', function () {
+    tasks.forEach(element => {
         element.removeAttribute('style');
     })
+    notasks();
 })
 
 // Not Finished Tasks filter //
-gv.filters[1].addEventListener('click', function () {
-    gv.tasks.forEach(element => {
+filters[1].addEventListener('click', function () {
+    tasks.forEach(element => {
         if (element.classList.contains('checked')) {
             element.style.display = 'none';
         } else {
             element.removeAttribute('style');
         }
     })
+    notasks();
 })
 
 // Finished Tasks filter //
-gv.filters[2].addEventListener('click', function () {
-    gv.tasks.forEach(element => {
+filters[2].addEventListener('click', function () {
+    tasks.forEach(element => {
         if (!element.classList.contains('checked')) {
             element.style.display = 'none';
         } else {
             element.removeAttribute('style');
         }
     })
+    notasks();
 })

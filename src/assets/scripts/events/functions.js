@@ -1,13 +1,9 @@
-import { GlobalVariables } from "../var";
-const gv = new GlobalVariables();
-gv.refresh();
+const taskbox = document.querySelector('#tasks-box');
+const notask = document.querySelector('#notasks');
 
 export function storeData() {
     const html = document.querySelector('#tasks-box').innerHTML;
-    const data = { html: html };
-    const dataJSON = JSON.stringify(data);
-
-    localStorage.setItem('task', dataJSON)
+    localStorage.setItem('task', html)
 }
 
 export function instanceTemplate(data, id = '') {
@@ -18,7 +14,7 @@ export function instanceTemplate(data, id = '') {
     
     title.textContent = data;
     
-    gv.tbox.prepend(instance);
+    taskbox.prepend(instance);
 }
 
 export function notasks() {
@@ -29,9 +25,9 @@ export function notasks() {
     });
     console.log(i, tasks.length);
     if (i === tasks.length) {
-        gv.notask.classList.add('nochild');
+        notask.classList.add('nochild');
     } else {
-        gv.notask.classList.remove('nochild');
+        notask.classList.remove('nochild');
     }
 }
 export function deleteTask() {
