@@ -19,8 +19,8 @@ export class SvgElement extends BaseElement{
         if (classe !== '') {
             this.element.classList.add(classe)
         }
-        this.element.style.width = `${width}px`;
-        this.element.style.height = `${height}px`;
+        this.element.setAttribute('width', `${width}`);
+        this.element.setAttribute('height', `${height}`);
         this.element.setAttribute('fill', fill);
         this.element.innerHTML = path;
         if (viewbox != '') {
@@ -91,7 +91,7 @@ export class TextElement extends BaseElement {
 }
 
 export class FormElement extends BaseElement {
-    constructor(id, action, method, nv) {
+    constructor(id, action, method, nv = '') {
         super();
         this.element = document.createElement('form');
         this.element.id = id;

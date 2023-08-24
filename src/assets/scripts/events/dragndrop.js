@@ -2,7 +2,8 @@ import { storeData } from './functions';
 
 //=-=-=-=-=-=-=-Drag and Drop-=-=-=-=-=-=-=//
 export function dragndrop() {
-    let draggables = document.querySelectorAll('#tasks-box > .task');
+    const draggables = document.querySelectorAll('#tasks-box > .task');
+    let activeDraggable = null;
 
     function swapElements(obj1, obj2) {
         let temp = document.createElement("div");
@@ -14,8 +15,8 @@ export function dragndrop() {
     };
     
     draggables.forEach(draggable => {
-        
     
+    //=-=-=-=-=-=-=-=-Mouse Drag and Drop-=-=-=-=-=-=-=-=//
         draggable.addEventListener('drag', (e) => {
             const dragged = e.target;
             dragged.classList.add('dragging');
@@ -58,26 +59,5 @@ export function dragndrop() {
                 return;
             };
         });
-
-        draggable.addEventListener('touchmove', function(e) {
-            e.preventDefault();
-            console.log(e.target)
-            let touchloc = e.touches[0];
-            if (e.target) {
-                let touched = draggable;
-                touched.style.left = `calc(${touchloc.pageX}px - 40vw)`;
-                touched.style.top = `calc(${touchloc.pageY}px - 5vh)`;
-                touched.classList.add('touching');
-            }
-        })
-        draggable.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            if (e.target) {
-                let touched = draggable;
-                touched.style.transform = '';
-                touched.classList.remove('touching');
-            }
-        })
-
     });
 };

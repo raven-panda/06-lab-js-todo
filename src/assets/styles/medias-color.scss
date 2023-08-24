@@ -270,6 +270,12 @@
     }
 }
 
+@media (min-width: 2000px) and (prefers-color-scheme: dark), (min-width: 2000px) and (prefers-color-scheme: light) {
+    body.theme-b #search input, #search input {
+        background-size: 40px;
+    }
+}
+
 @media (max-width: 768px) and (prefers-color-scheme: dark){
     #app {
         background: $mobappBD;

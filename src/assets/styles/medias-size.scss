@@ -1,3 +1,42 @@
+@media (min-width: 2000px) {
+    body, input, button, #mod-c label:nth-child(1) {
+        font-size: 2rem;
+    }
+    $headerHeight: 100px;
+    header {
+        min-height: $headerHeight;
+        &>svg, &>svg #clip0_103_264 rect, &>svg > path {
+            width: 200px;
+            height: 50px;
+        }
+    }
+    #opt-da {
+        width: 50px;
+        height: 65px;
+    }
+    #opt-cm {
+        width: 65px;
+        height: 65px;
+    }
+
+
+    .del-task {
+        height: 35px;
+        width: auto;
+    }
+    $appHeight: calc(100vh - ($headerHeight + $heightFooter));
+    #search {
+        grid: auto / 40vw 59px
+    }
+    #component {
+        box-sizing: border-box;
+        width: 80vw;
+        padding: 100px;
+    }
+    #mod-in-sct {
+        grid: auto/700px 59px
+    }
+}
 @media (max-width: 1225px) {
     #component {
         box-sizing: border-box;
@@ -6,6 +45,15 @@
     }
     #search {
         grid: auto / 50vw 54px;
+    }
+    .task {
+        padding: 10px 15px;
+    }
+    #tasks-box {
+        margin-top: 30px;
+        max-height: 228px;
+        padding-left: 0;
+        gap: 20px;
     }
 }
 
@@ -34,15 +82,6 @@
     .filter {
         padding: 4px 0;
     }
-    .task {
-        padding: 10px 15px;
-    }
-    #tasks-box {
-        margin-top: 30px;
-        max-height: 228px;
-        padding-left: 0;
-        gap: 20px;
-    }
     #srch-tools {
         gap: 10px;
     }
@@ -50,6 +89,9 @@
 
 @media (max-width: 425px) {
     $appHeight: calc(100vh - ($headerHeight + $heightFooter));
+    header {
+        justify-content: center;
+    }
     #app #search #newtask-btn, header #opt-da, header #opt-cm {
         display: none;
     }
