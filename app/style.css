@@ -128,18 +128,6 @@ button.selected {
   display: grid;
   grid: auto/repeat(3, 1fr);
 }
-#filterbox #all svg {
-  width: 19px;
-  height: 18px;
-}
-#filterbox #not-finished svg {
-  width: 15px;
-  height: 15px;
-}
-#filterbox #finished svg {
-  width: 22px;
-  height: 15px;
-}
 
 .filter {
   display: flex;
@@ -364,6 +352,9 @@ footer {
     height: 50px;
     width: auto;
   }
+  #app {
+    min-height: calc(100vh - 100px);
+  }
   #search {
     grid: auto/40vw 59px;
   }
@@ -408,6 +399,9 @@ footer {
     width: 100%;
     border-radius: 0;
   }
+  #tasks-box {
+    margin-top: 50px;
+  }
   body.theme-b div#component, div#component {
     background: none;
   }
@@ -446,6 +440,32 @@ footer {
   }
   footer {
     display: grid;
+  }
+}
+@media (max-width: 375px) {
+  .grab-task, .del-task, .check-case svg, .tt-logo {
+    width: auto;
+  }
+  #search input {
+    padding: 10px;
+  }
+  #filterbox .tt-logo {
+    height: 11px;
+  }
+  .grab-task {
+    height: 16px;
+  }
+  .del-task {
+    height: 18px;
+  }
+  .task-modify svg {
+    padding: 4px 6px;
+  }
+  .check-case svg {
+    height: 10px;
+  }
+  .task {
+    font-size: 0.75rem;
   }
 }
 @media (prefers-color-scheme: light) {
@@ -716,6 +736,11 @@ footer {
 @media (min-width: 2000px) and (prefers-color-scheme: dark), (min-width: 2000px) and (prefers-color-scheme: light) {
   body.theme-b #search input, #search input {
     background-size: 40px;
+  }
+}
+@media (max-width: 375px) and (prefers-color-scheme: dark), (min-width: 2000px) and (prefers-color-scheme: light) {
+  body.theme-b #search input, #search input {
+    background-size: 25px;
   }
 }
 @media (max-width: 768px) and (prefers-color-scheme: dark) {

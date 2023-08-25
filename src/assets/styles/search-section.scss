@@ -35,18 +35,6 @@ button {
 #filterbox {
     display: grid;
     grid: auto / repeat(3, 1fr);
-    #all svg {
-        width: 19px;
-        height: 18px;
-    }
-    #not-finished svg {
-        width: 15px;
-        height: 15px;
-    }
-    #finished svg {
-        width: 22px;
-        height: 15px;
-    }
 }
 .filter {
     @include flex(row, center, center, 10px);
