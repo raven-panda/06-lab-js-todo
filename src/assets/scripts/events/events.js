@@ -17,7 +17,7 @@ delall.forEach(del => {
         localStorage.clear();
         notasks();
         storeData();
-    })
+    });
 });
 
 //=-=-=-=-=-=-=-Change theme button event-=-=-=-=-=-=-=//
@@ -25,7 +25,7 @@ const theme = document.querySelectorAll('#opt-cm, #mobile-ocm');
 theme.forEach(theme => {
     theme.addEventListener('click', function () {
         document.body.classList.toggle('theme-b');
-    })
+    });
 });
 
 //=-=-=-=-=-=-=-Quit Modal when clicking outside it-=-=-=-=-=-=-=//
@@ -46,20 +46,30 @@ srchInp.addEventListener('keyup', () => {
             task.style.display = '';
         } else {
             task.style.display = 'none';
-        }
-    })
+        };
+    });
     notasks();
-})
+});
 
 //=-=-=-=-=-=-=-When the finished task button is clicked-=-=-=-=-=-=-=//
-const checkcase = document.querySelectorAll('#tasks-box .check-case');
-checkcase.forEach(check => {
-    check.addEventListener('click', function() {
-        const parent = check.parentElement.parentElement;
-        parent.classList.toggle('checked');
-        storeData();
-    })
-})
+tasks.forEach(task => {
+    task.addEventListener('click', function(e) {
+        const text = task.querySelector('p');
+        const check = task.querySelector('.check-case svg');
+        if (e.target === check || e.target === text) {
+            task.classList.toggle('checked');
+            storeData();
+            if (filters[1].classList.contains('active') && task.classList.contains('checked')) {
+                task.style.display = 'none';
+                notasks();
+            };
+            if (filters[2].classList.contains('active') && task.classList.contains('checked') === false) {
+                task.style.display = 'none';
+                notasks();
+            };
+        };
+    });
+});
 
 //=-=-=-=-=-=-=-Tasks filters-=-=-=-=-=-=-=//
 // Change style for the selected filter //
@@ -69,16 +79,16 @@ filters.forEach(filter => {
         filters.forEach(button => {
             if (button !== this) {
                 button.classList.remove('active')
-            }
-        })
-    })
-})
+            };
+        });
+    });
+});
 
 // All Tasks filter //
 filters[0].addEventListener('click', function () {
     tasks.forEach(element => {
         element.removeAttribute('style');
-    })
+    });
     notasks();
 })
 
@@ -89,8 +99,8 @@ filters[1].addEventListener('click', function () {
             element.style.display = 'none';
         } else {
             element.removeAttribute('style');
-        }
-    })
+        };
+    });
     notasks();
 })
 
@@ -101,7 +111,7 @@ filters[2].addEventListener('click', function () {
             element.style.display = 'none';
         } else {
             element.removeAttribute('style');
-        }
-    })
+        };
+    });
     notasks();
 })

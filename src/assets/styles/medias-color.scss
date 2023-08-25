@@ -50,6 +50,11 @@
         background: $blueBg;
         svg { fill: $textColor }
     }
+    .check-case {
+        &~p:hover {
+            color: lessVisible($textColor, 0.5);
+        }
+    }
 
     ::-webkit-scrollbar-track {
         border: $sclBorder;
@@ -105,8 +110,14 @@
             color: $textD;
         }
         .task.checked {
-            color: $chkD;
+            color: lessVisible($textD, 0.5);
         }
+        .check-case {
+            &~p:hover {
+                color: lessVisible($textD, 0.5);
+            }
+        }
+    
         .filter:nth-child(2) {
             border-right: solid 1px $textD;
             border-left: solid 1px $textD;
@@ -176,8 +187,15 @@
         color: $textD;
     }
     .task.checked {
-        color: $chkD;
+        color: lessVisible($textD, 0.5);
     }
+
+    .check-case {
+        &~p:hover {
+            color: lessVisible($textD, 0.5);
+        }
+    }
+
     .filter:nth-child(2) {
         border-right: solid 1px $textD;
         border-left: solid 1px $textD;
@@ -239,6 +257,12 @@
             background: $secondBg;
             color: $textColor;
         }
+        .check-case {
+            &~p:hover {
+                color: lessVisible($textColor, 0.5);
+            }
+        }
+    
         .filter {
             &:nth-child(2) {
                 border-right: solid 1px $textColor;
@@ -255,6 +279,10 @@
         .task.checked .check-case {
             background: $blueBg;
             svg { fill: $textColor }
+        }
+
+        .task.checked {
+            color: lessVisible($textColor, 0.5);
         }
 
         footer {

@@ -57,7 +57,7 @@
     background: $checkBg;
     padding: 4px;
     border-radius: 12.5px;
-    &:hover {
+    &:hover, &~p:hover {
         cursor: pointer;
     }
     svg {

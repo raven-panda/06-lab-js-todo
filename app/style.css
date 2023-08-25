@@ -229,7 +229,7 @@ button.selected {
   padding: 4px;
   border-radius: 12.5px;
 }
-.check-case:hover {
+.check-case:hover, .check-case ~ p:hover {
   cursor: pointer;
 }
 .check-case svg {
@@ -361,7 +361,7 @@ footer {
     height: 65px;
   }
   .del-task {
-    height: 35px;
+    height: 50px;
     width: auto;
   }
   #search {
@@ -498,6 +498,9 @@ footer {
   .task.checked .check-case svg {
     fill: #020202;
   }
+  .check-case ~ p:hover {
+    color: rgba(2, 2, 2, 0.5);
+  }
   ::-webkit-scrollbar-track {
     border: solid 1px rgb(231, 231, 231);
   }
@@ -548,6 +551,9 @@ footer {
     color: rgb(226, 239, 255);
   }
   body.theme-b .task.checked {
+    color: rgba(226, 239, 255, 0.5);
+  }
+  body.theme-b .check-case ~ p:hover {
     color: rgba(226, 239, 255, 0.5);
   }
   body.theme-b .filter:nth-child(2) {
@@ -614,6 +620,9 @@ footer {
   .task.checked {
     color: rgba(226, 239, 255, 0.5);
   }
+  .check-case ~ p:hover {
+    color: rgba(226, 239, 255, 0.5);
+  }
   .filter:nth-child(2) {
     border-right: solid 1px rgb(226, 239, 255);
     border-left: solid 1px rgb(226, 239, 255);
@@ -672,6 +681,9 @@ footer {
     background: #EDEDED;
     color: #020202;
   }
+  body.theme-b .check-case ~ p:hover {
+    color: rgba(2, 2, 2, 0.5);
+  }
   body.theme-b .filter:nth-child(2) {
     border-right: solid 1px #020202;
     border-left: solid 1px #020202;
@@ -687,6 +699,9 @@ footer {
   }
   body.theme-b .task.checked .check-case svg {
     fill: #020202;
+  }
+  body.theme-b .task.checked {
+    color: rgba(2, 2, 2, 0.5);
   }
   body.theme-b footer {
     background: #EDEDED;

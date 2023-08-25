@@ -1,5 +1,5 @@
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
-//                 Mixins                  //
+//            Mixins/functions             //
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 @mixin flex($drc, $alg : start, $just : left, $gap: 0px) {
     display: flex;
@@ -7,6 +7,12 @@
     align-items: $alg;
     justify-content: $just;
     gap: $gap;
+}
+
+@function lessVisible($col, $factor) {
+    $orAlpha: alpha($col);
+    $newAlpha: $orAlpha * $factor;
+    @return rgba(red($col), green($col), blue($col), $newAlpha);
 }
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
