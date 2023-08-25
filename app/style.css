@@ -387,12 +387,6 @@ footer {
   }
 }
 @media (max-width: 768px) {
-  body.mob-act #app {
-    justify-content: flex-start;
-  }
-  body.mob-act #tasks-box {
-    max-height: 115px;
-  }
   #app #head {
     display: block;
     width: 100%;

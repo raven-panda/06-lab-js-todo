@@ -115,15 +115,3 @@ filters[2].addEventListener('click', function () {
     });
     notasks();
 })
-
-const input = document.querySelector('#search input');
-input.addEventListener('focusin', () => {
-    if (window.matchMedia('(max-width: 768px)').matches) {
-        document.body.classList.add('mob-act');
-    }
-})
-input.addEventListener('focusout', () => {
-    if (document.body.classList.contains('mob-act')) {
-        document.body.classList.remove('mob-act');
-    }
-})

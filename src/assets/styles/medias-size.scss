@@ -58,14 +58,6 @@
     }
 }
 @media (max-width: 768px) {
-    body.mob-act {
-        #app {
-            justify-content: flex-start;
-        }
-        #tasks-box {
-            max-height: 115px;
-        }
-    }
     #app{
         #head {
             display: block;
