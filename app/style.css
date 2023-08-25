@@ -82,8 +82,9 @@ header {
 }
 
 #head {
-  display: grid;
-  grid: auto/160px 1fr 160px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 60px;
   align-items: center;
   justify-items: center;
 }
@@ -136,11 +137,6 @@ button.selected {
   justify-content: center;
   gap: 10px;
   padding: 7px 0;
-}
-
-.logo-note {
-  width: 103px;
-  height: 103px;
 }
 
 #notasks-title {
@@ -215,7 +211,7 @@ button.selected {
 .check-case {
   background: rgba(0, 0, 0, 0.1);
   padding: 4px;
-  border-radius: 12.5px;
+  border-radius: 100%;
 }
 .check-case:hover, .check-case ~ p:hover {
   cursor: pointer;
@@ -278,8 +274,6 @@ footer {
   display: none;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  left: 0;
-  top: 50px;
   width: 100%; /* Full width */
   height: calc(100vh - 50px); /* Full height */
   overflow: auto; /* Enable scroll if needed */
@@ -331,7 +325,37 @@ footer {
 
 @media (min-width: 2000px) {
   body, input, button, #mod-c label:nth-child(1) {
-    font-size: 2rem;
+    font-size: 1.6rem;
+  }
+  .task, #search, #filterbox {
+    border-radius: 15px;
+  }
+  #opt-da, #opt-cm, .del-task, .logo-note, .grab-task, #newtask-btn svg, #mod-c #mod-add svg, .check-case svg {
+    width: auto;
+  }
+  .grab-task, .del-task, #newtask-btn svg, #mod-c #mod-add svg {
+    height: 35px;
+  }
+  #opt-da, #opt-cm, #newtask-btn svg, #mod-c #mod-add svg {
+    height: 50px;
+  }
+  .logo-note {
+    height: 170px;
+  }
+  .check-case {
+    padding: 8px;
+  }
+  .check-case svg {
+    height: 25px;
+  }
+  #search {
+    grid: auto/40vw 75px;
+  }
+  input {
+    padding: 20px 30px;
+  }
+  #mod-in-sct {
+    grid: auto/700px 75px;
   }
   header {
     min-height: 100px;
@@ -340,34 +364,31 @@ footer {
     width: 200px;
     height: 50px;
   }
-  #opt-da {
-    width: 50px;
-    height: 65px;
-  }
-  #opt-cm {
-    width: 65px;
-    height: 65px;
-  }
-  .del-task {
-    height: 50px;
-    width: auto;
+  #tasks-box {
+    max-height: 480px;
   }
   #app {
     min-height: calc(100vh - 100px);
   }
-  #search {
-    grid: auto/40vw 59px;
+  #mod {
+    height: calc(100vh - 100px);
   }
   #component {
     box-sizing: border-box;
     width: 80vw;
     padding: 100px;
   }
-  #mod-in-sct {
-    grid: auto/700px 59px;
+  .task-infos {
+    gap: 25px;
+  }
+  .task {
+    padding: 1.5625rem 2.5rem;
   }
 }
 @media (max-width: 1225px) {
+  #head {
+    column-gap: 15px;
+  }
   #component {
     box-sizing: border-box;
     width: 90vw;
@@ -735,7 +756,7 @@ footer {
 }
 @media (min-width: 2000px) and (prefers-color-scheme: dark), (min-width: 2000px) and (prefers-color-scheme: light) {
   body.theme-b #search input, #search input {
-    background-size: 40px;
+    background-size: 50px;
   }
 }
 @media (max-width: 375px) and (prefers-color-scheme: dark), (min-width: 2000px) and (prefers-color-scheme: light) {

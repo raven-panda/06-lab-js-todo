@@ -1,8 +1,46 @@
 @media (min-width: 2000px) {
+    // Font size
     body, input, button, #mod-c label:nth-child(1) {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
+    .task, #search, #filterbox {
+        border-radius: 15px;
+    }
+
+    // SVGs size
+    #opt-da, #opt-cm, .del-task, .logo-note, .grab-task, #newtask-btn svg, .check-case svg {
+        width: auto;
+    }
+    .grab-task, .del-task, #newtask-btn svg {
+        height: 35px;
+    }
+    #opt-da, #opt-cm, #newtask-btn svg {
+        height: 50px;
+    }
+    .logo-note {
+        height: 170px;
+    }
+    .check-case {
+        padding: 8px;
+        svg {
+            height: 25px;
+        }
+    }
+    // Form size
+    #search {
+        grid: auto / 40vw 75px;
+    }
+    input {
+        padding: 20px 30px;
+    }
+    #mod-in-sct {
+        grid: auto/700px 75px
+    }
+
+    // Containers size
     $headerHeight: 100px;
+    $appHeight: calc(100vh - ($headerHeight));
+
     header {
         min-height: $headerHeight;
         &>svg, &>svg #clip0_103_264 rect, &>svg > path {
@@ -10,35 +48,31 @@
             height: 50px;
         }
     }
-    #opt-da {
-        width: 50px;
-        height: 65px;
+    #tasks-box {
+        max-height: 480px;
     }
-    #opt-cm {
-        width: 65px;
-        height: 65px;
-    }
-    .del-task {
-        height: 50px;
-        width: auto;
-    }
-    $appHeight: calc(100vh - ($headerHeight));
     #app {
         min-height: $appHeight;
     }
-    #search {
-        grid: auto / 40vw 59px
+    #mod {
+        height: $appHeight;
     }
     #component {
         box-sizing: border-box;
         width: 80vw;
         padding: 100px;
     }
-    #mod-in-sct {
-        grid: auto/700px 59px
+    .task-infos {
+        gap: 25px;
+    }
+    .task {
+        padding: 1.5625rem 2.5rem;
     }
 }
 @media (max-width: 1225px) {
+    #head {
+        column-gap: 15px;
+    }
     #component {
         box-sizing: border-box;
         width: 90vw;
@@ -118,7 +152,6 @@
     }
 }
 @media (max-width: 375px) {
-
     .grab-task, .del-task, .check-case svg, .tt-logo {
         width: auto;
     }

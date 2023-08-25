@@ -56,7 +56,7 @@
 .check-case {
     background: $checkBg;
     padding: 4px;
-    border-radius: 12.5px;
+    border-radius: 100%;
     &:hover, &~p:hover {
         cursor: pointer;
     }

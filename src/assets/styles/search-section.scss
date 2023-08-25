@@ -1,6 +1,7 @@
 #head {
-    display: grid;
-    grid: auto / 160px 1fr 160px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 60px;
     align-items: center;
     justify-items: center;
 }
@@ -39,8 +40,4 @@ button {
 .filter {
     @include flex(row, center, center, 10px);
     padding : 7px 0;
-}
-.logo-note {
-    width: 103px;
-    height: 103px;
 }
