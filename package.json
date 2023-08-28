@@ -26,7 +26,6 @@
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
     "serve": "webpack serve",
-    "sd": "concurrently \"npm run build:dev\" \"npm run watch\" \"npm run serve\"",
-    "sp": "concurrently \"npm run build\" \"npm run watch\" \"npm run serve\""
+    "sd": "concurrently \"npm run build:dev\" \"npm run watch\" \"npm run serve\""
   }
 }

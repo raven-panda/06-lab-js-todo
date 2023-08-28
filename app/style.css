@@ -221,15 +221,27 @@ button.selected {
   opacity: 0;
 }
 
+.task-opt {
+  display: flex;
+  flex-direction: row;
+}
+
 .task-modify svg {
-  display: block;
+  padding: 9px;
+}
+
+.task-delete svg {
   padding: 9px 12px;
 }
-.task-modify:hover {
+
+.task-modify svg, .task-delete svg {
+  display: block;
+}
+.task-modify:hover, .task-delete:hover {
   border-radius: 100%;
   overflow: hidden;
 }
-.task-modify:hover svg {
+.task-modify:hover svg, .task-delete:hover svg {
   background-color: rgba(0, 0, 0, 0.1);
   cursor: pointer;
   filter: contrast(200%);
@@ -479,7 +491,7 @@ footer {
   .del-task {
     height: 18px;
   }
-  .task-modify svg {
+  .task-delete svg, .task-modify svg {
     padding: 4px 6px;
   }
   .check-case svg {
@@ -493,7 +505,7 @@ footer {
   #logo #grad-start {
     stop-color: #000000;
   }
-  #srch-tools svg, header svg, #mod-c svg, .task-infos svg, footer svg {
+  #srch-tools svg, header svg, #mod-c svg, .task-infos svg, footer svg, .task-modify svg {
     fill: #020202;
   }
   header {
@@ -570,7 +582,7 @@ footer {
   body.theme-b .logo-note {
     fill: #4A4A4A;
   }
-  body.theme-b #srch-tools svg, body.theme-b header svg, body.theme-b #mod-c svg, body.theme-b .task-infos svg, body.theme-b footer svg {
+  body.theme-b #srch-tools svg, body.theme-b header svg, body.theme-b #mod-c svg, body.theme-b .task-infos svg, body.theme-b footer svg, body.theme-b .task-modify svg {
     fill: rgb(226, 239, 255);
   }
   body.theme-b #search input {
@@ -637,7 +649,7 @@ footer {
   .logo-note {
     fill: #4A4A4A;
   }
-  #srch-tools svg, header svg, #mod-c svg, .task-infos svg, footer svg {
+  #srch-tools svg, header svg, #mod-c svg, .task-infos svg, footer svg, .task-modify svg {
     fill: rgb(226, 239, 255);
   }
   #search input {
@@ -693,7 +705,7 @@ footer {
   body.theme-b #logo #grad-start {
     stop-color: #000000;
   }
-  body.theme-b #srch-tools svg, body.theme-b header svg, body.theme-b #mod-c svg, body.theme-b .task-infos svg, body.theme-b footer svg {
+  body.theme-b #srch-tools svg, body.theme-b header svg, body.theme-b #mod-c svg, body.theme-b .task-infos svg, body.theme-b footer svg, body.theme-b .task-modify svg {
     fill: #020202;
   }
   body.theme-b header {

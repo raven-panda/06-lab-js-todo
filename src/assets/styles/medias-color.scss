@@ -2,7 +2,7 @@
     #logo #grad-start{
         stop-color: #000000;
     }
-    #srch-tools, header, #mod-c, .task-infos, footer{
+    #srch-tools, header, #mod-c, .task-infos, footer, .task-modify {
         svg {
             fill: $textColor;
         }
@@ -86,7 +86,7 @@
         .logo-note {
             fill : $secondBD;
         }
-        #srch-tools, header, #mod-c, .task-infos, footer{
+        #srch-tools, header, #mod-c, .task-infos, footer, .task-modify {
             svg {
                 fill: $textD;
             }
@@ -163,7 +163,7 @@
     .logo-note {
         fill : $secondBD;
     }
-    #srch-tools, header, #mod-c, .task-infos, footer{
+    #srch-tools, header, #mod-c, .task-infos, footer, .task-modify {
         svg {
             fill: $textD;
         }
@@ -226,7 +226,7 @@
         #logo #grad-start{
             stop-color: #000000;
         }
-        #srch-tools, header, #mod-c, .task-infos, footer{
+        #srch-tools, header, #mod-c, .task-infos, footer, .task-modify {
             svg {
                 fill: $textColor;
             }

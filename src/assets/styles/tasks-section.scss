@@ -66,10 +66,21 @@
     }
 }
 
-.task-modify{
+.task-opt {
+    display: flex;
+    flex-direction: row;
+}
+
+.task-modify svg {
+    padding: 9px;
+}
+.task-delete svg {
+    padding: 9px 12px;
+}
+
+.task-modify, .task-delete {
     svg {
         display: block;
-        padding: 9px 12px;
     }
     &:hover {
         border-radius: 100%;
