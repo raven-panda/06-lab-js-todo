@@ -6,18 +6,16 @@ const modal = document.querySelector('#mod');
 
 refreshEvents();
 
-//=-=-=-=-=-=-=-Gather the stored HTML-=-=-=-=-=-=-=//
-const stored = localStorage.getItem('task');
+//=-=-=-=-=-=-=-Gather the stored JSON-=-=-=-=-=-=-=//
+const stored = localStorage.getItem('taskJSON');
 if (stored !== '') {
-    taskbox.innerHTML = stored;
-    const tasks = document.querySelectorAll('.task');
-
-    tasks.forEach(element => {
-        element.removeAttribute('style');
-    });
-
+    const parsedJSON = JSON.parse(stored);
+    const arr = Object.values(parsedJSON);
+    arr.forEach(element => {
+        instanceTemplate(element.name, element.checked);
+    })
     refreshEvents();
-};
+}
 dragndrop(); // Refresh the 'Drag and Drop' event listeners of tasks
 
 //=-=-=-=-Makes the modal appears when clicking on the button-=-=-=-=//
@@ -37,11 +35,12 @@ form.addEventListener('submit', function (e) {
         this.classList.remove('invalid');
 
         // Create a task with the value returned by the form (input)
-        let value = this.querySelector('input').value;
-        instanceTemplate(value);
+        const input = this.querySelector('input');
+        instanceTemplate(input.value);
 
         // Hides the dialog box
         modal.classList.remove('active');
+        input.value = '';
 
         // Stores the HTML in the local storage
         refreshEvents();

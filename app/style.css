@@ -47,6 +47,7 @@ button {
 }
 
 input {
+  min-width: 0;
   border-radius: 10px 0 0 10px;
   border: solid 2px transparent;
   padding: 13px;
@@ -287,7 +288,7 @@ footer {
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   width: 100%; /* Full width */
-  height: calc(100vh - 50px); /* Full height */
+  min-height: calc(100vh - 50px); /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
@@ -456,10 +457,10 @@ footer {
   #app #search #newtask-btn, #app #search #mod-c #mod-add, #mod-c #app #search #mod-add, header #opt-da, header #opt-cm {
     display: none;
   }
-  #app {
+  #app, #mod {
     min-height: calc(100vh - 100px);
   }
-  #app #search {
+  #app #search, #mod #search {
     grid: auto/auto;
   }
   div#component {
@@ -473,6 +474,12 @@ footer {
   }
   footer {
     display: grid;
+  }
+  #mod-c {
+    box-sizing: border-box;
+  }
+  #mod-in-sct {
+    grid: auto/1fr 54px;
   }
 }
 @media (max-width: 375px) {

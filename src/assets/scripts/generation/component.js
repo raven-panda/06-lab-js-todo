@@ -27,7 +27,7 @@ const tools = new DivElement('srch-tools');
 tools.appendTo(head.element)
 
 // Search Section //
-const search = new DivElement('search');
+const search = new FormElement('search');
 search.appendTo(tools.element);
 
 const input = new InputElement('task-search', 'Search for a task...');
@@ -73,7 +73,7 @@ ntbox.appendTo(component.element);
 const notask = new TextElement('p', 'notasks', 'No task to display. You can add one by clicking the + button above.')
 notask.appendTo(ntbox.element)
 
-//=-=-=-=-=-Creating Elements of the head-=-=-=-=-=//
+//=-=-=-=-=-Creating Elements of the modal box-=-=-=-=-=//
 
 // Modal Container //
 const modal = new DivElement('mod');

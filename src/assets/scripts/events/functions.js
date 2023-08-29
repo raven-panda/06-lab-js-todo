@@ -1,7 +1,6 @@
 import { checkTask, deleteTask, modifTask } from "./events";
 
 const taskbox = document.querySelector('#tasks-box');
-const tasks = document.querySelectorAll('.task');
 const notask = document.querySelector('#notasks');
 
 export function refreshEvents(_notask = true, _checktask = true, _modify = true, _delete = true) {
@@ -10,20 +9,28 @@ export function refreshEvents(_notask = true, _checktask = true, _modify = true,
     if (_modify) deleteTask();
     if (_delete) modifTask();
 }
-
 export function storeData() {
-    const html = document.querySelector('#tasks-box').innerHTML;
-    localStorage.setItem('task', html)
+    const tasks = document.querySelectorAll('.task');
+    const object = {};
+    for (let i = tasks.length - 1; i >= 0; i--) {
+        object[`task${i + 1}`] = {
+            name : tasks[i].querySelector('p').textContent,
+            checked : tasks[i].classList.contains('checked') ? true : false
+        };
+    }
+    localStorage.setItem('taskJSON', JSON.stringify(object));
 }
 
-export function instanceTemplate(data, id = '') {
+export function instanceTemplate(data, classe = '') {
     const template = document.querySelector('#task-temp');
     const instance = template.content.querySelector('.task').cloneNode(true);
-    instance.id = id;
     const title = instance.querySelector('p');
-    
     title.textContent = data;
-    
+
+    if (classe === true) {
+        instance.classList.add('checked');
+    };
+
     taskbox.prepend(instance);
 }
 
