@@ -2,13 +2,13 @@
 class BaseElement {
     appendTo(parent) {
         parent.appendChild(this.element)
-    }
+    };
     cloneInto(parent) {
         parent.appendChild(this.element.cloneNode(true));
-    }
-    draggable(bool) {
-        this.element.draggable = bool;
-    }
+    };
+    draggable(isIt) {
+        this.element.draggable = isIt;
+    };
 }
 
 export class SvgElement extends BaseElement{
@@ -17,8 +17,12 @@ export class SvgElement extends BaseElement{
         this.element = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
         this.element.id = id;
         if (classe !== '') {
-            this.element.classList.add(classe)
-        }
+            if (Array.isArray(classe)) {
+                classe.forEach(c => this.element.classList.add(c))
+            } else {
+                this.element.classList.add(classe);
+            }
+        };
         this.element.setAttribute('width', `${width}`);
         this.element.setAttribute('height', `${height}`);
         this.element.setAttribute('fill', fill);

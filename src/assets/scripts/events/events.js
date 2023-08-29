@@ -1,9 +1,7 @@
 import { notasks, storeData } from './functions';
 
-
 const filters = document.querySelectorAll('.filter');
 const modal = document.querySelector('#mod');
-
 
 const form = document.querySelector('#search');
 form.addEventListener('submit', e => {
@@ -36,8 +34,13 @@ theme.forEach(theme => {
 
 //=-=-=-=-=-=-=-Quit Modal when clicking outside it-=-=-=-=-=-=-=//
 modal.addEventListener('mousedown', function(e) {
-    if (e.target == modal) {
+    if (e.target == modal && e.button === 0) {
         modal.classList.remove('active');
+        setTimeout(() => {
+            modal.classList.add('inactive');
+        }, 500);
+        const hintMessage = document.querySelector('#mod-msg-box');
+        hintMessage.removeAttribute('class');
     };
 });
 
@@ -131,6 +134,7 @@ export function checkTask() {
         });
     });
 }
+
 //=-=-=-=-=-=-=-Delete a task by clicking the red bin-=-=-=-=-=-=-=//
 export function deleteTask() {
     const bins = document.querySelectorAll('#tasks-box .del-task');

@@ -1,5 +1,45 @@
+
+@keyframes modalHint {
+    from {
+        top: -15px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+@keyframes modalHintClose {
+    from {
+        opacity: 1;
+        top: 0px
+    }
+    to {
+        opacity: 0;
+        top: -15px;
+    }
+}
+
+@keyframes modalFadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes modalFadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
 #mod {
-    display: none;
+    @include flex(column, center, center);
+    animation: modalFadeout 0.6s ease;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     width: 100%; /* Full width */
@@ -8,7 +48,23 @@
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     &.active{
-        @include flex(column, center, center);
+        animation: modalFadein 0.5s ease;
+    }
+    &.inactive {
+        display: none;
+    }
+}
+
+#mod-msg-box {
+    animation: modalHintClose 0.5s ease forwards;
+    padding: 0 15px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    &.shown {
+        display: block;
+        opacity: 0;
+        animation: modalHint 0.5s ease forwards;
     }
 }
 

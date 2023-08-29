@@ -1,28 +1,32 @@
 //=-=-=-=-=-=-=-Imports and global variables-=-=-=-=-=-=-=//
-import { instanceTemplate, refreshEvents, storeData } from "./functions";
+import { howToCloseModal, instanceTemplate, refreshEvents, storeData } from "./functions";
 import { dragndrop } from "./dragndrop";
-const taskbox = document.querySelector('#tasks-box');
-const modal = document.querySelector('#mod');
 
 refreshEvents();
 
 //=-=-=-=-=-=-=-Gather the stored JSON-=-=-=-=-=-=-=//
 const stored = localStorage.getItem('taskJSON');
-if (stored !== '') {
+if (stored) {
     const parsedJSON = JSON.parse(stored);
     const arr = Object.values(parsedJSON);
     arr.forEach(element => {
         instanceTemplate(element.name, element.checked);
     })
     refreshEvents();
-}
+};
 dragndrop(); // Refresh the 'Drag and Drop' event listeners of tasks
 
 //=-=-=-=-Makes the modal appears when clicking on the button-=-=-=-=//
 const newtask = document.querySelectorAll('#newtask-btn, #mobile-ntb');
+const modal = document.querySelector('#mod');
 newtask.forEach(button => {
     button.addEventListener('click', () => {
-        modal.classList.add('active');
+        if (modal.classList.contains('inactive')) {
+            modal.classList.replace('inactive', 'active');
+        } else {
+            modal.classList.add('active');
+        }
+        howToCloseModal();
     });
 });
 
@@ -34,11 +38,11 @@ form.addEventListener('submit', function (e) {
         // Removes invalid class if the user attempted a wrong input
         this.classList.remove('invalid');
 
-        // Create a task with the value returned by the form (input)
+        // Create a task with the value returned by the form
         const input = this.querySelector('input');
         instanceTemplate(input.value);
 
-        // Hides the dialog box
+        // Hides the modal window
         modal.classList.remove('active');
         input.value = '';
 

@@ -8,7 +8,16 @@ export function refreshEvents(_notask = true, _checktask = true, _modify = true,
     if (_checktask) checkTask();
     if (_modify) deleteTask();
     if (_delete) modifTask();
-}
+};
+
+export function howToCloseModal() {
+    const hintMessage = document.querySelector('#mod-msg-box');
+    hintMessage.classList.add('shown');
+    setTimeout(() => {
+        hintMessage.removeAttribute('class');
+    }, 5000);
+};
+
 export function storeData() {
     const tasks = document.querySelectorAll('.task');
     const object = {};
@@ -19,7 +28,7 @@ export function storeData() {
         };
     }
     localStorage.setItem('taskJSON', JSON.stringify(object));
-}
+};
 
 export function instanceTemplate(data, classe = '') {
     const template = document.querySelector('#task-temp');
@@ -32,7 +41,7 @@ export function instanceTemplate(data, classe = '') {
     };
 
     taskbox.prepend(instance);
-}
+};
 
 export function notasks() {
     const tasks = document.querySelectorAll('#tasks-box .task');
@@ -45,4 +54,4 @@ export function notasks() {
     } else {
         notask.classList.remove('nochild');
     }
-}
+};

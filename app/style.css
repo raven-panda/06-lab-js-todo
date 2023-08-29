@@ -283,8 +283,49 @@ footer {
   width: 26px;
 }
 
+@keyframes modalHint {
+  from {
+    top: -15px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+@keyframes modalHintClose {
+  from {
+    opacity: 1;
+    top: 0px;
+  }
+  to {
+    opacity: 0;
+    top: -15px;
+  }
+}
+@keyframes modalFadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes modalFadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 #mod {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  animation: modalFadeout 0.6s ease;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   width: 100%; /* Full width */
@@ -294,11 +335,23 @@ footer {
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 #mod.active {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0px;
+  animation: modalFadein 0.5s ease;
+}
+#mod.inactive {
+  display: none;
+}
+
+#mod-msg-box {
+  animation: modalHintClose 0.5s ease forwards;
+  padding: 0 15px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+}
+#mod-msg-box.shown {
+  display: block;
+  opacity: 0;
+  animation: modalHint 0.5s ease forwards;
 }
 
 #mod-c {
@@ -522,11 +575,14 @@ footer {
     background: top/cover no-repeat linear-gradient(180deg, #FED0D0 0%, #FFF0CB 100%);
     color: #020202;
   }
+  #mod-msg-box {
+    background: rgba(254, 254, 254, 0.6);
+  }
   #component, #mod-c {
     background: #FEFEFE;
   }
   #search input {
-    background: 98%/cover no-repeat url(assets/images/searchlogo.svg), #EEEEEE;
+    background: 98%/cover no-repeat url("data:image/svg+xml,%3Csvg width=%2732%27 height=%2732%27 viewBox=%270 0 32 32%27 fill=%27%23999%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z%27/%3E%3C/svg%3E"), #EEEEEE;
     background-size: 32px;
   }
   input {
@@ -583,6 +639,9 @@ footer {
   body.theme-b header {
     background: #212121;
   }
+  body.theme-b #mod-msg-box {
+    background: #303030;
+  }
   body.theme-b #component, body.theme-b #mod-c {
     background-color: #303030;
   }
@@ -593,7 +652,7 @@ footer {
     fill: rgb(226, 239, 255);
   }
   body.theme-b #search input {
-    background: 98%/cover no-repeat url(assets/images/searchlogo.svg), #4A4A4A;
+    background: 98%/cover no-repeat url("data:image/svg+xml,%3Csvg width=%2732%27 height=%2732%27 viewBox=%270 0 32 32%27 fill=%27%23999%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z%27/%3E%3C/svg%3E"), #4A4A4A;
     background-size: 32px;
   }
   body.theme-b input {
@@ -650,6 +709,9 @@ footer {
     background: top/cover no-repeat linear-gradient(225deg, #000003 0%, #00063A 100%);
     color: rgb(226, 239, 255);
   }
+  #mod-msg-box {
+    background: #303030;
+  }
   #component, #mod-c {
     background-color: #303030;
   }
@@ -660,7 +722,7 @@ footer {
     fill: rgb(226, 239, 255);
   }
   #search input {
-    background: 98%/cover no-repeat url(assets/images/searchlogo.svg), #4A4A4A;
+    background: 98%/cover no-repeat url("data:image/svg+xml,%3Csvg width=%2732%27 height=%2732%27 viewBox=%270 0 32 32%27 fill=%27%23999%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z%27/%3E%3C/svg%3E"), #4A4A4A;
     background-size: 32px;
   }
   input {
@@ -718,11 +780,14 @@ footer {
   body.theme-b header {
     background: top/cover no-repeat linear-gradient(90deg, #E3E4FF 0%, #DAF0DF 100%);
   }
+  body.theme-b #mod-msg-box {
+    background: rgba(254, 254, 254, 0.6);
+  }
   body.theme-b #component, body.theme-b #mod-c {
     background: #FEFEFE;
   }
   body.theme-b #search input {
-    background: 98%/cover no-repeat url(assets/images/searchlogo.svg), #EEEEEE;
+    background: 98%/cover no-repeat url("data:image/svg+xml,%3Csvg width=%2732%27 height=%2732%27 viewBox=%270 0 32 32%27 fill=%27%23999%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z%27/%3E%3C/svg%3E"), #EEEEEE;
     background-size: 32px;
   }
   body.theme-b input {

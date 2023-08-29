@@ -14,11 +14,14 @@
         background: $bodyBackground;
         color: $textColor;
     }
+    #mod-msg-box {
+        background: lessVisible($primaryBg, 0.6);
+    }
     #component, #mod-c { 
         background: $primaryBg;
     }
     #search input {
-        background: 98% / cover no-repeat url('./assets/images/searchlogo.svg'), $inputBg;
+        background: 98% / cover no-repeat url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='%23999' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z'/%3E%3C/svg%3E"), $inputBg;
         background-size: 32px;
     }
     input {
@@ -79,6 +82,9 @@
         header {
             background: $headerBD;
         }
+        #mod-msg-box {
+            background: $primaryD;
+        }
         #component, #mod-c {
             background-color : $primaryD;
         }
@@ -92,7 +98,7 @@
             }
         }
         #search input {
-            background: 98% / cover no-repeat url('./assets/images/searchlogo.svg'), $secondBD;
+            background: 98% / cover no-repeat url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='%23999' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z'/%3E%3C/svg%3E"), $secondBD;
             background-size: 32px;
         }
         input {
@@ -156,6 +162,10 @@
         background: $bodyBD;
         color: $textD;
     }
+
+    #mod-msg-box {
+        background: $primaryD;
+    }
     #component, #mod-c {
         background-color : $primaryD;
     }
@@ -169,7 +179,7 @@
         }
     }
     #search input {
-        background: 98% / cover no-repeat url('./assets/images/searchlogo.svg'), $secondBD;
+        background: 98% / cover no-repeat url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='%23999' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z'/%3E%3C/svg%3E"), $secondBD;
         background-size: 32px;
     }
     input {
@@ -234,11 +244,14 @@
         header {
             background: $headerBackground;
         }
+        #mod-msg-box {
+            background: lessVisible($primaryBg, 0.6);
+        }
         #component, #mod-c { 
             background: $primaryBg;
         }
         #search input {
-            background: 98% / cover no-repeat url('./assets/images/searchlogo.svg'), $inputBg;
+            background: 98% / cover no-repeat url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='%23999' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z'/%3E%3C/svg%3E"), $inputBg;
             background-size: 32px;
         }
         input {

@@ -76,8 +76,16 @@ notask.appendTo(ntbox.element)
 //=-=-=-=-=-Creating Elements of the modal box-=-=-=-=-=//
 
 // Modal Container //
-const modal = new DivElement('mod');
+const modal = new DivElement('mod', 'inactive');
 modal.appendTo(app);
+
+// Message's container shown when the modal window opens //
+const modMsgBox = new DivElement('mod-msg-box');
+modMsgBox.appendTo(modal.element)
+
+const modalMessage = new TextElement('p', 'mod-msg', 'Click anywhere outside the box to exit this menu');
+modalMessage.appendTo(modMsgBox.element);
+
 
 // Modal Box //
 const modbox = new DivElement('mod-c');
