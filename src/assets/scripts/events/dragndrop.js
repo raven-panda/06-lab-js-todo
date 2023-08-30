@@ -1,6 +1,9 @@
 import { storeData } from './functions';
 
 //=-=-=-=-=-=-=-Drag and Drop-=-=-=-=-=-=-=//
+/**
+ * Drag and Drop function
+ */
 export function dragndrop() {
     const draggables = document.querySelectorAll('#tasks-box > .task');
 
@@ -15,8 +18,7 @@ export function dragndrop() {
     };
     
     draggables.forEach(draggable => {
-    
-    //=-=-=-=-=-=-=-=-Mouse Drag and Drop-=-=-=-=-=-=-=-=//
+
         draggable.addEventListener('drag', (e) => {
             const dragged = e.target;
             dragged.classList.add('dragging');
@@ -27,7 +29,13 @@ export function dragndrop() {
             const target = e.target;
             const dragged = document.querySelector('.dragging');
 
-            if (target.classList.contains('task')) {
+            if (target.nodeName == 'P') {
+                swapElements(target.parentNode.parentNode, dragged);
+                target.parentNode.parentNode.classList.remove('targetting');
+                dragged.classList.remove('dragging');
+                storeData();
+                e.stopImmediatePropagation()
+            } else if (target.classList.contains('task')) {
                 swapElements(target, dragged);
                 target.classList.remove('targetting');
                 dragged.classList.remove('dragging');
@@ -48,7 +56,11 @@ export function dragndrop() {
             const target = e.target;
             const dragged = document.querySelector('.dragging');
             if (dragged !== target) {
-                target.classList.add('targetting');
+                if (target.nodeName == 'P') {
+                    target.parentNode.parentNode.classList.add('targetting');
+                } else {
+                    target.classList.add('targetting');
+                }
             } else {
                 return;
             };
@@ -58,7 +70,11 @@ export function dragndrop() {
         draggable.addEventListener('dragleave', (e) => {
             e.preventDefault();
             const targetting = e.target;
-            targetting.classList.remove('targetting');
+            if (targetting.nodeName == 'P') {
+                targetting.parentNode.parentNode.classList.remove('targetting');
+            } else {
+                targetting.classList.remove('targetting');
+            }
         });
     });
 };

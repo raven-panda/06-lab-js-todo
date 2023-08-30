@@ -40,13 +40,11 @@
 #mod {
     @include flex(column, center, center);
     animation: modalFadeout 0.6s ease;
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    width: 100%; /* Full width */
-    min-height: $appHeight; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    min-height: $appHeight;
+    background-color: lessVisible($textColor, 0.6);
     &.active{
         animation: modalFadein 0.5s ease;
     }

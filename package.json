@@ -26,5 +26,8 @@
     "watch": "webpack --watch",
     "serve": "webpack serve",
     "start": "concurrently \"npm run build:dev\" \"npm run watch\" \"npm run serve\""
+  },
+  "dependencies": {
+    "copy-webpack-plugin": "^11.0.0"
   }
 }

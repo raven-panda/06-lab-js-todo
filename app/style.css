@@ -203,6 +203,8 @@ button.selected {
 }
 .task-infos p {
   margin: 0;
+  word-wrap: break-word;
+  max-width: 50vw;
 }
 
 .grab-task {
@@ -326,13 +328,11 @@ footer {
   justify-content: center;
   gap: 0px;
   animation: modalFadeout 0.6s ease;
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  width: 100%; /* Full width */
-  min-height: calc(100vh - 50px); /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  min-height: calc(100vh - 50px);
+  background-color: rgba(2, 2, 2, 0.6);
 }
 #mod.active {
   animation: modalFadein 0.5s ease;
@@ -518,6 +518,9 @@ footer {
   }
   div#component {
     padding: 0 2%;
+  }
+  .task-infos p {
+    max-width: 30vw;
   }
   #tasks-box {
     max-height: 390px;

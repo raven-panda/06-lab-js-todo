@@ -27,10 +27,10 @@ const tools = new DivElement('srch-tools');
 tools.appendTo(head.element)
 
 // Search Section //
-const search = new FormElement('search');
+const search = new FormElement('search', '', '', false, false);
 search.appendTo(tools.element);
 
-const input = new InputElement('task-search', 'Search for a task...');
+const input = new InputElement('task-search', 'text', 'Search for a task...');
 input.appendTo(search.element);
 
 const newtask = new ButtonElement('newtask-btn', '', '', '<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M29.0867 13.079H18.9116V2.91364C18.9116 1.30458 17.6131 0 16.0039 0C14.3946 0 13.0969 1.30458 13.0969 2.91435V13.086H2.91685C1.30758 13.086 -0.000703748 14.3906 1.14446e-06 16.0004C-0.000703748 16.8045 0.324252 17.5417 0.850806 18.0682C1.37807 18.5961 2.10551 18.9295 2.90909 18.9295H13.0969V29.0871C13.0969 29.8919 13.4162 30.6207 13.9435 31.1465C14.4707 31.6737 15.1961 32 16.0011 32C17.6096 32 18.9116 30.6954 18.9116 29.0871V18.9288H29.0867C30.6959 18.9288 32.0007 17.6129 32 16.0039C31.9993 14.3955 30.6945 13.079 29.0867 13.079Z"/></svg>', '#020202');
@@ -92,7 +92,7 @@ const modbox = new DivElement('mod-c');
 modbox.appendTo(modal.element);
 
 // Form for Modal Box //
-const form = new FormElement('modal-form', 'index.html', 'get', 'novalidate');
+const form = new FormElement('modal-form', 'index.html', 'get', true, false);
 form.appendTo(modbox.element);
 
 // Modal Input label //
@@ -104,7 +104,7 @@ const modsct = new DivElement('mod-in-sct');
 modsct.appendTo(form.element)
 
 // Modal Input //
-const modinput = new InputElement('mod-inp', 'New task name...', 'required');
+const modinput = new InputElement('mod-inp', 'text', 'New task name...', true);
 modinput.appendTo(modsct.element);
 
 // Add Task button (modal) //

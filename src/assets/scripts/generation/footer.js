@@ -2,7 +2,9 @@ const delall = document.querySelector('#opt-da');
 const newtask = document.querySelector('#newtask-btn')
 const theme = document.querySelector('#opt-cm');
 
-// Footer //
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
+//             Creating Footer             //
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 const footer = document.createElement('footer');
 document.body.appendChild(footer);
 

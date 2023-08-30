@@ -47,6 +47,8 @@
     @include flex(row, center, center, 14px);
     p {
         margin: 0;
+        word-wrap: break-word;
+        max-width: 50vw;
     }
 }
 

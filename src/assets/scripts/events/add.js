@@ -1,8 +1,5 @@
 //=-=-=-=-=-=-=-Imports and global variables-=-=-=-=-=-=-=//
 import { howToCloseModal, instanceTemplate, refreshEvents, storeData } from "./functions";
-import { dragndrop } from "./dragndrop";
-
-refreshEvents();
 
 //=-=-=-=-=-=-=-Gather the stored JSON-=-=-=-=-=-=-=//
 const stored = localStorage.getItem('taskJSON');
@@ -14,7 +11,6 @@ if (stored) {
     })
     refreshEvents();
 };
-dragndrop(); // Refresh the 'Drag and Drop' event listeners of tasks
 
 //=-=-=-=-Makes the modal appears when clicking on the button-=-=-=-=//
 const newtask = document.querySelectorAll('#newtask-btn, #mobile-ntb');
@@ -44,11 +40,17 @@ form.addEventListener('submit', function (e) {
 
         // Hides the modal window
         modal.classList.remove('active');
+        setTimeout(() => {
+            modal.classList.add('inactive');
+        }, 500);
+        const hintMessage = document.querySelector('#mod-msg-box');
+        hintMessage.removeAttribute('class');
+
+        // Reset the input, because the form don't reload the page so we have to do it manually
         input.value = '';
 
-        // Stores the HTML in the local storage
+        // Refreshing event listeners and stores the HTML in the local storage
         refreshEvents();
-        dragndrop();
         storeData();
     } else {
         // If the form is invalid, it'll not be activated and add the class 'invalid' to itself

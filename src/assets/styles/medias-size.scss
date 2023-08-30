@@ -140,7 +140,9 @@
     div#component {
         padding: 0 2%;
     }
-
+    .task-infos p {
+        max-width: 30vw;
+    }
     #tasks-box {
         max-height: 390px;
     }

@@ -3,6 +3,7 @@ import { notasks, storeData } from './functions';
 const filters = document.querySelectorAll('.filter');
 const modal = document.querySelector('#mod');
 
+// Prevent forms to go, useful for the form of the task creation //
 const form = document.querySelector('#search');
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -32,7 +33,7 @@ theme.forEach(theme => {
     });
 });
 
-//=-=-=-=-=-=-=-Quit Modal when clicking outside it-=-=-=-=-=-=-=//
+//=-=-=-=-=-=-=-Exit Modal when clicking outside it-=-=-=-=-=-=-=//
 modal.addEventListener('mousedown', function(e) {
     if (e.target == modal && e.button === 0) {
         modal.classList.remove('active');
@@ -110,6 +111,9 @@ filters[2].addEventListener('click', function () {
 })
 
 //=-=-=-=-=-=-=-When the finished task button is clicked-=-=-=-=-=-=-=//
+/**
+ * Checkboxes function/event
+ */
 export function checkTask() {
     const tasks = document.querySelectorAll('.task');
     tasks.forEach(task => {
@@ -136,6 +140,9 @@ export function checkTask() {
 }
 
 //=-=-=-=-=-=-=-Delete a task by clicking the red bin-=-=-=-=-=-=-=//
+/**
+ * Delete task buttons event
+ */
 export function deleteTask() {
     const bins = document.querySelectorAll('#tasks-box .del-task');
     bins.forEach(bin => {
@@ -149,6 +156,9 @@ export function deleteTask() {
 }
 
 //=-=-=-=-=-=-=-Modify a task by clicking the edit button-=-=-=-=-=-=-=//
+/**
+ * Modify task button event
+ */
 export function modifTask() {
     const edits = document.querySelectorAll('#tasks-box .mdf-task');
     edits.forEach(edit => {
