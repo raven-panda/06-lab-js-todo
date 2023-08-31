@@ -160,7 +160,7 @@
     }
 }
 @media (max-width: 375px) {
-    .grab-task, .del-task, .check-case svg, .tt-logo {
+    .grab-task, .del-task, .mdf-task, .check-case svg, .tt-logo {
         width: auto;
     }
     #search input {
@@ -172,7 +172,7 @@
     .grab-task {
         height: 16px;
     }
-    .del-task {
+    .del-task, .mdf-task {
         height: 18px;
     }
     .task-delete svg, .task-modify svg {

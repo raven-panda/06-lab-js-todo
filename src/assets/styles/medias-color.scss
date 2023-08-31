@@ -134,6 +134,7 @@
 
         .task.checked .check-case {
             background: $checkedD;
+            svg { fill: $textD }
         }
 
         footer {

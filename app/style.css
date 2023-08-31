@@ -539,7 +539,7 @@ footer {
   }
 }
 @media (max-width: 375px) {
-  .grab-task, .del-task, .check-case svg, .tt-logo {
+  .grab-task, .del-task, .mdf-task, .check-case svg, .tt-logo {
     width: auto;
   }
   #search input {
@@ -551,7 +551,7 @@ footer {
   .grab-task {
     height: 16px;
   }
-  .del-task {
+  .del-task, .mdf-task {
     height: 18px;
   }
   .task-delete svg, .task-modify svg {
@@ -687,6 +687,9 @@ footer {
   }
   body.theme-b .task.checked .check-case {
     background: #8B78B1;
+  }
+  body.theme-b .task.checked .check-case svg {
+    fill: rgb(226, 239, 255);
   }
   body.theme-b footer {
     background: #212121;
