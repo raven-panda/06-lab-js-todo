@@ -15,6 +15,7 @@ if (stored) {
 //=-=-=-=-Makes the modal appears when clicking on the button-=-=-=-=//
 const newtask = document.querySelectorAll('#newtask-btn, #mobile-ntb');
 const modal = document.querySelector('#mod');
+let i;
 newtask.forEach(button => {
     button.addEventListener('click', () => {
         if (modal.classList.contains('inactive')) {

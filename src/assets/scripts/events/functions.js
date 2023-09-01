@@ -27,6 +27,7 @@ export function refreshEvents(_notask = true, _checktask = true, _modify = true,
  * 
  * Function called when the modal window opens
  */
+let i;
 export function howToCloseModal() {
     const hintMessage = document.querySelector('#mod-msg-box');
     hintMessage.classList.add('shown');
@@ -40,14 +41,23 @@ export function howToCloseModal() {
  */
 export function storeData() {
     const tasks = document.querySelectorAll('.task');
-    const object = {};
+    const tasksObj = {};
     for (let i = tasks.length - 1; i >= 0; i--) {
-        object[`task${i + 1}`] = {
+        tasksObj[`task${i + 1}`] = {
             name : tasks[i].querySelector('p').textContent,
             checked : tasks[i].classList.contains('checked') ? true : false
         };
     }
-    localStorage.setItem('taskJSON', JSON.stringify(object));
+    localStorage.setItem('taskJSON', JSON.stringify(tasksObj));
+
+    const theme = {};
+    if (document.body.classList.contains('theme-b')) {
+        theme['theme'] = 'theme-b';
+    } else {
+        theme['theme'] = '';
+    }
+    console.log(theme)
+    localStorage.setItem('theme', JSON.stringify(theme));
 };
 
 /**

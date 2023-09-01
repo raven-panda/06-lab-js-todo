@@ -554,8 +554,11 @@ footer {
   .del-task, .mdf-task {
     height: 18px;
   }
-  .task-delete svg, .task-modify svg {
+  .task-delete svg {
     padding: 4px 6px;
+  }
+  .task-modify svg {
+    padding: 4px;
   }
   .check-case svg {
     height: 10px;

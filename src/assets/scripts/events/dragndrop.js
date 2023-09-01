@@ -86,21 +86,30 @@ export function dragndrop() {
     // Mobile Drag and Drop //
     draggables.forEach(touchable => {
         const taskbox = document.querySelector('#tasks-box');
-        var location, touchTarget;
+        var location;
 
         touchable.addEventListener('touchstart', e => {
             location = e.touches[0];
-            const touching = e.target;
+            var touching = e.target;
+            console.log(touching);
+            if (!touching.classList.contains('task') || !touching.nodeName === 'P') {
+                return false;
+            }
 
-            const temp = touching.cloneNode(true);
+            if (touching.classList.contains('task')) {
+                var temp = touching.cloneNode(true);
+            } else if (touching.nodeName === 'P') {
+                var temp = touching.parentNode.parentNode.cloneNode(true);
+                touching = touching.parentNode.parentNode;
+            }
             temp.id = 'temp';
             temp.style.opacity = '0.5';
+
             taskbox.insertBefore(temp, touching);
 
             touching.classList.add('touching');
             touching.style.top = `calc(${location.clientY}px - 5vh)`;
-            touching.style.left = `calc(${location.clientX}px - 40vw)`;
-
+            touching.style.left = `40vw)`;
             e.stopImmediatePropagation();
         });
 
@@ -108,22 +117,35 @@ export function dragndrop() {
             e.preventDefault();
             location = e.touches[0];
 
-            touchTarget = document.elementFromPoint(location.clientX, location.clientY);
-            console.log(location.clientX, location.clientY);
-            const touching = e.target;
+            var touching = e.target;
+            if (touching.nodeName === 'P') {
+                touching = touching.parentNode.parentNode;
+            }
+
             touching.style.top = `calc(${location.clientY}px - 5vh)`;
-            touching.style.left = `calc(${location.clientX}px - 40vw)`;
+            touching.style.left = `40vw)`;
+
             e.stopImmediatePropagation();
         });
 
         touchable.addEventListener('touchend', e => {
-            const touching = e.target;
-            console.log(location);
-            if (touchTarget) {
-                if (touchTarget.classList.contains('task')) {
-                    swapElements(touchTarget, touching);
-                };
+            var touching = e.target;
+            if (touching.nodeName === 'P') {
+                touching = touching.parentNode.parentNode;
             }
+
+            var touchTarget = document.elementsFromPoint(location.clientX, location.clientY)[1];
+            if (touchTarget.nodeName === 'P') {
+                touchTarget = touchTarget.parentElement.parentElement;
+            } else if (!touchTarget.classList.contains('task') || !touchTarget.nodeName === 'P') {
+                console.log(null, touchTarget.nodeName);
+                touchTarget = null;
+            }
+
+            if (touchTarget) {
+                swapElements(touchTarget, touching);
+            }
+            
             touching.classList.remove('touching');
             touching.style ='';
 
@@ -132,24 +154,5 @@ export function dragndrop() {
                 temp.remove();
             }
         });
-
-        /*
-        "FIX MEEEE"
-         - James Hetfield
-        */
-        // touchable.addEventListener('touchleave', e => {
-        //     const touching = e.target;
-
-        //     taskbox.style = '';
-        //     touching.style = '';
-        //     touching.classList.remove('touching');
-
-        //     const temp = document.querySelector('#temp');
-        //     if (temp) {
-        //         temp.remove();
-        //     }
-
-        //     console.log('coucou')
-        // })
     });
 };
