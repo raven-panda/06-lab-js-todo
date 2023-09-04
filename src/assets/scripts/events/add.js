@@ -1,15 +1,25 @@
 //=-=-=-=-=-=-=-Imports and global variables-=-=-=-=-=-=-=//
-import { howToCloseModal, instanceTemplate, refreshEvents, storeData } from "./functions";
+import { notasks, howToCloseModal, instanceTemplate, refreshEvents, storeData } from "./functions";
 
 //=-=-=-=-=-=-=-Gather the stored JSON-=-=-=-=-=-=-=//
-const stored = localStorage.getItem('taskJSON');
-if (stored) {
-    const parsedJSON = JSON.parse(stored);
-    const arr = Object.values(parsedJSON);
-    arr.forEach(element => {
-        instanceTemplate(element.name, element.checked);
+// Load stored tasks //
+const storedJson = localStorage.getItem('taskList');
+if (storedJson) {
+    const parsedJson = JSON.parse(storedJson);
+    const storedTasks = Object.values(parsedJson);
+    storedTasks.forEach(task => {
+        instanceTemplate(task.name, task.checked);
     })
     refreshEvents();
+} else {
+    notasks();
+}
+
+// Load stored dark or light theme //
+const storedTheme = localStorage.getItem('theme');
+const parsedTheme = JSON.parse(storedTheme);
+if (parsedTheme && parsedTheme.theme === 'theme-b') {
+    document.body.classList.add('theme-b');
 };
 
 //=-=-=-=-Makes the modal appears when clicking on the button-=-=-=-=//
@@ -49,6 +59,13 @@ form.addEventListener('submit', function (e) {
 
         // Reset the input, because the form don't reload the page so we have to do it manually
         input.value = '';
+
+        // Ensure that the task will be added as hidden if the user has the 'Finished' filter active
+        const filter = document.querySelector('button#finished');
+        if (filter.classList.contains('active')) {
+            const task = document.querySelector('.task:first-child');
+            task.style.display = 'none';
+        }
 
         // Refreshing event listeners and stores the HTML in the local storage
         refreshEvents();

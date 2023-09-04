@@ -19,9 +19,9 @@ delall.forEach(del => {
                 task.remove();
             }
         });
-        localStorage.clear();
-        notasks();
+        localStorage.removeItem('taskList');
         storeData();
+        notasks();
     });
 });
 
@@ -160,7 +160,7 @@ export function deleteTask() {
 
 //=-=-=-=-=-=-=-Modify a task by clicking the edit button-=-=-=-=-=-=-=//
 /**
- * Modify task button event
+ * Modify task buttons event
  */
 export function modifTask() {
     const edits = document.querySelectorAll('#tasks-box .mdf-task');

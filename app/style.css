@@ -56,6 +56,18 @@ input:focus {
   outline: none;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
 header {
   display: flex;
   flex-direction: row;
@@ -138,16 +150,6 @@ button.selected {
   justify-content: center;
   gap: 10px;
   padding: 7px 0;
-}
-
-#notasks-title {
-  display: none;
-  font-size: 1rem;
-  font-style: italic;
-  font-weight: 400;
-}
-#notasks-title.notasks {
-  display: block;
 }
 
 #tasks-box {
@@ -257,16 +259,14 @@ button.selected {
   display: block;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
+#notasks-title {
+  display: none;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 400;
 }
-
-::-webkit-scrollbar-track {
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
+#notasks-title.notasks {
+  display: block;
 }
 
 footer {
@@ -367,12 +367,6 @@ footer {
   font-size: 14px;
   color: #FF7E7E;
 }
-#mod-in-sct {
-  display: grid;
-  grid: auto/300px 54px;
-  margin-top: 19px;
-}
-
 #modal-form {
   gap: 0;
 }
@@ -387,6 +381,12 @@ footer {
 }
 #modal-form.invalid input:invalid::placeholder {
   color: #FF7E7E;
+}
+
+#mod-in-sct {
+  display: grid;
+  grid: auto/300px 54px;
+  margin-top: 19px;
 }
 
 @media (min-width: 2000px) {
@@ -474,6 +474,9 @@ footer {
   }
 }
 @media (max-width: 768px) {
+  body.theme-b div#component, div#component {
+    background: none;
+  }
   #app #head {
     display: block;
     width: 100%;
@@ -489,9 +492,6 @@ footer {
   #tasks-box {
     margin-top: 50px;
   }
-  body.theme-b div#component, div#component {
-    background: none;
-  }
   .logo-note {
     display: none;
     width: 0;
@@ -504,6 +504,9 @@ footer {
   }
 }
 @media (max-width: 425px) {
+  .filter {
+    font-size: 10px;
+  }
   header {
     justify-content: center;
   }
@@ -525,9 +528,6 @@ footer {
   #tasks-box {
     max-height: 390px;
   }
-  .filter {
-    font-size: 10px;
-  }
   footer {
     display: grid;
   }
@@ -539,6 +539,9 @@ footer {
   }
 }
 @media (max-width: 375px) {
+  .task {
+    font-size: 0.75rem;
+  }
   .grab-task, .del-task, .mdf-task, .check-case svg, .tt-logo {
     width: auto;
   }
@@ -563,33 +566,14 @@ footer {
   .check-case svg {
     height: 10px;
   }
-  .task {
-    font-size: 0.75rem;
-  }
 }
 @media (prefers-color-scheme: light) {
-  #logo #grad-start {
-    stop-color: #000000;
-  }
   #srch-tools svg, header svg, #mod-c svg, .task-infos svg, footer svg, .task-modify svg {
     fill: #020202;
-  }
-  header {
-    background: top/cover no-repeat linear-gradient(90deg, #E3E4FF 0%, #DAF0DF 100%);
   }
   body {
     background: top/cover no-repeat linear-gradient(180deg, #FED0D0 0%, #FFF0CB 100%);
     color: #020202;
-  }
-  #mod-msg-box {
-    background: rgba(254, 254, 254, 0.6);
-  }
-  #component, #mod-c {
-    background: #FEFEFE;
-  }
-  #search input {
-    background: 98%/cover no-repeat url("data:image/svg+xml,%3Csvg width=%2732%27 height=%2732%27 viewBox=%270 0 32 32%27 fill=%27%23999%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z%27/%3E%3C/svg%3E"), #EEEEEE;
-    background-size: 32px;
   }
   input {
     background: #EEEEEE;
@@ -600,12 +584,24 @@ footer {
   input:focus {
     border-color: #C5C7FF;
   }
+  ::-webkit-scrollbar-track {
+    border: solid 1px rgb(231, 231, 231);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d3d3d3;
+  }
+  header {
+    background: top/cover no-repeat linear-gradient(90deg, #E3E4FF 0%, #DAF0DF 100%);
+  }
+  #logo #grad-start {
+    stop-color: #000000;
+  }
+  #search input {
+    background: 98%/cover no-repeat url("data:image/svg+xml,%3Csvg width=%2732%27 height=%2732%27 viewBox=%270 0 32 32%27 fill=%27%23999%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z%27/%3E%3C/svg%3E"), #EEEEEE;
+    background-size: 32px;
+  }
   #newtask-btn, #mod-c #mod-add, #mobile-ntb {
     background: #A5ECB9;
-  }
-  .task, .filter {
-    background: #EDEDED;
-    color: #020202;
   }
   .filter:nth-child(2) {
     border-right: solid 1px #020202;
@@ -613,6 +609,10 @@ footer {
   }
   .filter.active {
     background: #C5C7FF;
+  }
+  .task, .filter {
+    background: #EDEDED;
+    color: #020202;
   }
   .task.checked .check-case {
     background: #C5C7FF;
@@ -623,11 +623,11 @@ footer {
   .check-case ~ p:hover {
     color: rgba(2, 2, 2, 0.5);
   }
-  ::-webkit-scrollbar-track {
-    border: solid 1px rgb(231, 231, 231);
+  #mod-msg-box {
+    background: rgba(254, 254, 254, 0.6);
   }
-  ::-webkit-scrollbar-thumb {
-    background: #d3d3d3;
+  #component, #mod-c {
+    background: #FEFEFE;
   }
   footer {
     background: #EDEDED;
@@ -636,30 +636,8 @@ footer {
     background: top/cover no-repeat linear-gradient(225deg, #000003 0%, #00063A 100%);
     color: rgb(226, 239, 255);
   }
-  body.theme-b #logo #grad-start {
-    stop-color: #CEFECD;
-  }
-  body.theme-b #newtask-btn, body.theme-b #mod-c #mod-add, #mod-c body.theme-b #mod-add, body.theme-b #mod-add, body.theme-b #mobile-ntb {
-    background-color: #55B06E;
-  }
-  body.theme-b header {
-    background: #212121;
-  }
-  body.theme-b #mod-msg-box {
-    background: #303030;
-  }
-  body.theme-b #component, body.theme-b #mod-c {
-    background-color: #303030;
-  }
-  body.theme-b .logo-note {
-    fill: #4A4A4A;
-  }
   body.theme-b #srch-tools svg, body.theme-b header svg, body.theme-b #mod-c svg, body.theme-b .task-infos svg, body.theme-b footer svg, body.theme-b .task-modify svg {
     fill: rgb(226, 239, 255);
-  }
-  body.theme-b #search input {
-    background: 98%/cover no-repeat url("data:image/svg+xml,%3Csvg width=%2732%27 height=%2732%27 viewBox=%270 0 32 32%27 fill=%27%23999%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z%27/%3E%3C/svg%3E"), #4A4A4A;
-    background-size: 32px;
   }
   body.theme-b input {
     background: #4A4A4A;
@@ -670,6 +648,35 @@ footer {
   }
   body.theme-b input:focus {
     border-color: #C5C7FF;
+  }
+  body.theme-b ::-webkit-scrollbar-track {
+    border: solid 1px rgb(51, 51, 51);
+  }
+  body.theme-b ::-webkit-scrollbar-thumb {
+    background: #5a5a5a;
+  }
+  body.theme-b header {
+    background: #212121;
+  }
+  body.theme-b #logo #grad-start {
+    stop-color: #CEFECD;
+  }
+  body.theme-b #newtask-btn, body.theme-b #mod-c #mod-add, #mod-c body.theme-b #mod-add, body.theme-b #mod-add, body.theme-b #mobile-ntb {
+    background-color: #55B06E;
+  }
+  body.theme-b .logo-note {
+    fill: #4A4A4A;
+  }
+  body.theme-b #search input {
+    background: 98%/cover no-repeat url("data:image/svg+xml,%3Csvg width=%2732%27 height=%2732%27 viewBox=%270 0 32 32%27 fill=%27%23999%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z%27/%3E%3C/svg%3E"), #4A4A4A;
+    background-size: 32px;
+  }
+  body.theme-b .filter:nth-child(2) {
+    border-right: solid 1px rgb(226, 239, 255);
+    border-left: solid 1px rgb(226, 239, 255);
+  }
+  body.theme-b .filter.active {
+    background: #54407D;
   }
   body.theme-b .task, body.theme-b .filter {
     background: #4A4A4A;
@@ -681,58 +688,32 @@ footer {
   body.theme-b .check-case ~ p:hover {
     color: rgba(226, 239, 255, 0.5);
   }
-  body.theme-b .filter:nth-child(2) {
-    border-right: solid 1px rgb(226, 239, 255);
-    border-left: solid 1px rgb(226, 239, 255);
-  }
-  body.theme-b .filter.active {
-    background: #54407D;
-  }
   body.theme-b .task.checked .check-case {
     background: #8B78B1;
   }
   body.theme-b .task.checked .check-case svg {
     fill: rgb(226, 239, 255);
   }
+  body.theme-b #mod-msg-box {
+    background: #303030;
+  }
+  body.theme-b #component, body.theme-b #mod-c {
+    background-color: #303030;
+  }
   body.theme-b footer {
     background: #212121;
   }
-  body.theme-b ::-webkit-scrollbar-track {
-    border: solid 1px rgb(51, 51, 51);
-  }
-  body.theme-b ::-webkit-scrollbar-thumb {
-    background: #5a5a5a;
-  }
 }
 @media (prefers-color-scheme: dark) {
-  #logo #grad-start {
-    stop-color: #CEFECD;
-  }
-  #newtask-btn, #mod-c #mod-add, #mod-add, #mobile-ntb {
-    background-color: #55B06E;
-  }
-  header {
-    background: #212121;
-  }
   body {
     background: top/cover no-repeat linear-gradient(225deg, #000003 0%, #00063A 100%);
     color: rgb(226, 239, 255);
   }
-  #mod-msg-box {
-    background: #303030;
-  }
-  #component, #mod-c {
-    background-color: #303030;
-  }
-  .logo-note {
-    fill: #4A4A4A;
+  #newtask-btn, #mod-c #mod-add, #mod-add, #mobile-ntb {
+    background-color: #55B06E;
   }
   #srch-tools svg, header svg, #mod-c svg, .task-infos svg, footer svg, .task-modify svg {
     fill: rgb(226, 239, 255);
-  }
-  #search input {
-    background: 98%/cover no-repeat url("data:image/svg+xml,%3Csvg width=%2732%27 height=%2732%27 viewBox=%270 0 32 32%27 fill=%27%23999%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z%27/%3E%3C/svg%3E"), #4A4A4A;
-    background-size: 32px;
   }
   input {
     background: #4A4A4A;
@@ -744,6 +725,32 @@ footer {
   input:focus {
     border-color: #C5C7FF;
   }
+  ::-webkit-scrollbar-track {
+    border: solid 1px rgb(51, 51, 51);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #5a5a5a;
+  }
+  header {
+    background: #212121;
+  }
+  #logo #grad-start {
+    stop-color: #CEFECD;
+  }
+  .logo-note {
+    fill: #4A4A4A;
+  }
+  #search input {
+    background: 98%/cover no-repeat url("data:image/svg+xml,%3Csvg width=%2732%27 height=%2732%27 viewBox=%270 0 32 32%27 fill=%27%23999%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z%27/%3E%3C/svg%3E"), #4A4A4A;
+    background-size: 32px;
+  }
+  .filter:nth-child(2) {
+    border-right: solid 1px rgb(226, 239, 255);
+    border-left: solid 1px rgb(226, 239, 255);
+  }
+  .filter.active {
+    background: #54407D;
+  }
   .task, .filter {
     background: #4A4A4A;
     color: rgb(226, 239, 255);
@@ -754,59 +761,53 @@ footer {
   .check-case ~ p:hover {
     color: rgba(226, 239, 255, 0.5);
   }
-  .filter:nth-child(2) {
-    border-right: solid 1px rgb(226, 239, 255);
-    border-left: solid 1px rgb(226, 239, 255);
-  }
-  .filter.active {
-    background: #54407D;
-  }
   .task.checked .check-case {
     background: #8B78B1;
   }
   .task.checked .check-case svg {
     fill: rgb(226, 239, 255);
   }
+  #mod-msg-box {
+    background: #303030;
+  }
+  #component, #mod-c {
+    background-color: #303030;
+  }
   footer {
     background: #212121;
-  }
-  ::-webkit-scrollbar-track {
-    border: solid 1px rgb(51, 51, 51);
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #5a5a5a;
   }
   body.theme-b {
     background: top/cover no-repeat linear-gradient(180deg, #FED0D0 0%, #FFF0CB 100%);
     color: #020202;
   }
-  body.theme-b #logo #grad-start {
-    stop-color: #000000;
-  }
   body.theme-b #srch-tools svg, body.theme-b header svg, body.theme-b #mod-c svg, body.theme-b .task-infos svg, body.theme-b footer svg, body.theme-b .task-modify svg {
     fill: #020202;
   }
-  body.theme-b header {
-    background: top/cover no-repeat linear-gradient(90deg, #E3E4FF 0%, #DAF0DF 100%);
-  }
-  body.theme-b #mod-msg-box {
-    background: rgba(254, 254, 254, 0.6);
-  }
-  body.theme-b #component, body.theme-b #mod-c {
-    background: #FEFEFE;
-  }
-  body.theme-b #search input {
-    background: 98%/cover no-repeat url("data:image/svg+xml,%3Csvg width=%2732%27 height=%2732%27 viewBox=%270 0 32 32%27 fill=%27%23999%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z%27/%3E%3C/svg%3E"), #EEEEEE;
-    background-size: 32px;
-  }
   body.theme-b input {
     background: #EEEEEE;
+    color: #020202;
   }
   body.theme-b input::placeholder {
     color: #999;
   }
   body.theme-b input:focus {
     border-color: #C5C7FF;
+  }
+  body.theme-b ::-webkit-scrollbar-track {
+    border: solid 1px rgb(231, 231, 231);
+  }
+  body.theme-b ::-webkit-scrollbar-thumb {
+    background: #d3d3d3;
+  }
+  body.theme-b header {
+    background: top/cover no-repeat linear-gradient(90deg, #E3E4FF 0%, #DAF0DF 100%);
+  }
+  body.theme-b #logo #grad-start {
+    stop-color: #000000;
+  }
+  body.theme-b #search input {
+    background: 98%/cover no-repeat url("data:image/svg+xml,%3Csvg width=%2732%27 height=%2732%27 viewBox=%270 0 32 32%27 fill=%27%23999%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z%27/%3E%3C/svg%3E"), #EEEEEE;
+    background-size: 32px;
   }
   body.theme-b #newtask-btn, body.theme-b #mod-c #mod-add, #mod-c body.theme-b #mod-add, body.theme-b #mobile-ntb {
     background: #A5ECB9;
@@ -837,14 +838,14 @@ footer {
   body.theme-b .task.checked {
     color: rgba(2, 2, 2, 0.5);
   }
+  body.theme-b #mod-msg-box {
+    background: rgba(254, 254, 254, 0.6);
+  }
+  body.theme-b #component, body.theme-b #mod-c {
+    background: #FEFEFE;
+  }
   body.theme-b footer {
     background: #EDEDED;
-  }
-  body.theme-b ::-webkit-scrollbar-track {
-    border: solid 1px rgb(231, 231, 231);
-  }
-  body.theme-b ::-webkit-scrollbar-thumb {
-    background: #d3d3d3;
   }
 }
 @media (min-width: 2000px) and (prefers-color-scheme: dark), (min-width: 2000px) and (prefers-color-scheme: light) {

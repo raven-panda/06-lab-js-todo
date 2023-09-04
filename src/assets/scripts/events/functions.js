@@ -27,17 +27,17 @@ export function refreshEvents(_notask = true, _checktask = true, _modify = true,
  * 
  * Function called when the modal window opens
  */
-let i;
 export function howToCloseModal() {
     const hintMessage = document.querySelector('#mod-msg-box');
+    const modal = document.querySelector('#mod');
     hintMessage.classList.add('shown');
-    setTimeout(() => {
+    if (!modal.classList.contains('active')) {
         hintMessage.removeAttribute('class');
-    }, 5000);
+    }
 };
 
 /**
- * Function that store all the tasks in a JSON object in the local storage
+ * Function that store all the tasks and the color theme in JSON objects in the local storage
  */
 export function storeData() {
     const tasks = document.querySelectorAll('.task');
@@ -48,7 +48,7 @@ export function storeData() {
             checked : tasks[i].classList.contains('checked') ? true : false
         };
     }
-    localStorage.setItem('taskJSON', JSON.stringify(tasksObj));
+    localStorage.setItem('taskList', JSON.stringify(tasksObj));
 
     const theme = {};
     if (document.body.classList.contains('theme-b')) {
@@ -56,7 +56,6 @@ export function storeData() {
     } else {
         theme['theme'] = '';
     }
-    console.log(theme)
     localStorage.setItem('theme', JSON.stringify(theme));
 };
 

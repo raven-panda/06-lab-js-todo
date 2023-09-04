@@ -1,28 +1,14 @@
+//=-=-=-=-=-=-=-Responsive for Light Mode as prefered color scheme-=-=-=-=-=-=-=//
 @media (prefers-color-scheme: light) {
-    #logo #grad-start{
-        stop-color: #000000;
-    }
+    // General changes (light) //
     #srch-tools, header, #mod-c, .task-infos, footer, .task-modify {
         svg {
             fill: $textColor;
         }
     }
-    header {
-        background: $headerBackground;
-    }
     body {
         background: $bodyBackground;
         color: $textColor;
-    }
-    #mod-msg-box {
-        background: lessVisible($primaryBg, 0.6);
-    }
-    #component, #mod-c { 
-        background: $primaryBg;
-    }
-    #search input {
-        background: 98% / cover no-repeat url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='%23999' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z'/%3E%3C/svg%3E"), $inputBg;
-        background-size: 32px;
     }
     input {
         background: $inputBg;
@@ -33,12 +19,28 @@
             border-color: $blueBg;
         }
     }
+    ::-webkit-scrollbar-track {
+        border: $sclBorder;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: $sclHandle;
+    }
+
+    // Header (light) //
+    header {
+        background: $headerBackground;
+    }
+    #logo #grad-start{
+        stop-color: #000000;
+    }
+
+    // Search section (light) //
+    #search input {
+        background: 98% / cover no-repeat url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='%23999' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z'/%3E%3C/svg%3E"), $inputBg;
+        background-size: 32px;
+    }
     #newtask-btn, #mobile-ntb  {
         background: $greenBg;
-    }
-    .task, .filter {
-        background: $secondBg;
-        color: $textColor;
     }
     .filter {
         &:nth-child(2) {
@@ -48,6 +50,12 @@
     }
     .filter.active {
         background: $blueBg;
+    }
+
+    // Tasks section (light) //
+    .task, .filter {
+        background: $secondBg;
+        color: $textColor;
     }
     .task.checked .check-case {
         background: $blueBg;
@@ -59,47 +67,28 @@
         }
     }
 
-    ::-webkit-scrollbar-track {
-        border: $sclBorder;
+    // Modal window (light) //
+    #mod-msg-box {
+        background: lessVisible($primaryBg, 0.6);
     }
-    ::-webkit-scrollbar-thumb {
-        background: $sclHandle;
+    #component, #mod-c { 
+        background: $primaryBg;
     }
-
+    
+    // Footer (light) //
     footer {
         background: $secondBg;
     }
 
+    //=-=-=-=-=-=-=-Dark mode triggered by clicking the 'Change theme' button-=-=-=-=-=-=-=//
     body.theme-b {
+        // General changes (light theme-b) //
         background: $bodyBD;
         color: $textD;
-        #logo #grad-start{
-            stop-color: $logoGS;
-        }
-        #newtask-btn, #mod-add, #mobile-ntb {
-            background-color: $greenD;
-        }
-        header {
-            background: $headerBD;
-        }
-        #mod-msg-box {
-            background: $primaryD;
-        }
-        #component, #mod-c {
-            background-color : $primaryD;
-        }
-        
-        .logo-note {
-            fill : $secondBD;
-        }
         #srch-tools, header, #mod-c, .task-infos, footer, .task-modify {
             svg {
                 fill: $textD;
             }
-        }
-        #search input {
-            background: 98% / cover no-repeat url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='%23999' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z'/%3E%3C/svg%3E"), $secondBD;
-            background-size: 32px;
         }
         input {
             background: $secondBD;
@@ -111,6 +100,41 @@
                 border-color: #C5C7FF;
             }
         }
+        ::-webkit-scrollbar-track {
+            border: $sclBorderD;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: $sclHandleD;
+        }   
+
+        // Header (light theme-b) //
+        header {
+            background: $headerBD;
+        }
+        #logo #grad-start{
+            stop-color: $logoGS;
+        }
+
+        // Search section (light theme-b) //
+        #newtask-btn, #mod-add, #mobile-ntb {
+            background-color: $greenD;
+        }
+        .logo-note {
+            fill : $secondBD;
+        }
+        #search input {
+            background: 98% / cover no-repeat url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='%23999' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z'/%3E%3C/svg%3E"), $secondBD;
+            background-size: 32px;
+        }
+        .filter:nth-child(2) {
+            border-right: solid 1px $textD;
+            border-left: solid 1px $textD;
+        }
+        .filter.active {
+            background: $purpleD;
+        }
+    
+        // Tasks section (light theme-b) //
         .task, .filter {
             background: $secondBD;
             color: $textD;
@@ -123,65 +147,40 @@
                 color: lessVisible($textD, 0.5);
             }
         }
-    
-        .filter:nth-child(2) {
-            border-right: solid 1px $textD;
-            border-left: solid 1px $textD;
-        }
-        .filter.active {
-            background: $purpleD;
-        }
-
         .task.checked .check-case {
             background: $checkedD;
             svg { fill: $textD }
         }
 
+        // Modal window (light theme-b) //
+        #mod-msg-box {
+            background: $primaryD;
+        }
+        #component, #mod-c {
+            background-color : $primaryD;
+        }
+
+        // Footer (light theme-b) //
         footer {
             background: $headerBD;
         }
-    
-        ::-webkit-scrollbar-track {
-            border: $sclBorderD;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: $sclHandleD;
-        }    
     }
 }
+
+//=-=-=-=-=-=-=-Responsive for Dark Mode as prefered color scheme-=-=-=-=-=-=-=//
 @media (prefers-color-scheme: dark) {
-    #logo #grad-start{
-        stop-color: $logoGS;
-    }
-    #newtask-btn, #mod-add, #mobile-ntb  {
-        background-color: $greenD;
-    }
-    header {
-        background: $headerBD;
-    }
+    // General changes (dark) //
     body {
         background: $bodyBD;
         color: $textD;
     }
-
-    #mod-msg-box {
-        background: $primaryD;
-    }
-    #component, #mod-c {
-        background-color : $primaryD;
-    }
-    
-    .logo-note {
-        fill : $secondBD;
+    #newtask-btn, #mod-add, #mobile-ntb  {
+        background-color: $greenD;
     }
     #srch-tools, header, #mod-c, .task-infos, footer, .task-modify {
         svg {
             fill: $textD;
         }
-    }
-    #search input {
-        background: 98% / cover no-repeat url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='%23999' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z'/%3E%3C/svg%3E"), $secondBD;
-        background-size: 32px;
     }
     input {
         background: $secondBD;
@@ -193,20 +192,29 @@
             border-color: #C5C7FF;
         }
     }
-    .task, .filter {
-        background: $secondBD;
-        color: $textD;
+    ::-webkit-scrollbar-track {
+        border: $sclBorderD;
     }
-    .task.checked {
-        color: lessVisible($textD, 0.5);
-    }
-
-    .check-case {
-        &~p:hover {
-            color: lessVisible($textD, 0.5);
-        }
+    ::-webkit-scrollbar-thumb {
+        background: $sclHandleD;
     }
 
+    // Header (dark) //
+    header {
+        background: $headerBD;
+    }
+    #logo #grad-start{
+        stop-color: $logoGS;
+    }
+
+    // Search section (dark) //
+    .logo-note {
+        fill : $secondBD;
+    }
+    #search input {
+        background: 98% / cover no-repeat url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='%23999' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z'/%3E%3C/svg%3E"), $secondBD;
+        background-size: 32px;
+    }
     .filter:nth-child(2) {
         border-right: solid 1px $textD;
         border-left: solid 1px $textD;
@@ -215,54 +223,76 @@
         background: $purpleD;
     }
 
+    // Tasks section (dark) //
+    .task, .filter {
+        background: $secondBD;
+        color: $textD;
+    }
+    .task.checked {
+        color: lessVisible($textD, 0.5);
+    }
+    .check-case {
+        &~p:hover {
+            color: lessVisible($textD, 0.5);
+        }
+    }
     .task.checked .check-case {
         background: $checkedD;
         svg { fill: $textD }
     }
 
+    // Modal window (dark) //
+    #mod-msg-box {
+        background: $primaryD;
+    }
+    #component, #mod-c {
+        background-color : $primaryD;
+    }
+
+    // Footer (dark) //
     footer {
         background: $headerBD;
     }
 
-    ::-webkit-scrollbar-track {
-        border: $sclBorderD;
-    }
-    ::-webkit-scrollbar-thumb {
-        background: $sclHandleD;
-    }
-
+    //=-=-=-=-=-=-=-Light mode triggered by clicking the 'Change theme' button-=-=-=-=-=-=-=//
     body.theme-b {
+        // General changes (dark theme-b) //
         background: $bodyBackground;
         color: $textColor;
-        #logo #grad-start{
-            stop-color: #000000;
-        }
         #srch-tools, header, #mod-c, .task-infos, footer, .task-modify {
             svg {
                 fill: $textColor;
             }
         }
-        header {
-            background: $headerBackground;
-        }
-        #mod-msg-box {
-            background: lessVisible($primaryBg, 0.6);
-        }
-        #component, #mod-c { 
-            background: $primaryBg;
-        }
-        #search input {
-            background: 98% / cover no-repeat url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='%23999' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z'/%3E%3C/svg%3E"), $inputBg;
-            background-size: 32px;
-        }
         input {
             background: $inputBg;
+            color: $textColor;
             &::placeholder {
                 color: $placeholderColor;
             }
             &:focus {
                 border-color: $blueBg;
             }
+        }
+        ::-webkit-scrollbar-track {
+            border: $sclBorder;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: $sclHandle;
+        }
+
+        // Header (dark theme-b) //
+        header {
+            background: $headerBackground;
+        }
+        #logo #grad-start{
+            stop-color: #000000;
+        }
+
+        // Search section (dark theme-b) //
+        #search input {
+            background: 98% / cover no-repeat url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='%23999' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.44 1.92001C7.425 1.92001 2.56 6.78501 2.56 12.8C2.56 18.815 7.425 23.68 13.44 23.68C15.5875 23.68 17.575 23.05 19.26 21.98L27.12 29.84L29.84 27.12L22.08 19.38C23.475 17.55 24.32 15.2825 24.32 12.8C24.32 6.78501 19.455 1.92001 13.44 1.92001ZM13.44 4.48001C18.0475 4.48001 21.76 8.19251 21.76 12.8C21.76 17.4075 18.0475 21.12 13.44 21.12C8.8325 21.12 5.12 17.4075 5.12 12.8C5.12 8.19251 8.8325 4.48001 13.44 4.48001Z'/%3E%3C/svg%3E"), $inputBg;
+            background-size: 32px;
         }
         #newtask-btn, #mobile-ntb {
             background: $greenBg;
@@ -276,7 +306,6 @@
                 color: lessVisible($textColor, 0.5);
             }
         }
-    
         .filter {
             &:nth-child(2) {
                 border-right: solid 1px $textColor;
@@ -289,29 +318,32 @@
         .logo-note {
             fill : $noteColor;
         }
-
+    
+        // Tasks section (dark theme-b) //
         .task.checked .check-case {
             background: $blueBg;
             svg { fill: $textColor }
         }
-
         .task.checked {
             color: lessVisible($textColor, 0.5);
         }
 
+        // Modal window (dark theme-b) //
+        #mod-msg-box {
+            background: lessVisible($primaryBg, 0.6);
+        }
+        #component, #mod-c { 
+            background: $primaryBg;
+        }
+
+        // Footer (dark theme-b) //
         footer {
             background: $secondBg;
-        }
-    
-        ::-webkit-scrollbar-track {
-            border: $sclBorder;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: $sclHandle;
         }
     }
 }
 
+// Media query for changing the scale of the search logo in the search input //
 @media (min-width: 2000px) and (prefers-color-scheme: dark), (min-width: 2000px) and (prefers-color-scheme: light) {
     body.theme-b #search input, #search input {
         background-size: 50px;
@@ -323,7 +355,8 @@
     }
 }
 
-@media (max-width: 768px) and (prefers-color-scheme: dark){
+// Media query for changing the #app background //
+@media (max-width: 768px) and (prefers-color-scheme: dark) {
     #app {
         background: $mobappBD;
     }
@@ -331,7 +364,7 @@
         background: $mobappBg;
     }
 }
-@media (max-width: 768px) and (prefers-color-scheme: light){
+@media (max-width: 768px) and (prefers-color-scheme: light) {
     #app {
         background: $mobappBg;
     }

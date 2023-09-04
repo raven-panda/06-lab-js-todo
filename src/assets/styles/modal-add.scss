@@ -1,4 +1,5 @@
-
+//=-=-=-=-=-=-=-Style for the modal window-=-=-=-=-=-=-=//
+// Keyframes declaration for animations //
 @keyframes modalHint {
     from {
         top: -15px;
@@ -37,6 +38,7 @@
     }
 }
 
+// Modal window styling //
 #mod {
     @include flex(column, center, center);
     animation: modalFadeout 0.6s ease;
@@ -53,6 +55,7 @@
     }
 }
 
+// Modal window's message hint about closing this one //
 #mod-msg-box {
     animation: modalHintClose 0.5s ease forwards;
     padding: 0 15px;
@@ -66,6 +69,7 @@
     }
 }
 
+// Modal window component //
 #mod-c {
     background-color: #fefefe;
     padding: 30px;
@@ -83,12 +87,7 @@
     }
 }
 
-#mod-in-sct {
-    display: grid;
-    grid: auto / 300px 54px;
-    margin-top: 19px;
-}
-
+// Modal window form //
 #modal-form {
     gap: 0;
     #add-err {
@@ -105,4 +104,11 @@
             }
         }
     }
+}
+
+// Modal window input & button container //
+#mod-in-sct {
+    display: grid;
+    grid: auto / 300px 54px;
+    margin-top: 19px;
 }

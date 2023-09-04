@@ -1,5 +1,6 @@
+//=-=-=-=-=-=-=-Responsive for min 2000px wide screen-=-=-=-=-=-=-=//
 @media (min-width: 2000px) {
-    // Font size
+    // Font size //
     body, input, button, #mod-c label:nth-child(1) {
         font-size: 1.6rem;
     }
@@ -7,7 +8,7 @@
         border-radius: 15px;
     }
 
-    // SVGs size
+    // SVGs size //
     #opt-da, #opt-cm, .del-task, .logo-note, .grab-task, #newtask-btn svg, .check-case svg {
         width: auto;
     }
@@ -26,7 +27,8 @@
             height: 25px;
         }
     }
-    // Form size
+    
+    // Form size //
     #search {
         grid: auto / 40vw 75px;
     }
@@ -37,7 +39,7 @@
         grid: auto/700px 75px
     }
 
-    // Containers size
+    // Containers size //
     $headerHeight: 100px;
     $appHeight: calc(100vh - ($headerHeight));
 
@@ -69,7 +71,10 @@
         padding: 1.5625rem 2.5rem;
     }
 }
+
+//=-=-=-=-=-=-=-Responsive for max 1225px wide screen-=-=-=-=-=-=-=//
 @media (max-width: 1225px) {
+    // Containers sizes //
     #head {
         column-gap: 15px;
     }
@@ -91,7 +96,15 @@
         gap: 20px;
     }
 }
+
+//=-=-=-=-=-=-=-Responsive for max 768px wide screen-=-=-=-=-=-=-=//
 @media (max-width: 768px) {
+    // Remove the component background color //
+    body.theme-b div#component, div#component {
+        background: none;
+    }
+
+    // Containers sizes //
     #app{
         #head {
             display: block;
@@ -109,9 +122,6 @@
     #tasks-box {
         margin-top: 50px;
     }
-    body.theme-b div#component, div#component {
-        background: none;
-    }
     .logo-note {
         display: none;
         width: 0;
@@ -123,11 +133,19 @@
         gap: 10px;
     }
 }
+
+//=-=-=-=-=-=-=-Responsive for max 425px wide screen-=-=-=-=-=-=-=//
 @media (max-width: 425px) {
-    $appHeight: calc(100vh - ($headerHeight + $heightFooter));
+    // Font size/placement //
+    .filter {
+        font-size: 10px;
+    }
     header {
         justify-content: center;
     }
+
+    // Containers sizes //
+    $appHeight: calc(100vh - ($headerHeight + $heightFooter));
     #app #search #newtask-btn, header #opt-da, header #opt-cm {
         display: none;
     }
@@ -146,9 +164,6 @@
     #tasks-box {
         max-height: 390px;
     }
-    .filter {
-        font-size: 10px;
-    }
     footer {
         display: grid;
     }
@@ -159,7 +174,15 @@
         grid: auto / 1fr 54px;
     }
 }
+
+//=-=-=-=-=-=-=-Responsive for max 375px wide screen-=-=-=-=-=-=-=//
 @media (max-width: 375px) {
+    // Font size //
+    .task {
+        font-size: 0.75rem;
+    }
+
+    // SVGs //
     .grab-task, .del-task, .mdf-task, .check-case svg, .tt-logo {
         width: auto;
     }
@@ -183,8 +206,5 @@
     }
     .check-case svg {
         height: 10px;
-    }
-    .task {
-        font-size: 0.75rem;
     }
 }

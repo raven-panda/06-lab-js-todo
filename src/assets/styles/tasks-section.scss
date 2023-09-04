@@ -1,12 +1,5 @@
-#notasks-title {
-    display: none;
-    font-size: 1rem;
-    font-style: italic;
-    font-weight: 400;
-    &.notasks {
-        display: block;
-    }
-}
+//=-=-=-=-=-=-=-Style for the tasks section-=-=-=-=-=-=-=//
+// Tasks container //
 #tasks-box {
     @include flex(column, flex-start, start, 20px);
     min-width: 100%;
@@ -16,6 +9,8 @@
     padding: 0 7px;
     box-sizing: border-box
 }
+
+// Task element container //
 .task {
     @include flex(row, center, space-between);
     border-radius: 10px;
@@ -43,6 +38,7 @@
     }
 }
 
+// Task element components //
 .task-infos {
     @include flex(row, center, center, 14px);
     p {
@@ -51,7 +47,6 @@
         max-width: 50vw;
     }
 }
-
 .grab-task {
     cursor: grab;
 }
@@ -67,7 +62,6 @@
         opacity: 0;
     }
 }
-
 .task-opt {
     display: flex;
     flex-direction: row;
@@ -79,7 +73,6 @@
 .task-delete svg {
     padding: 9px 12px;
 }
-
 .task-modify, .task-delete {
     svg {
         display: block;
@@ -95,22 +88,19 @@
     }
 }
 
+// Text when no tasks are displayed //
 #notasks {
     display: none;
     &.nochild {
         display: block;
     }
 }
-
-// Scrollbar styling //
-::-webkit-scrollbar {
-    width: 10px;
-}
-  
-::-webkit-scrollbar-track {
-    border-radius: 10px;
-}
-  
-::-webkit-scrollbar-thumb {
-    border-radius: 10px;
+#notasks-title {
+    display: none;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 400;
+    &.notasks {
+        display: block;
+    }
 }

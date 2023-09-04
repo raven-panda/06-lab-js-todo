@@ -1,6 +1,6 @@
 //=-=-=-=-=-Imports-=-=-=-=-=//
-import { DivElement, SvgElement, InputElement, ButtonElement, TaskTemplate, TextElement, FormElement } from "./elements";
-const app = document.querySelector('#app')
+import { DivElement, SvgElement, InputElement, ButtonElement, TextElement, FormElement } from "./elements";
+const app = document.querySelector('#app');
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 //           Creating Component            //

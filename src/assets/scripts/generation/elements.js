@@ -1,4 +1,4 @@
-//=-=-=-=-=-Header-=-=-=-=-=//
+//=-=-=-=-=-Functions that will be useful for all classes-=-=-=-=-=//
 class BaseElement {
     /**
      * Append this child into a specific parent
@@ -16,6 +16,7 @@ class BaseElement {
     };
 }
 
+//=-=-=-=-=-HTML Elements classes-=-=-=-=-=//
 export class SvgElement extends BaseElement{
     /**
      * HTML element constructor - SVG
@@ -48,7 +49,6 @@ export class SvgElement extends BaseElement{
     }
 }
 
-//=-=-=-=-=-Page Core-=-=-=-=-=//
 export class DivElement extends BaseElement {
     /**
      * HTML element constructor - Div element

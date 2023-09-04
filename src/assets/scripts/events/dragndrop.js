@@ -7,6 +7,9 @@ import { instanceTemplate, storeData } from './functions';
 export function dragndrop() {
     const draggables = document.querySelectorAll('#tasks-box > .task');
 
+    /**
+     * When dropping a dragged task, swaps tasks between the dragging one and the targeted task 
+     */
     function swapElements(obj1, obj2) {
         let temp = document.createElement("div");
         const taskbox = document.querySelector('#tasks-box');
@@ -17,7 +20,7 @@ export function dragndrop() {
         taskbox.removeChild(temp);
     };
 
-    // Desktop Drag and Drop //    
+    //=-=-=-=-=-=-=-Desktop Drag and Drop-=-=-=-=-=-=-=//    
     draggables.forEach(draggable => {
 
         draggable.addEventListener('drag', e => {
@@ -78,12 +81,8 @@ export function dragndrop() {
             }
         });
     });
-    // window.addEventListener('touchmove', e => {
-    //     const touch = e.touches[0];
-    //     return touch;
-    // });
 
-    // Mobile Drag and Drop //
+    //=-=-=-=-=-=-=-Mobile Drag and Drop-=-=-=-=-=-=-=//
     draggables.forEach(touchable => {
         const taskbox = document.querySelector('#tasks-box');
         var location;
@@ -91,7 +90,6 @@ export function dragndrop() {
         touchable.addEventListener('touchstart', e => {
             location = e.touches[0];
             var touching = e.target;
-            console.log(touching);
             if (!touching.classList.contains('task') || !touching.nodeName === 'P') {
                 return false;
             }
@@ -138,7 +136,6 @@ export function dragndrop() {
             if (touchTarget.nodeName === 'P') {
                 touchTarget = touchTarget.parentElement.parentElement;
             } else if (!touchTarget.classList.contains('task') || !touchTarget.nodeName === 'P') {
-                console.log(null, touchTarget.nodeName);
                 touchTarget = null;
             }
 
