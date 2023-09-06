@@ -34,7 +34,7 @@ body {
   align-items: center;
   justify-content: left;
   gap: 0;
-  padding: 58px 9vw;
+  padding: 6vh 7vw;
   border-radius: 40px;
 }
 
@@ -849,12 +849,12 @@ footer {
     background: #EDEDED;
   }
 }
-@media (min-width: 2000px) and (prefers-color-scheme: dark), (min-width: 2000px) and (prefers-color-scheme: light) {
+@media (min-width: 2000px) {
   body.theme-b #search input, #search input {
     background-size: 50px;
   }
 }
-@media (max-width: 375px) and (prefers-color-scheme: dark), (min-width: 2000px) and (prefers-color-scheme: light) {
+@media (max-width: 375px) {
   body.theme-b #search input, #search input {
     background-size: 25px;
   }

@@ -344,12 +344,12 @@
 }
 
 // Media query for changing the scale of the search logo in the search input //
-@media (min-width: 2000px) and (prefers-color-scheme: dark), (min-width: 2000px) and (prefers-color-scheme: light) {
+@media (min-width: 2000px) {
     body.theme-b #search input, #search input {
         background-size: 50px;
     }
 }
-@media (max-width: 375px) and (prefers-color-scheme: dark), (min-width: 2000px) and (prefers-color-scheme: light) {
+@media (max-width: 375px) {
     body.theme-b #search input, #search input {
         background-size: 25px;
     }

@@ -83,6 +83,7 @@ export function dragndrop() {
     });
 
     //=-=-=-=-=-=-=-Mobile Drag and Drop-=-=-=-=-=-=-=//
+    /*
     draggables.forEach(touchable => {
         const taskbox = document.querySelector('#tasks-box');
         var location;
@@ -151,5 +152,5 @@ export function dragndrop() {
                 temp.remove();
             }
         });
-    });
+    });*/
 };
