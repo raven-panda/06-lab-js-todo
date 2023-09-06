@@ -9,10 +9,10 @@
     }
 
     // SVGs size //
-    #opt-da, #opt-cm, .del-task, .logo-note, .grab-task, #newtask-btn svg, .check-case svg {
+    #opt-da, #opt-cm, .del-task, .mdf-task, .logo-note, .grab-task, #newtask-btn svg, .check-case svg {
         width: auto;
     }
-    .grab-task, .del-task, #newtask-btn svg {
+    .grab-task, .del-task, .mdf-task, #newtask-btn svg {
         height: 35px;
     }
     #opt-da, #opt-cm, #newtask-btn svg {
@@ -34,6 +34,7 @@
     }
     input {
         padding: 20px 30px;
+        border-radius: 20px 0 0 20px;
     }
     #mod-in-sct {
         grid: auto/700px 75px

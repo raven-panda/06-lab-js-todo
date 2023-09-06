@@ -39,13 +39,8 @@ const config = {
 
         new MiniCssExtractPlugin({
             filename: 'style.css'
-        }),
-
-        // new CopyPlugin({
-        //     patterns: [
-        //       { from: "./src/assets/scripts/test.php", to: "./" },
-        //     ],
-        //   }),
+        })
+        
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
     ],
