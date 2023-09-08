@@ -27,8 +27,6 @@ The goal of this project is to create a 'To Do List' webapp.
 
 ## How to use it
 
-Run `git clone https://github.com/raven-panda/06-lab-js-todo.git ./` to copy the project into your root folder in your editor's terminal (like VSCode).
-
 Run `npm install` to install all the node modules.
 
 Run `npm run start` to start devserver to access the webapp in your browser (localhost).
