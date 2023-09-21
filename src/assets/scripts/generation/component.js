@@ -70,8 +70,8 @@ const ntbox = new DivElement('ntbox');
 ntbox.appendTo(component.element);
 
 // Text that displays if there is no tasks //
-const notask = new TextElement('p', 'notasks', 'No task to display. You can add one by clicking the + button above.')
-notask.appendTo(ntbox.element)
+const notask = new TextElement('p', 'notasks', 'No task to display. You can add one by clicking the + button above.');
+notask.appendTo(ntbox.element);
 
 //=-=-=-=-=-Creating Elements of the modal box-=-=-=-=-=//
 
@@ -85,7 +85,6 @@ modMsgBox.appendTo(modal.element)
 
 const modalMessage = new TextElement('p', 'mod-msg', 'Click anywhere outside the box to exit this menu');
 modalMessage.appendTo(modMsgBox.element);
-
 
 // Modal Box //
 const modbox = new DivElement('mod-c');

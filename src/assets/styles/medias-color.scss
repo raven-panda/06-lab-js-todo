@@ -66,6 +66,9 @@
             color: lessVisible($textColor, 0.5);
         }
     }
+    .task-infos p.editable {
+        outline: $textFocus solid 2px;
+    }
 
     // Modal window (light) //
     #mod-msg-box {
@@ -150,6 +153,9 @@
         .task.checked .check-case {
             background: $checkedD;
             svg { fill: $textD }
+        }
+        .task-infos p.editable {
+            outline: $textFocusD solid 2px;
         }
 
         // Modal window (light theme-b) //
@@ -240,6 +246,9 @@
         background: $checkedD;
         svg { fill: $textD }
     }
+    .task-infos p.editable {
+        outline: $textFocusD solid 2px;
+    }
 
     // Modal window (dark) //
     #mod-msg-box {
@@ -326,6 +335,9 @@
         }
         .task.checked {
             color: lessVisible($textColor, 0.5);
+        }
+        .task-infos p.editable {
+            outline: $textFocus solid 2px;
         }
 
         // Modal window (dark theme-b) //

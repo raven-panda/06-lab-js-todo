@@ -48,6 +48,7 @@ $invalid: #FF7E7E;
 
 // Tasks //
 $checkBg : rgba(0, 0, 0, 0.10);
+$textFocus : lessVisible($textColor, 0.5);
 
 // Footer //
 $heightFooter : 50px;
@@ -68,6 +69,7 @@ $purpleD: #54407D;
 $shadow1 : rgba(0, 0, 0, 0.1);
 $checkedD: #8B78B1;
 $mobappBD: rgba(42, 42, 42, 0.5);
+$textFocusD : lessVisible($textD, 0.5);
 
 // Header //
 $headerBD: #212121;

@@ -169,8 +169,11 @@ export function modifTask() {
             let text = edit.parentElement.parentElement.parentElement.querySelector('.task-infos p');
             if (text.contentEditable === 'true') {
                 text.contentEditable = 'false';
+                text.classList.remove('editable');
             } else {
                 text.contentEditable = 'true';
+                text.classList.add('editable');
+                text.focus();
             }
             edit.classList.toggle('editing');
             if (edit.classList.contains('editing')) {
